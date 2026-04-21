@@ -1,0 +1,191 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const SITE_TITLE = 'Audit Request Received | CC3PO';
+const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will analyze your site and send your report soon.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		
+		<section class="success-page">
+			<div class="success-icon">✓</div>
+			<h1>Audit Request <span class="gradient-text">Received!</span></h1>
+			<p class="success-message">Thank you for requesting a free website audit. Our AI village will analyze your site and deliver your comprehensive report within 24-48 hours.</p>
+			
+			<div class="next-steps">
+				<h3>What Happens Next:</h3>
+				<ul>
+					<li>Our AI scans your website across 50+ checkpoints</li>
+					<li>Expert review of findings and priorities</li>
+					<li>Detailed report delivered to your email</li>
+				</ul>
+			</div>
+			
+			<div class="success-actions">
+				<a href="https://cc3po.com" class="action-button secondary">Back to Home</a>
+				<a href="https://offers.cc3po.com/our-services.html" class="action-button primary">View Our Services</a>
+			</div>
+		</section>
+		
+		<Footer />
+	</body>
+</html>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	body {
+		font-family: Inter, system-ui, sans-serif;
+		background: #0a0a0b;
+		color: #fff;
+		line-height: 1.6;
+	}
+	
+	.gradient-text {
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	.success-page {
+		min-height: 80vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 120px 24px 60px;
+	}
+	
+	.success-icon {
+		width: 100px;
+		height: 100px;
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 48px;
+		margin-bottom: 32px;
+		animation: pulse 2s infinite;
+	}
+	
+	@keyframes pulse {
+		0%, 100% { transform: scale(1); }
+		50% { transform: scale(1.05); }
+	}
+	
+	h1 {
+		font-size: 48px;
+		font-weight: 800;
+		margin-bottom: 16px;
+	}
+	
+	.success-message {
+		font-size: 18px;
+		color: #a1a1aa;
+		max-width: 500px;
+		margin-bottom: 40px;
+	}
+	
+	.next-steps {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		border-radius: 16px;
+		padding: 32px;
+		max-width: 400px;
+		margin-bottom: 40px;
+	}
+	
+	.next-steps h3 {
+		font-size: 18px;
+		margin-bottom: 16px;
+	}
+	
+	.next-steps ul {
+		list-style: none;
+		text-align: left;
+	}
+	
+	.next-steps li {
+		color: #a1a1aa;
+		font-size: 14px;
+		padding: 8px 0;
+		padding-left: 24px;
+		position: relative;
+	}
+	
+	.next-steps li::before {
+		content: "→";
+		position: absolute;
+		left: 0;
+		color: #6b35ff;
+	}
+	
+	.success-actions {
+		display: flex;
+		gap: 16px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	.action-button {
+		padding: 14px 28px;
+		border-radius: 25px;
+		font-size: 14px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+	
+	.action-button.primary {
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		color: #fff;
+	}
+	
+	.action-button.secondary {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		color: #fff;
+	}
+	
+	.action-button:hover {
+		transform: translateY(-2px);
+	}
+	
+	.action-button.primary:hover {
+		box-shadow: 0 8px 30px rgba(107, 53, 255, 0.4);
+	}
+	
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 32px;
+		}
+		
+		.success-message {
+			font-size: 16px;
+		}
+		
+		.success-actions {
+			flex-direction: column;
+		}
+		
+		.action-button {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>

@@ -1,0 +1,1008 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const SITE_TITLE = 'Free Website Audit | CC3PO';
+const SITE_DESCRIPTION = 'Get a comprehensive website audit covering SEO, security, performance, and accessibility. Free analysis by CC3PO AI village.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-content">
+				<div class="hero-badge">Free Website Audit</div>
+				<h1>Is Your Website <span class="gradient-text">Leaving Money on the Table?</span></h1>
+				<p class="hero-subtitle">Get a comprehensive analysis of your website's SEO, security, performance, and accessibility — powered by AI, reviewed by experts.</p>
+				<a href="#audit-form" class="cta-button">Get Your Free Audit →</a>
+			</div>
+			<div class="hero-visual">
+				<div class="scan-effect">
+					<div class="scan-line"></div>
+					<div class="code-rain">
+						<span>SEO ✓</span>
+						<span>Security ✓</span>
+						<span>Performance ✓</span>
+						<span>Accessibility ✓</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Trust Bar -->
+		<section class="trust-bar">
+			<div class="trust-item">
+				<span class="trust-number">50+</span>
+				<span class="trust-label">Websites Audited</span>
+			</div>
+			<div class="trust-divider"></div>
+			<div class="trust-item">
+				<span class="trust-number">15+</span>
+				<span class="trust-label">Years Experience</span>
+			</div>
+			<div class="trust-divider"></div>
+			<div class="trust-item">
+				<span class="trust-number">24/7</span>
+				<span class="trust-label">AI-Powered Analysis</span>
+			</div>
+		</section>
+
+		<!-- Benefits Section -->
+		<section class="benefits" id="benefits">
+			<h2>What We Check</h2>
+			<p class="section-subtitle">Our comprehensive audit covers four critical areas that impact your business</p>
+			
+			<div class="benefits-grid">
+				<div class="benefit-card">
+					<div class="benefit-icon">🔍</div>
+					<h3>SEO Analysis</h3>
+					<ul>
+						<li>Meta tags & structure</li>
+						<li>Keyword optimization</li>
+						<li>Mobile friendliness</li>
+						<li>Core Web Vitals</li>
+						<li>Schema markup</li>
+					</ul>
+				</div>
+				
+				<div class="benefit-card">
+					<div class="benefit-icon">🔒</div>
+					<h3>Security Check</h3>
+					<ul>
+						<li>SSL certificate</li>
+						<li>HTTPS enforcement</li>
+						<li>Vulnerability scan</li>
+						<li>Plugin security</li>
+						<li>Form protection</li>
+					</ul>
+				</div>
+				
+				<div class="benefit-card">
+					<div class="benefit-icon">⚡</div>
+					<h3>Performance</h3>
+					<ul>
+						<li>Page load speed</li>
+						<li>Image optimization</li>
+						<li>Caching setup</li>
+						<li>Script efficiency</li>
+						<li>Server response</li>
+					</ul>
+				</div>
+				
+				<div class="benefit-card">
+					<div class="benefit-icon">♿</div>
+					<h3>Accessibility</h3>
+					<ul>
+						<li>WCAG compliance</li>
+						<li>Screen reader test</li>
+						<li>Color contrast</li>
+						<li>Keyboard navigation</li>
+						<li>Alt text review</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Process Section -->
+		<section class="process" id="process">
+			<h2>How It Works</h2>
+			<p class="section-subtitle">From URL to actionable insights in 3 simple steps</p>
+			
+			<div class="process-steps">
+				<div class="step">
+					<div class="step-number">1</div>
+					<h3>Submit Your URL</h3>
+					<p>Enter your website address and tell us what matters most to you</p>
+				</div>
+				
+				<div class="step-arrow">→</div>
+				
+				<div class="step">
+					<div class="step-number">2</div>
+					<h3>AI Analysis</h3>
+					<p>Our AI village scans your site across 50+ checkpoints</p>
+				</div>
+				
+				<div class="step-arrow">→</div>
+				
+				<div class="step">
+					<div class="step-number">3</div>
+					<h3>Get Your Report</h3>
+					<p>Receive a detailed report with priorities and recommendations</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sample Report Section -->
+		<section class="sample-report" id="sample">
+			<h2>What You'll Receive</h2>
+			<p class="section-subtitle">A clear, actionable report — no technical jargon required</p>
+			
+			<div class="report-preview">
+				<div class="report-header">
+					<span class="report-logo">CC3PO</span>
+					<span class="report-type">Website Audit Report</span>
+				</div>
+				<div class="report-scores">
+					<div class="score-item">
+						<div class="score-circle" data-score="78">
+							<svg viewBox="0 0 36 36">
+								<path class="score-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+								<path class="score-fill" stroke-dasharray="78, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+							</svg>
+							<span class="score-value">78</span>
+						</div>
+						<span class="score-label">SEO</span>
+					</div>
+					<div class="score-item">
+						<div class="score-circle" data-score="92">
+							<svg viewBox="0 0 36 36">
+								<path class="score-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+								<path class="score-fill score-good" stroke-dasharray="92, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+							</svg>
+							<span class="score-value">92</span>
+						</div>
+						<span class="score-label">Security</span>
+					</div>
+					<div class="score-item">
+						<div class="score-circle" data-score="65">
+							<svg viewBox="0 0 36 36">
+								<path class="score-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+								<path class="score-fill score-warning" stroke-dasharray="65, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+							</svg>
+							<span class="score-value">65</span>
+						</div>
+						<span class="score-label">Performance</span>
+					</div>
+					<div class="score-item">
+						<div class="score-circle" data-score="85">
+							<svg viewBox="0 0 36 36">
+								<path class="score-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+								<path class="score-fill score-good" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+							</svg>
+							<span class="score-value">85</span>
+						</div>
+						<span class="score-label">Accessibility</span>
+					</div>
+				</div>
+				<div class="report-findings">
+					<h4>Top 3 Priority Fixes:</h4>
+					<ul>
+						<li><span class="priority high">High</span> Optimize images (2.3MB savings potential)</li>
+						<li><span class="priority medium">Medium</span> Add missing alt text to 12 images</li>
+						<li><span class="priority medium">Medium</span> Enable browser caching for static assets</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials Section -->
+		<section class="testimonials" id="testimonials">
+			<h2>What Our Clients Say</h2>
+			<p class="section-subtitle">Real results from real businesses</p>
+			
+			<div class="testimonials-grid">
+				<div class="testimonial-card">
+					<div class="testimonial-quote">"</div>
+					<p>The audit revealed issues we didn't even know existed. Fixed the performance problems and our load time dropped from 8 seconds to under 2.</p>
+					<div class="testimonial-author">
+						<div class="author-avatar">JM</div>
+						<div class="author-info">
+							<strong>James M.</strong>
+							<span>Local Business Owner</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="testimonial-card">
+					<div class="testimonial-quote">"</div>
+					<p>Finally someone who explains technical issues in plain English. The prioritized action list made it easy to know what to fix first.</p>
+					<div class="testimonial-author">
+						<div class="author-avatar">SL</div>
+						<div class="author-info">
+							<strong>Sarah L.</strong>
+							<span>Marketing Director</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="testimonial-card">
+					<div class="testimonial-quote">"</div>
+					<p>The accessibility audit helped us avoid potential lawsuits and made our site usable for all customers. Invaluable service.</p>
+					<div class="testimonial-author">
+						<div class="author-avatar">RK</div>
+						<div class="author-info">
+							<strong>Robert K.</strong>
+							<span>E-commerce Store Owner</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="cta-section">
+			<h2>Ready to Optimize Your Website?</h2>
+			<p>Get your free audit and start improving today. No strings attached.</p>
+			<a href="#audit-form" class="cta-button large">Get Your Free Audit Now</a>
+		</section>
+
+		<!-- Contact Form Section -->
+		<section class="audit-form-section" id="audit-form">
+			<h2>Request Your Free Audit</h2>
+			<p class="section-subtitle">Fill out the form below and we'll analyze your website</p>
+			
+			<form name="audit-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success" class="audit-form">
+				<input type="hidden" name="form-name" value="audit-request" />
+				<p class="hidden" style="display:none;">
+					<label>Don't fill this out: <input name="bot-field" /></label>
+				</p>
+				
+				<div class="form-row">
+					<div class="form-group">
+						<label for="name">Your Name *</label>
+						<input type="text" id="name" name="name" required placeholder="John Smith" />
+					</div>
+					<div class="form-group">
+						<label for="email">Email Address *</label>
+						<input type="email" id="email" name="email" required placeholder="john@example.com" />
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="website">Website URL *</label>
+					<input type="url" id="website" name="website" required placeholder="https://yourwebsite.com" />
+				</div>
+				
+				<div class="form-group">
+					<label for="focus">Primary Focus (Optional)</label>
+					<select id="focus" name="focus">
+						<option value="">Select a focus area...</option>
+						<option value="seo">SEO & Search Rankings</option>
+						<option value="security">Security & Protection</option>
+						<option value="performance">Speed & Performance</option>
+						<option value="accessibility">Accessibility & Compliance</option>
+						<option value="all">Complete Overview</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label for="message">Additional Details (Optional)</label>
+					<textarea id="message" name="message" rows="4" placeholder="Tell us about your website, any specific concerns, or what you'd like us to focus on..."></textarea>
+				</div>
+				
+				<button type="submit" class="submit-button">
+					<span>Submit Audit Request</span>
+					<span class="button-icon">→</span>
+				</button>
+			</form>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	/* Global Styles */
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	body {
+		font-family: Inter, system-ui, sans-serif;
+		background: #0a0a0b;
+		color: #fff;
+		line-height: 1.6;
+	}
+	
+	.gradient-text {
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	section {
+		padding: 100px 24px;
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+	
+	h2 {
+		font-size: 42px;
+		font-weight: 800;
+		text-align: center;
+		margin-bottom: 16px;
+	}
+	
+	.section-subtitle {
+		text-align: center;
+		color: #a1a1aa;
+		font-size: 18px;
+		max-width: 600px;
+		margin: 0 auto 60px;
+	}
+	
+	/* Hero Section */
+	.hero {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 120px;
+		gap: 60px;
+	}
+	
+	.hero-content {
+		flex: 1;
+		max-width: 600px;
+	}
+	
+	.hero-badge {
+		display: inline-block;
+		background: rgba(107, 53, 255, 0.2);
+		border: 1px solid rgba(107, 53, 255, 0.3);
+		padding: 8px 16px;
+		border-radius: 20px;
+		font-size: 14px;
+		color: #a78bfa;
+		margin-bottom: 24px;
+	}
+	
+	.hero h1 {
+		font-size: 56px;
+		font-weight: 800;
+		line-height: 1.1;
+		margin-bottom: 24px;
+	}
+	
+	.hero-subtitle {
+		font-size: 20px;
+		color: #a1a1aa;
+		margin-bottom: 32px;
+	}
+	
+	.cta-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		padding: 16px 32px;
+		border-radius: 30px;
+		color: #fff;
+		font-size: 16px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+	
+	.cta-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(107, 53, 255, 0.4);
+	}
+	
+	.cta-button.large {
+		padding: 20px 48px;
+		font-size: 18px;
+	}
+	
+	.hero-visual {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.scan-effect {
+		width: 300px;
+		height: 300px;
+		background: rgba(107, 53, 255, 0.1);
+		border: 2px solid rgba(107, 53, 255, 0.3);
+		border-radius: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.scan-line {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: linear-gradient(90deg, transparent, #6b35ff, #00d2ff, transparent);
+		animation: scan 2s linear infinite;
+	}
+	
+	@keyframes scan {
+		0% { top: 0; }
+		100% { top: 100%; }
+	}
+	
+	.code-rain {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		font-family: monospace;
+		font-size: 14px;
+		color: #00d2ff;
+	}
+	
+	.code-rain span {
+		animation: fadeIn 0.5s ease forwards;
+		opacity: 0;
+	}
+	
+	.code-rain span:nth-child(1) { animation-delay: 0.2s; }
+	.code-rain span:nth-child(2) { animation-delay: 0.4s; }
+	.code-rain span:nth-child(3) { animation-delay: 0.6s; }
+	.code-rain span:nth-child(4) { animation-delay: 0.8s; }
+	
+	@keyframes fadeIn {
+		to { opacity: 1; }
+	}
+	
+	/* Trust Bar */
+	.trust-bar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 60px;
+		padding: 60px 24px;
+		background: rgba(255, 255, 255, 0.02);
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		max-width: 100%;
+	}
+	
+	.trust-item {
+		text-align: center;
+	}
+	
+	.trust-number {
+		display: block;
+		font-size: 48px;
+		font-weight: 800;
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	
+	.trust-label {
+		color: #a1a1aa;
+		font-size: 14px;
+	}
+	
+	.trust-divider {
+		width: 1px;
+		height: 50px;
+		background: rgba(255, 255, 255, 0.1);
+	}
+	
+	/* Benefits Section */
+	.benefits-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 24px;
+	}
+	
+	.benefit-card {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		border-radius: 16px;
+		padding: 32px;
+		transition: transform 0.2s, border-color 0.2s;
+	}
+	
+	.benefit-card:hover {
+		transform: translateY(-4px);
+		border-color: rgba(107, 53, 255, 0.3);
+	}
+	
+	.benefit-icon {
+		font-size: 48px;
+		margin-bottom: 16px;
+	}
+	
+	.benefit-card h3 {
+		font-size: 22px;
+		font-weight: 700;
+		margin-bottom: 16px;
+		color: #fff;
+	}
+	
+	.benefit-card ul {
+		list-style: none;
+	}
+	
+	.benefit-card li {
+		color: #a1a1aa;
+		font-size: 14px;
+		padding: 8px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+	
+	.benefit-card li:last-child {
+		border-bottom: none;
+	}
+	
+	.benefit-card li::before {
+		content: "✓";
+		color: #00d2ff;
+		margin-right: 8px;
+	}
+	
+	/* Process Section */
+	.process-steps {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 24px;
+		flex-wrap: wrap;
+	}
+	
+	.step {
+		text-align: center;
+		max-width: 250px;
+	}
+	
+	.step-number {
+		width: 60px;
+		height: 60px;
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 24px;
+		font-weight: 800;
+		margin: 0 auto 20px;
+	}
+	
+	.step h3 {
+		font-size: 20px;
+		font-weight: 700;
+		margin-bottom: 12px;
+	}
+	
+	.step p {
+		color: #a1a1aa;
+		font-size: 14px;
+	}
+	
+	.step-arrow {
+		font-size: 32px;
+		color: #6b35ff;
+		align-self: flex-start;
+		margin-top: 20px;
+	}
+	
+	/* Sample Report */
+	.sample-report {
+		background: rgba(255, 255, 255, 0.02);
+		border-radius: 24px;
+		padding: 80px 24px;
+		max-width: 100%;
+	}
+	
+	.report-preview {
+		max-width: 700px;
+		margin: 0 auto;
+		background: #0a0a0b;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 16px;
+		overflow: hidden;
+	}
+	
+	.report-header {
+		background: linear-gradient(135deg, rgba(107, 53, 255, 0.1), rgba(0, 210, 255, 0.1));
+		padding: 20px 24px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	
+	.report-logo {
+		font-weight: 800;
+		font-size: 18px;
+	}
+	
+	.report-type {
+		color: #a1a1aa;
+		font-size: 14px;
+	}
+	
+	.report-scores {
+		display: flex;
+		justify-content: space-around;
+		padding: 40px 20px;
+		gap: 20px;
+		flex-wrap: wrap;
+	}
+	
+	.score-item {
+		text-align: center;
+	}
+	
+	.score-circle {
+		width: 80px;
+		height: 80px;
+		position: relative;
+		margin: 0 auto 8px;
+	}
+	
+	.score-circle svg {
+		transform: rotate(-90deg);
+		width: 80px;
+		height: 80px;
+	}
+	
+	.score-bg {
+		fill: none;
+		stroke: rgba(255, 255, 255, 0.1);
+		stroke-width: 3;
+	}
+	
+	.score-fill {
+		fill: none;
+		stroke: #6b35ff;
+		stroke-width: 3;
+		stroke-linecap: round;
+		transition: stroke-dasharray 0.5s;
+	}
+	
+	.score-fill.score-good {
+		stroke: #00d2ff;
+	}
+	
+	.score-fill.score-warning {
+		stroke: #f59e0b;
+	}
+	
+	.score-value {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 20px;
+		font-weight: 700;
+	}
+	
+	.score-label {
+		font-size: 12px;
+		color: #a1a1aa;
+	}
+	
+	.report-findings {
+		padding: 24px;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	
+	.report-findings h4 {
+		font-size: 16px;
+		margin-bottom: 16px;
+	}
+	
+	.report-findings li {
+		padding: 12px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		font-size: 14px;
+		display: flex;
+		gap: 12px;
+		align-items: center;
+	}
+	
+	.report-findings li:last-child {
+		border-bottom: none;
+	}
+	
+	.priority {
+		font-size: 11px;
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+	
+	.priority.high {
+		background: rgba(239, 68, 68, 0.2);
+		color: #ef4444;
+	}
+	
+	.priority.medium {
+		background: rgba(245, 158, 11, 0.2);
+		color: #f59e0b;
+	}
+	
+	/* Testimonials */
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 24px;
+	}
+	
+	.testimonial-card {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		border-radius: 16px;
+		padding: 32px;
+		position: relative;
+	}
+	
+	.testimonial-quote {
+		font-size: 64px;
+		line-height: 1;
+		color: #6b35ff;
+		opacity: 0.3;
+		position: absolute;
+		top: 20px;
+		left: 24px;
+	}
+	
+	.testimonial-card p {
+		color: #a1a1aa;
+		font-size: 15px;
+		margin-bottom: 24px;
+		position: relative;
+		z-index: 1;
+	}
+	
+	.testimonial-author {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	
+	.author-avatar {
+		width: 40px;
+		height: 40px;
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 14px;
+		font-weight: 600;
+	}
+	
+	.author-info strong {
+		display: block;
+		font-size: 14px;
+	}
+	
+	.author-info span {
+		color: #a1a1aa;
+		font-size: 12px;
+	}
+	
+	/* CTA Section */
+	.cta-section {
+		text-align: center;
+		background: linear-gradient(135deg, rgba(107, 53, 255, 0.1), rgba(0, 210, 255, 0.1));
+		border-radius: 24px;
+		margin: 0 24px;
+		max-width: calc(1280px - 48px);
+		padding: 80px 24px;
+	}
+	
+	.cta-section h2 {
+		margin-bottom: 12px;
+	}
+	
+	.cta-section p {
+		color: #a1a1aa;
+		margin-bottom: 32px;
+	}
+	
+	/* Form Section */
+	.audit-form-section {
+		max-width: 700px;
+	}
+	
+	.audit-form {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		border-radius: 16px;
+		padding: 40px;
+	}
+	
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+	}
+	
+	.form-group {
+		margin-bottom: 20px;
+	}
+	
+	.form-group label {
+		display: block;
+		font-size: 14px;
+		font-weight: 500;
+		margin-bottom: 8px;
+		color: #fff;
+	}
+	
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		width: 100%;
+		padding: 14px 16px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 10px;
+		color: #fff;
+		font-size: 15px;
+		font-family: inherit;
+		transition: border-color 0.2s, background 0.2s;
+	}
+	
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #6b35ff;
+		background: rgba(255, 255, 255, 0.08);
+	}
+	
+	.form-group input::placeholder,
+	.form-group textarea::placeholder {
+		color: #71717a;
+	}
+	
+	.form-group select {
+		cursor: pointer;
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a1a1aa'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 16px center;
+		background-size: 16px;
+	}
+	
+	.form-group select option {
+		background: #0a0a0b;
+		color: #fff;
+	}
+	
+	.form-group textarea {
+		resize: vertical;
+		min-height: 100px;
+	}
+	
+	.submit-button {
+		width: 100%;
+		padding: 18px 32px;
+		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		border: none;
+		border-radius: 12px;
+		color: #fff;
+		font-size: 16px;
+		font-weight: 600;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+	
+	.submit-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(107, 53, 255, 0.4);
+	}
+	
+	.button-icon {
+		transition: transform 0.2s;
+	}
+	
+	.submit-button:hover .button-icon {
+		transform: translateX(4px);
+	}
+	
+	/* Responsive */
+	@media (max-width: 768px) {
+		.hero {
+			flex-direction: column;
+			text-align: center;
+			padding-top: 100px;
+		}
+		
+		.hero h1 {
+			font-size: 36px;
+		}
+		
+		.hero-subtitle {
+			font-size: 16px;
+		}
+		
+		.hero-visual {
+			display: none;
+		}
+		
+		h2 {
+			font-size: 28px;
+		}
+		
+		.trust-bar {
+			flex-direction: column;
+			gap: 30px;
+		}
+		
+		.trust-divider {
+			width: 50px;
+			height: 1px;
+		}
+		
+		.trust-number {
+			font-size: 36px;
+		}
+		
+		.process-steps {
+			flex-direction: column;
+		}
+		
+		.step-arrow {
+			transform: rotate(90deg);
+		}
+		
+		.form-row {
+			grid-template-columns: 1fr;
+		}
+		
+		.cta-section {
+			margin: 0;
+			border-radius: 0;
+			max-width: 100%;
+		}
+		
+		.report-scores {
+			padding: 20px;
+		}
+		
+		.score-circle {
+			width: 60px;
+			height: 60px;
+		}
+		
+		.score-circle svg {
+			width: 60px;
+			height: 60px;
+		}
+		
+		.score-value {
+			font-size: 16px;
+		}
+	}
+</style>
