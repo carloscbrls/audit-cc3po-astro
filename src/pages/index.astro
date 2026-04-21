@@ -4,13 +4,44 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const SITE_TITLE = 'Free Website Audit | CC3PO';
-const SITE_DESCRIPTION = 'Get a comprehensive website audit covering SEO, security, performance, and accessibility. Free analysis by CC3PO AI village.';
+const SITE_DESCRIPTION = 'Get a comprehensive website audit covering SEO, security, performance, and accessibility. Free analysis by CC3PO AI village. 50+ websites audited, 15+ years experience.';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = 'https://cc3po.com/wp-content/uploads/2025/04/Color-logo-with-background-scaled.png';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link rel="canonical" href={canonicalURL} />
+		<meta property="og:title" content={SITE_TITLE} />
+		<meta property="og:description" content={SITE_DESCRIPTION} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={SITE_TITLE} />
+		<meta name="twitter:description" content={SITE_DESCRIPTION} />
+		<meta name="twitter:image" content={ogImage} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebApplication",
+			name: "Free Website Audit",
+			description: "Comprehensive website analysis covering SEO, security, performance, and accessibility",
+			url: canonicalURL,
+			applicationCategory: "BusinessApplication",
+			operatingSystem: "Web-based",
+			offers: {
+				"@type": "Offer",
+				price: "0",
+				priceCurrency: "USD",
+				availability: "https://schema.org/InStock"
+			},
+			provider: {
+				"@type": "Organization",
+				name: "CC3PO",
+				url: "https://cc3po.com"
+			}
+		})} />
 	</head>
 	<body>
 		<Header />
