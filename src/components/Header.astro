@@ -31,12 +31,11 @@ const navLinks = [
 		align-items: center;
 	}
 	nav .logo {
-		font-size: 22px;
-		font-weight: 800;
-		background: linear-gradient(135deg, #fff, #a78bfa, #00d2ff);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
 		text-decoration: none;
+	}
+	nav .logo img {
+		height: 45px;
+		width: auto;
 	}
 	nav ul {
 		display: flex;
@@ -123,7 +122,9 @@ const navLinks = [
 
 <nav>
 	<div class="inner">
-		<a href="https://cc3po.com" class="logo">CC3PO</a>
+		<a href="https://cc3po.com" class="logo">
+			<img src="http://cc3po.com/wp-content/uploads/2025/04/Color-logo-with-background-scaled.png" alt="CC3PO" />
+		</a>
 		<ul class="nav-links">
 			{navLinks.map(link => (
 				<li>
