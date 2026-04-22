@@ -108,6 +108,9 @@ const navLinks = [
 		font-size: 16px;
 		text-decoration: none;
 	}
+	.mobile-menu a:hover {
+		color: #fff;
+	}
 	@media (max-width: 768px) {
 		nav .nav-links {
 			display: none;
@@ -142,11 +145,16 @@ const navLinks = [
 	{navLinks.map(link => (
 		<a href={link.href}>{link.label}</a>
 	))}
-	<a href="#audit-form" style="color: #6b35ff; font-weight: 600;">Get Free Audit</a>
+	<a href="#audit-form" style="background: linear-gradient(135deg, #6b35ff, #00d2ff); color: #fff; text-align: center; border-radius: 8px; margin-top: 12px; padding: 14px;">Get Free Audit</a>
 </div>
 
 <script>
 	document.getElementById('nav-toggle')?.addEventListener('click', () => {
 		document.getElementById('mobile-menu')?.classList.toggle('active');
+	});
+	document.querySelectorAll('.mobile-menu a').forEach(link => {
+		link.addEventListener('click', () => {
+			document.getElementById('mobile-menu')?.classList.remove('active');
+		});
 	});
 </script>
