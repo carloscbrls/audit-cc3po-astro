@@ -1,0 +1,40 @@
+functionsDirectory = "/Users/cc3po/.openclaw/workspace/audit-cc3po-astro/netlify/functions"
+functionsDirectoryOrigin = "default"
+headersOrigin = "config"
+plugins = []
+redirects = []
+
+[build]
+publish = "/Users/cc3po/.openclaw/workspace/audit-cc3po-astro/dist"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm run build"
+functions = "/Users/cc3po/.openclaw/workspace/audit-cc3po-astro/netlify/functions"
+
+[build.environment]
+NODE_VERSION = "22"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"

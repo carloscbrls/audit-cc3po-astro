@@ -1,0 +1,127 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const SITE_TITLE = 'Terms of Service | CC3PO Audit';
+const SITE_DESCRIPTION = 'Terms of Service for CC3PO LLC. The agreement governing your use of our AI-powered services.';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  <link rel="canonical" href="https://audit.cc3po.com/terms" />
+</head>
+<body>
+  <Header />
+  
+  <section class="terms-page">
+    <div class="container">
+      <h1>Terms of Service</h1>
+      <p class="last-updated">Last Updated: April 28, 2026</p>
+      
+      <div class="content">
+        <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and <strong>CC3PO LLC</strong> ("CC3PO", "we", "us", or "our"), a California limited liability company, governing your access to and use of our websites, applications, AI-powered services, and related offerings (collectively, the "Services").</p>
+        
+        <p><strong>By accessing or using our Services, you agree to be bound by these Terms.</strong> If you do not agree, do not use our Services.</p>
+        
+        <h2>1. Service Description</h2>
+        <p>CC3PO provides AI-powered business solutions including website audits, security scans, performance analysis, AI chatbots, AI voice agents, HIPAA compliance tools, content generation, and monthly subscription services.</p>
+        
+        <h2>2. AI Services Disclaimer</h2>
+        <p><strong>IMPORTANT:</strong> CC3PO's Services utilize artificial intelligence. AI-generated content, recommendations, reports, and analyses are provided for <strong>advisory and informational purposes only</strong>. AI outputs should not be relied upon as definitive professional advice. All AI-generated recommendations should be reviewed by qualified human professionals. We do not guarantee accuracy, completeness, or reliability.</p>
+        
+        <h2>3. Service Availability</h2>
+        <p>We strive for high availability but do not guarantee uninterrupted access. Services may experience downtime. We reserve the right to modify, suspend, or discontinue any Service at any time.</p>
+        
+        <h2>4. User Accounts</h2>
+        <p>You must provide accurate information. You are responsible for your account credentials and all activities under your account. Notify us immediately of unauthorized use.</p>
+        
+        <h2>5. Payment Terms</h2>
+        <p>Billing monthly in advance via Stripe. Auto-renewal applies. Cancel anytime; takes effect at end of current billing period. Refunds at our discretion. Price changes with 30 days notice. Unpaid accounts may be suspended after 7 days past due.</p>
+        
+        <h2>6. Intellectual Property</h2>
+        <p>CC3PO owns all software, algorithms, designs, logos, and content. You retain ownership of data you submit. You grant us a limited license to process Your Data solely to provide the Services. You may use AI-generated outputs for internal business but may not resell or redistribute our platform.</p>
+        
+        <h2>7. Limitation of Liability</h2>
+        <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</strong> Services provided "AS IS". CC3PO shall not be liable for indirect, incidental, special, consequential, or punitive damages. Total liability limited to amount paid in preceding 12 months.</p>
+        
+        <h2>8. Indemnification</h2>
+        <p>You agree to indemnify CC3PO LLC from claims arising from your use of the Services, violation of these Terms, or violation of third-party rights.</p>
+        
+        <h2>9. Governing Law and Dispute Resolution</h2>
+        <p>Governed by California law. Disputes resolved through binding arbitration in Fresno County, California, per AAA rules. You waive class action rights.</p>
+        
+        <h2>10. Termination</h2>
+        <p>We may terminate or suspend access for violation of Terms, fraudulent activity, non-payment, or extended inactivity. Provisions on intellectual property, limitation of liability, and indemnification survive termination.</p>
+        
+        <h2>11. Changes to Terms</h2>
+        <p>We may update these Terms. Material changes notified via email or prominent notice. Continued use constitutes acceptance.</p>
+        
+        <h2>12. Contact Information</h2>
+        <p>Email: <a href="mailto:legal@cc3po.com">legal@cc3po.com</a><br>Website: <a href="https://cc3po.com">cc3po.com</a><br>Business: CC3PO LLC, California, USA</p>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #0a0a0b;
+      color: #fff;
+      line-height: 1.7;
+    }
+    .terms-page {
+      min-height: 60vh;
+      padding: 120px 24px 60px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff, #4cc9f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .last-updated {
+      color: #71717a;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .content {
+      color: #d4d4d8;
+      font-size: 15px;
+    }
+    .content h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin: 32px 0 12px;
+    }
+    .content p {
+      margin-bottom: 16px;
+    }
+    .content a {
+      color: #4cc9f0;
+      text-decoration: none;
+    }
+    .content a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .terms-page { padding: 100px 16px 40px; }
+      h1 { font-size: 28px; }
+      .content h2 { font-size: 18px; }
+    }
+  </style>
+</body>
+</html>

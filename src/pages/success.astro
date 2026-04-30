@@ -5,12 +5,37 @@ import Footer from '../components/Footer.astro';
 
 const SITE_TITLE = 'Audit Request Received | CC3PO';
 const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will analyze your site and send your report soon.';
+const canonicalURL = new URL(Astro.url.pathname, 'https://audit.cc3po.com');
+const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link rel="canonical" href={canonicalURL} />
+		<meta property="og:title" content={SITE_TITLE} />
+		<meta property="og:description" content={SITE_DESCRIPTION} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="CC3PO Audit" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={SITE_TITLE} />
+		<meta name="twitter:description" content={SITE_DESCRIPTION} />
+		<meta name="twitter:image" content={ogImage} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "Audit Request Received",
+			"description": SITE_DESCRIPTION,
+			"url": canonicalURL,
+			"publisher": {
+				"@type": "Organization",
+				"name": "CC3PO",
+				"url": "https://cc3po.com"
+			}
+		})} />
 	</head>
 	<body>
 		<Header />
@@ -23,15 +48,33 @@ const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will
 			<div class="next-steps">
 				<h3>What Happens Next:</h3>
 				<ul>
-					<li>Our AI scans your website across 50+ checkpoints</li>
+					<li>Our AI scans your website across 16 checkpoints</li>
 					<li>Expert review of findings and priorities</li>
 					<li>Detailed report delivered to your email</li>
 				</ul>
 			</div>
+
+			<!-- HIPAA Scanner CTA -->
+			<div class="scanner-cta">
+				<div class="scanner-cta-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+						<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+					</svg>
+				</div>
+				<h3>Your Audit Is Being Processed</h3>
+				<p>In the meantime, try our <strong>HIPAA Compliance Scanner</strong> — find hidden compliance gaps on your healthcare website in 60 seconds.</p>
+				<a href="https://offers.cc3po.com/health-scanner/" class="scanner-btn">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+						<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+						<polyline points="22 4 12 14.01 9 11.01"/>
+					</svg>
+					Try HIPAA Compliance Scanner →
+				</a>
+			</div>
 			
 			<div class="success-actions">
 				<a href="https://cc3po.com" class="action-button secondary">Back to Home</a>
-				<a href="https://offers.cc3po.com/our-services.html" class="action-button primary">View Our Services</a>
+				<a href="https://offers.cc3po.com" class="action-button primary">View Our Services</a>
 			</div>
 		</section>
 		
@@ -54,7 +97,7 @@ const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will
 	}
 	
 	.gradient-text {
-		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		background: linear-gradient(135deg, #e94560, #4cc9f0);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -73,7 +116,7 @@ const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will
 	.success-icon {
 		width: 100px;
 		height: 100px;
-		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		background: linear-gradient(135deg, #e94560, #7209b7);
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
@@ -107,7 +150,7 @@ const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will
 		border-radius: 16px;
 		padding: 32px;
 		max-width: 400px;
-		margin-bottom: 40px;
+		margin-bottom: 24px;
 	}
 	
 	.next-steps h3 {
@@ -132,7 +175,57 @@ const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will
 		content: "→";
 		position: absolute;
 		left: 0;
-		color: #6b35ff;
+		color: #e94560;
+	}
+
+	/* Scanner CTA */
+	.scanner-cta {
+		background: linear-gradient(145deg, rgba(107,53,255,0.08), rgba(0,210,255,0.05));
+		border: 1px solid rgba(107,53,255,0.2);
+		border-radius: 20px;
+		padding: 36px;
+		max-width: 520px;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+	.scanner-cta-icon {
+		width: 56px;
+		height: 56px;
+		background: rgba(76,201,240,0.1);
+		border-radius: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 16px;
+		color: #4cc9f0;
+	}
+	.scanner-cta h3 {
+		font-size: 20px;
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+	.scanner-cta p {
+		color: #a1a1aa;
+		font-size: 15px;
+		line-height: 1.6;
+		margin-bottom: 20px;
+	}
+	.scanner-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		padding: 14px 28px;
+		background: linear-gradient(135deg, #4cc9f0, #4361ee);
+		color: #fff;
+		border-radius: 12px;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 15px;
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+	.scanner-btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(76,201,240,0.3);
 	}
 	
 	.success-actions {
@@ -144,7 +237,7 @@ const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will
 	
 	.action-button {
 		padding: 14px 28px;
-		border-radius: 25px;
+		border-radius: 12px;
 		font-size: 14px;
 		font-weight: 600;
 		text-decoration: none;
@@ -152,7 +245,7 @@ const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will
 	}
 	
 	.action-button.primary {
-		background: linear-gradient(135deg, #6b35ff, #00d2ff);
+		background: linear-gradient(135deg, #e94560, #7209b7);
 		color: #fff;
 	}
 	
@@ -186,6 +279,11 @@ const SITE_DESCRIPTION = 'Thank you for requesting a free website audit. We will
 		.action-button {
 			width: 100%;
 			text-align: center;
+		}
+
+		.scanner-cta {
+			padding: 24px;
+			margin: 0 16px 24px;
 		}
 	}
 </style>

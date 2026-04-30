@@ -1,0 +1,151 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const SITE_TITLE = 'Disclaimer | CC3PO Audit';
+const SITE_DESCRIPTION = 'Disclaimer for CC3PO LLC. Important legal information about our AI-powered services and website audit tools.';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  <link rel="canonical" href="https://audit.cc3po.com/disclaimer" />
+</head>
+<body>
+  <Header />
+  
+  <section class="disclaimer-page">
+    <div class="container">
+      <h1>Disclaimer</h1>
+      <p class="last-updated">Last Updated: April 28, 2026</p>
+      
+      <div class="content">
+        <div class="warning-box">
+          <strong>IMPORTANT NOTICE</strong>
+          <p>Please read this disclaimer carefully before using any services, tools, or content provided by CC3PO LLC.</p>
+        </div>
+        
+        <h2>1. AI-Generated Content Advisory</h2>
+        <p>CC3PO's Services utilize AI and automation. AI-generated content, reports, and recommendations are <strong>advisory only</strong> and not guaranteed to be accurate or complete. AI systems may produce errors or biased outputs. Always verify with qualified professionals.</p>
+        
+        <h2>2. No Professional Advice</h2>
+        <p>Our Services do not constitute professional advice:</p>
+        <ul>
+          <li><strong>Legal:</strong> Not legal advice. Consult a licensed attorney.</li>
+          <li><strong>Medical/Healthcare:</strong> HIPAA tools are informational aids only. Consult qualified healthcare compliance professionals.</li>
+          <li><strong>Financial:</strong> Not financial or investment advice. Consult a qualified financial professional.</li>
+          <li><strong>Security:</strong> Audits identify potential issues but do not guarantee all vulnerabilities are found.</li>
+        </ul>
+        
+        <h2>3. Website Audit Results</h2>
+        <p>Audit reports are <strong>recommendations only</strong> — not guarantees. Automated analysis may not identify all issues, may produce false positives, and should be reviewed by qualified professionals.</p>
+        
+        <h2>4. HIPAA Compliance Tools</h2>
+        <p>Our tools are <strong>aids to identify potential compliance gaps</strong>, not guarantees of compliance. Passing our scanner does not guarantee HIPAA compliance. Consult a qualified HIPAA compliance professional.</p>
+        
+        <h2>5. Results May Vary</h2>
+        <p>Individual results vary based on your systems, implementation, external factors, and input accuracy. We make no guarantees about specific outcomes.</p>
+        
+        <h2>6. Third-Party Integrations</h2>
+        <p>We do not control third-party services. Integrations may change or become unavailable. We are not liable for issues arising from third-party services.</p>
+        
+        <h2>7. No Guarantee of Specific Outcomes</h2>
+        <p>We make no representations regarding specific search rankings, traffic increases, revenue growth, complete security, or regulatory compliance.</p>
+        
+        <h2>8. "As Is" Disclaimer</h2>
+        <p>ALL SERVICES ARE PROVIDED <strong>"AS IS"</strong> WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES.</p>
+        
+        <h2>9. Limitation of Liability</h2>
+        <p>IN NO EVENT SHALL CC3PO LLC BE LIABLE FOR ANY DAMAGES ARISING FROM YOUR USE OF OUR SERVICES, EVEN IF ADVISED OF THE POSSIBILITY.</p>
+        
+        <h2>10. Contact</h2>
+        <p>Email: <a href="mailto:legal@cc3po.com">legal@cc3po.com</a><br>Website: <a href="https://cc3po.com">cc3po.com</a></p>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #0a0a0b;
+      color: #fff;
+      line-height: 1.7;
+    }
+    .disclaimer-page {
+      min-height: 60vh;
+      padding: 120px 24px 60px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff, #4cc9f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .last-updated {
+      color: #71717a;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .content {
+      color: #d4d4d8;
+      font-size: 15px;
+    }
+    .content h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin: 32px 0 12px;
+    }
+    .content p {
+      margin-bottom: 16px;
+    }
+    .content ul {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+    .content li {
+      margin-bottom: 8px;
+    }
+    .content a {
+      color: #4cc9f0;
+      text-decoration: none;
+    }
+    .content a:hover {
+      text-decoration: underline;
+    }
+    .warning-box {
+      background: rgba(233, 69, 96, 0.08);
+      border-left: 4px solid #e94560;
+      padding: 20px;
+      margin-bottom: 32px;
+      border-radius: 8px;
+    }
+    .warning-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #e94560;
+      font-size: 16px;
+    }
+    .warning-box p {
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .disclaimer-page { padding: 100px 16px 40px; }
+      h1 { font-size: 28px; }
+      .content h2 { font-size: 18px; }
+    }
+  </style>
+</body>
+</html>
