@@ -40,3 +40,49 @@ const { title, description } = Astro.props;
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "CC3PO",
+  "alternateName": "CC3PO IT Consulting",
+  "url": "https://audit.cc3po.com",
+  "logo": "https://audit.cc3po.com/favicon.png",
+  "description": "Website technical audits, SEO analysis, and compliance checking for small businesses.",
+  "telephone": "+1-209-423-6633",
+  "email": "info@cc3po.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Stockton",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 37.9577, "longitude": -121.2908 },
+    "geoRadius": "80467"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/cc3po",
+    "https://www.facebook.com/cc3po",
+    "https://www.instagram.com/carloscbrls",
+    "https://twitter.com/IiiCabrales"
+  ]
+})} />
+
+<!-- Organization Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CC3PO",
+  "url": "https://audit.cc3po.com",
+  "logo": "https://audit.cc3po.com/favicon.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-209-423-6633",
+    "contactType": "customer service",
+    "availableLanguage": ["English","Spanish"]
+  }
+})} />
