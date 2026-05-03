@@ -532,8 +532,27 @@ section {
   padding-top: 120px;
   padding-bottom: 80px;
   min-height: auto;
+  position: relative;
+  background-image: url('/images/hero-bg-mobile.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 768px) {
+  .hero {
+    background-image: url('/images/hero-bg.webp');
+  }
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,18,0.75) 0%, rgba(15,15,34,0.6) 40%, rgba(10,10,18,0.85) 100%);
+  z-index: 0;
 }
 .hero-inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
