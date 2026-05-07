@@ -77,6 +77,40 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 	<body>
 		<Header />
 
+		<style>
+			@keyframes fadeInUp {
+				from { opacity: 0; transform: translateY(30px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+			@keyframes countUp {
+				from { opacity: 0; transform: scale(0.5); }
+				to { opacity: 1; transform: scale(1); }
+			}
+			.animate-on-scroll {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.6s ease, transform 0.6s ease;
+			}
+			.animate-on-scroll.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+			.animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+			.animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+			.animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+			.hover-lift {
+				transition: transform 0.25s ease, box-shadow 0.25s ease;
+			}
+			.hover-lift:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.animate-on-scroll { opacity: 1; transform: none; transition: none; }
+			}
+		</style>
+
 		<!-- Hero Section -->
 		<section class="hero" id="audit-form">
 			<div class="container">
@@ -85,16 +119,16 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 					<h1>Is Your Website <span class="highlight">ADA Compliant?</span></h1>
 					<p class="hero-sub">Find out in 30 seconds. Our automated WCAG 2.1 AA audit reveals accessibility violations that could cost you $50K+ per lawsuit.</p>
 					<div class="hero-stats">
-						<div class="stat">
-							<span class="stat-number">96%</span>
+						<div class="stat animate-on-scroll">
+							<span class="stat-number" data-count="96" data-suffix="%">96%</span>
 							<span class="stat-label">of websites have WCAG violations</span>
 						</div>
-						<div class="stat">
-							<span class="stat-number">$50K+</span>
+						<div class="stat animate-on-scroll delay-1">
+							<span class="stat-number" data-count="50" data-suffix="K+" data-prefix="$">$50K+</span>
 							<span class="stat-label">average ADA lawsuit cost</span>
 						</div>
-						<div class="stat">
-							<span class="stat-number">4,000+</span>
+						<div class="stat animate-on-scroll delay-2">
+							<span class="stat-number" data-count="4000" data-suffix="+">4,000+</span>
 							<span class="stat-label">ADA lawsuits filed per year</span>
 						</div>
 					</div>
@@ -114,34 +148,34 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<section class="scan-details" id="what-we-check">
 			<div class="container">
 				<h2>What Our <span class="highlight">WCAG 2.1 AA</span> Audit Covers</h2>
-				<p class="section-sub">Our automated scanner checks your website against 50+ WCAG 2.1 AA success criteria using axe-core, the industry-standard accessibility engine.</p>
+				<p class="section-sub animate-on-scroll">Our automated scanner checks your website against 50+ WCAG 2.1 AA success criteria using axe-core, the industry-standard accessibility engine.</p>
 				<div class="scan-grid">
-					<div class="scan-card">
+					<div class="scan-card animate-on-scroll hover-lift delay-1">
 						<div class="scan-icon">🎨</div>
 						<h3>Color Contrast</h3>
 						<p>Text must have sufficient contrast against backgrounds. We check all foreground/background color combinations against WCAG ratios (4.5:1 for normal text, 3:1 for large text).</p>
 					</div>
-					<div class="scan-card">
+					<div class="scan-card animate-on-scroll hover-lift delay-2">
 						<div class="scan-icon">🏷️</div>
 						<h3>Form Labels</h3>
 						<p>Every form input needs an associated label. Missing labels mean screen readers can't tell users what to enter — and it's the #1 WCAG violation we find.</p>
 					</div>
-					<div class="scan-card">
+					<div class="scan-card animate-on-scroll hover-lift delay-3">
 						<div class="scan-icon">♿</div>
 						<h3>ARIA Attributes</h3>
 						<p>Incorrect or missing ARIA roles, labels, and states break assistive technology. We validate ARIA usage against WAI-ARIA specifications.</p>
 					</div>
-					<div class="scan-card">
+					<div class="scan-card animate-on-scroll hover-lift delay-4">
 						<div class="scan-icon">🧭</div>
 						<h3>Navigation</h3>
 						<p>Keyboard navigation, skip links, focus management, and consistent page structure. Can users navigate your site without a mouse?</p>
 					</div>
-					<div class="scan-card">
+					<div class="scan-card animate-on-scroll hover-lift delay-1">
 						<div class="scan-icon">🖼️</div>
 						<h3>Alt Text & Images</h3>
 						<p>Every image needs descriptive alt text. Decorative images need empty alt attributes. We check them all and flag missing or unhelpful alt text.</p>
 					</div>
-					<div class="scan-card">
+					<div class="scan-card animate-on-scroll hover-lift delay-2">
 						<div class="scan-icon">📝</div>
 						<h3>Semantic HTML</h3>
 						<p>Proper heading hierarchy, landmark regions, list structures, and data tables. Semantic HTML is the foundation of accessible websites.</p>
@@ -155,17 +189,17 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			<div class="container">
 				<h2>Why Accessibility <span class="highlight">Compliance Matters</span></h2>
 				<div class="matters-grid">
-					<div class="matters-card">
+					<div class="matters-card animate-on-scroll delay-1">
 						<div class="matters-icon">⚖️</div>
 						<h3>Legal Protection</h3>
 						<p>ADA Title III lawsuits targeting websites have increased 300% since 2018. Average settlement: $50K. Being proactive costs a fraction of being sued.</p>
 					</div>
-					<div class="matters-card">
+					<div class="matters-card animate-on-scroll delay-2">
 						<div class="matters-icon">👥</div>
 						<h3>1.3 Billion Customers</h3>
 						<p>15% of the global population lives with a disability. Accessible websites reach more customers and increase revenue by up to 28%.</p>
 					</div>
-					<div class="matters-card">
+					<div class="matters-card animate-on-scroll delay-3">
 						<div class="matters-icon">🔍</div>
 						<h3>SEO Benefits</h3>
 						<p>Google rewards accessible websites. Proper alt text, semantic HTML, and fast, usable pages all contribute to better search rankings.</p>
@@ -178,9 +212,9 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<section class="pricing" id="pricing">
 			<div class="container">
 				<h2>Choose Your <span class="highlight">Audit Level</span></h2>
-				<p class="section-sub">From a quick checkup to ongoing compliance monitoring — we've got you covered.</p>
+				<p class="section-sub animate-on-scroll">From a quick checkup to ongoing compliance monitoring — we've got you covered.</p>
 				<div class="pricing-grid">
-					<div class="pricing-card">
+					<div class="pricing-card animate-on-scroll hover-lift delay-1">
 						<div class="pricing-badge">STARTER</div>
 						<div class="pricing-price">$0</div>
 						<div class="pricing-label">Free Scan</div>
@@ -195,7 +229,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 						</ul>
 						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='free'">Start Free Scan</a>
 					</div>
-					<div class="pricing-card featured">
+					<div class="pricing-card featured animate-on-scroll hover-lift delay-2">
 						<div class="pricing-badge">POPULAR</div>
 						<div class="pricing-price">$297</div>
 						<div class="pricing-label">Full Report</div>
@@ -210,7 +244,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 						</ul>
 						<a href="#audit-form" class="btn-primary" onclick="document.getElementById('scanForm').dataset.tier='full'">Get Full Report</a>
 					</div>
-					<div class="pricing-card">
+					<div class="pricing-card animate-on-scroll hover-lift delay-2">
 						<div class="pricing-badge">ONGOING</div>
 						<div class="pricing-price">$97<span class="pricing-period">/mo</span></div>
 						<div class="pricing-label">Monthly Monitoring</div>
@@ -233,25 +267,25 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<section class="social-proof">
 			<div class="container">
 				<div class="proof-stats">
-					<div class="proof-stat">
-						<span class="proof-number">500+</span>
+					<div class="proof-stat animate-on-scroll delay-1">
+						<span class="proof-number" data-count="500" data-suffix="+">500+</span>
 						<span class="proof-label">Websites Audited</span>
 					</div>
-					<div class="proof-stat">
-						<span class="proof-number">5+</span>
+					<div class="proof-stat animate-on-scroll delay-2">
+						<span class="proof-number" data-count="5" data-suffix="+">5+</span>
 						<span class="proof-label">Average Violations Found</span>
 					</div>
-					<div class="proof-stat">
-						<span class="proof-number">98%</span>
+					<div class="proof-stat animate-on-scroll delay-3">
+						<span class="proof-number" data-count="98" data-suffix="%">98%</span>
 						<span class="proof-label">Client Satisfaction</span>
 					</div>
 				</div>
 				<div class="testimonials">
-					<div class="testimonial">
+					<div class="testimonial animate-on-scroll delay-1">
 						<p>"CC3PO found 12 WCAG violations on our site that our previous auditor missed completely. The fix recommendations were clear and actionable."</p>
 						<span class="testimonial-author">— Sarah M., Marketing Director</span>
 					</div>
-					<div class="testimonial">
+					<div class="testimonial animate-on-scroll delay-2">
 						<p>"We were facing an ADA lawsuit threat. The full report gave us everything we needed to remediate quickly and demonstrate good faith compliance."</p>
 						<span class="testimonial-author">— David R., Business Owner</span>
 					</div>
@@ -260,7 +294,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		</section>
 
 		<!-- CTA Section -->
-		<section class="cta">
+		<section class="cta animate-on-scroll">
 			<div class="container">
 				<h2>Don't Wait for a Lawsuit Letter</h2>
 				<p>Find out where your website stands — for free. Your 30-second scan could save you $50,000+ in legal costs.</p>
@@ -792,5 +826,50 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
   });
 })();
 </script>
+	<script>
+	(function() {
+		var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		var observerOptions = { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 };
+		var observer = new IntersectionObserver(function(entries) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					if (entry.target.hasAttribute('data-count')) { animateCounter(entry.target); }
+					observer.unobserve(entry.target);
+				}
+			});
+		}, observerOptions);
+		document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+			if (prefersReducedMotion) { el.classList.add('visible'); } else { observer.observe(el); }
+		});
+		function animateCounter(el) {
+			var target = parseInt(el.getAttribute('data-count'), 10);
+			var suffix = el.getAttribute('data-suffix') || '';
+			var prefix = el.getAttribute('data-prefix') || '';
+			var duration = parseInt(el.getAttribute('data-duration') || '2000', 10);
+			var startTime = performance.now();
+			function update(currentTime) {
+				var elapsed = currentTime - startTime;
+				var progress = Math.min(elapsed / duration, 1);
+				var eased = 1 - Math.pow(1 - progress, 3);
+				var current = Math.floor(target * eased);
+				el.textContent = prefix + current.toLocaleString() + suffix;
+				if (progress < 1) { requestAnimationFrame(update); }
+				else { el.textContent = prefix + target.toLocaleString() + suffix; }
+			}
+			requestAnimationFrame(update);
+		}
+		document.querySelectorAll('[data-count]').forEach(function(el) {
+			if (!el.classList.contains('animate-on-scroll')) { el.classList.add('animate-on-scroll'); observer.observe(el); }
+		});
+		var nav = document.querySelector('nav');
+		if (nav) {
+			window.addEventListener('scroll', function() {
+				if (window.scrollY > 20) { nav.classList.add('scrolled'); }
+				else { nav.classList.remove('scrolled'); }
+			}, { passive: true });
+		}
+	})();
+	</script>
 	</body>
 </html>
