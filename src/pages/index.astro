@@ -3,1210 +3,722 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const SITE_TITLE = 'Free Website Audit | CC3PO';
-const SITE_DESCRIPTION = 'Get a comprehensive website audit covering SEO, security, performance, and accessibility. Free analysis by CC3PO AI village. Expert-reviewed, no technical jargon. 15+ years experience.';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = '/images/cc3po-logo.png';
+const SITE_TITLE = 'Free WCAG Accessibility Audit | CC3PO — Is Your Website ADA Compliant?';
+const SITE_DESCRIPTION = 'Find out if your website meets WCAG 2.1 AA standards. Free instant scan reveals top accessibility violations. Full reports and monthly monitoring available.';
+const canonicalURL = new URL(Astro.url.pathname, 'https://audit.cc3po.com');
+const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png';
 ---
 
 <!doctype html>
 <html lang="en">
-<head>
-  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  <link rel="canonical" href={canonicalURL} />
-  <meta property="og:title" content={SITE_TITLE} />
-  <meta property="og:description" content={SITE_DESCRIPTION} />
-  <meta property="og:image" content={ogImage} />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="CC3PO Audit" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={SITE_TITLE} />
-  <meta name="twitter:description" content={SITE_DESCRIPTION} />
-  <meta name="twitter:image" content={ogImage} />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Free Website Audit",
-    description: "Comprehensive website analysis covering SEO, security, performance, and accessibility",
-    url: canonicalURL,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web-based",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock"
-    },
-    provider: {
-      "@type": "Organization",
-      name: "CC3PO",
-      url: "https://cc3po.com"
-    }
-  })} />
-</head>
-<body>
-  <Header />
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link rel="canonical" href={canonicalURL} />
+		<meta property="og:title" content={SITE_TITLE} />
+		<meta property="og:description" content={SITE_DESCRIPTION} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="CC3PO Accessibility Audit" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={SITE_TITLE} />
+		<meta name="twitter:description" content={SITE_DESCRIPTION} />
+		<meta name="twitter:image" content={ogImage} />
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          Free Website Audit
-        </div>
-        <h1>Is Your Website <span class="gradient-text">Leaving Money on the Table?</span></h1>
-        <p class="hero-subtitle">Expert-reviewed audit covering SEO, security, performance, and accessibility — no technical jargon, just clear priorities.</p>
+		<!-- Accessibility Audit Service Schema -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"serviceType": "WCAG Accessibility Audit",
+			"provider": {
+				"@type": "LocalBusiness",
+				"name": "CC3PO",
+				"telephone": "+1-209-423-6633",
+				"email": "info@cc3po.com",
+				"url": "https://audit.cc3po.com",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Stockton",
+					"addressRegion": "CA",
+					"addressCountry": "US"
+				},
+				"priceRange": "$0 - $297"
+			},
+			"areaServed": "US",
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Accessibility Audit Services",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"name": "Free Scan",
+						"price": "0",
+						"priceCurrency": "USD",
+						"description": "Instant automated WCAG 2.1 AA audit showing top 3 issues"
+					},
+					{
+						"@type": "Offer",
+						"name": "Full Report",
+						"price": "297",
+						"priceCurrency": "USD",
+						"description": "Complete WCAG audit with PDF report and fix recommendations"
+					},
+					{
+						"@type": "Offer",
+						"name": "Monthly Monitoring",
+						"price": "97",
+						"priceCurrency": "USD",
+						"description": "Weekly scans with alerts when new violations appear"
+					}
+				]
+			}
+		})} />
+	</head>
+	<body>
+		<Header />
 
-        <!-- Quick Hero Form -->
-        <form id="auditHeroForm" class="hero-form">
-          <div class="hero-form-row">
-            <input type="text" name="name" required placeholder="Your name" />
-            <input type="url" name="website" required placeholder="https://yourwebsite.com" />
-            <input type="email" name="email" required placeholder="you@company.com" />
-            <button type="submit" class="hero-submit">Get Audit →</button>
-          </div>
-          <p class="hero-form-note">Free. No spam. Report delivered in 24–48 hours.</p>
-        </form>
-        <div id="auditHeroSuccess" style="display:none;padding:16px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:12px;margin-top:12px;">
-          <p style="color:#22c55e;font-weight:600;">✓ Audit request received!</p>
-          <p style="color:#a1a1aa;font-size:14px;margin-top:4px;">We'll review your site and deliver your report within 24–48 hours. Check your email for confirmation.</p>
-        </div>
-      </div>
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<div class="hero-badge">FREE ACCESSIBILITY SCAN</div>
+					<h1>Is Your Website <span class="highlight">ADA Compliant?</span></h1>
+					<p class="hero-sub">Find out in 30 seconds. Our automated WCAG 2.1 AA audit reveals accessibility violations that could cost you $50K+ per lawsuit.</p>
+					<div class="hero-stats">
+						<div class="stat">
+							<span class="stat-number">96%</span>
+							<span class="stat-label">of websites have WCAG violations</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">$50K+</span>
+							<span class="stat-label">average ADA lawsuit cost</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">4,000+</span>
+							<span class="stat-label">ADA lawsuits filed per year</span>
+						</div>
+					</div>
+					<form class="scan-form" id="scanForm" action="/success" method="GET">
+						<div class="form-row">
+							<input type="url" name="url" placeholder="Enter your website URL (e.g., https://yoursite.com)" required aria-label="Website URL to audit" />
+							<input type="email" name="email" placeholder="Your email (for results)" required aria-label="Email address for audit results" />
+							<button type="submit" class="btn-primary">Get Your Free Scan →</button>
+						</div>
+						<p class="form-note">No credit card required. Results delivered to your inbox in minutes.</p>
+					</form>
+				</div>
+			</div>
+		</section>
 
-      <!-- Visual Report Mockup -->
-      <div class="hero-visual">
-        <div class="report-mockup">
-          <div class="mockup-header">
-            <div class="mockup-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <span class="mockup-title">Audit Report — yoursite.com</span>
-          </div>
-          <div class="mockup-body">
-            <div class="mockup-scores">
-              <div class="mockup-score">
-                <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/><circle cx="18" cy="18" r="15.9155" fill="none" stroke="#4cc9f0" stroke-width="3" stroke-dasharray="78, 100" stroke-linecap="round"/></svg>
-                <span class="ms-val">78</span>
-                <span class="ms-label">SEO</span>
-              </div>
-              <div class="mockup-score">
-                <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/><circle cx="18" cy="18" r="15.9155" fill="none" stroke="#4ade80" stroke-width="3" stroke-dasharray="92, 100" stroke-linecap="round"/></svg>
-                <span class="ms-val">92</span>
-                <span class="ms-label">Security</span>
-              </div>
-              <div class="mockup-score">
-                <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/><circle cx="18" cy="18" r="15.9155" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="65, 100" stroke-linecap="round"/></svg>
-                <span class="ms-val">65</span>
-                <span class="ms-label">Speed</span>
-              </div>
-              <div class="mockup-score">
-                <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/><circle cx="18" cy="18" r="15.9155" fill="none" stroke="#f472b6" stroke-width="3" stroke-dasharray="85, 100" stroke-linecap="round"/></svg>
-                <span class="ms-val">85</span>
-                <span class="ms-label">A11y</span>
-              </div>
-            </div>
-            <div class="mockup-findings">
-              <div class="mf-row">
-                <span class="mf-pill high">High</span>
-                <span class="mf-text">Optimize images — 2.3MB savings</span>
-              </div>
-              <div class="mf-row">
-                <span class="mf-pill medium">Medium</span>
-                <span class="mf-text">Add missing alt text (12 images)</span>
-              </div>
-              <div class="mf-row">
-                <span class="mf-pill low">Low</span>
-                <span class="mf-text">Enable browser caching</span>
-              </div>
-            </div>
-          </div>
-          <div class="mockup-glow"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+		<!-- What We Scan -->
+		<section class="scan-details">
+			<div class="container">
+				<h2>What Our <span class="highlight">WCAG 2.1 AA</span> Audit Covers</h2>
+				<p class="section-sub">Our automated scanner checks your website against 50+ WCAG 2.1 AA success criteria using axe-core, the industry-standard accessibility engine.</p>
+				<div class="scan-grid">
+					<div class="scan-card">
+						<div class="scan-icon">🎨</div>
+						<h3>Color Contrast</h3>
+						<p>Text must have sufficient contrast against backgrounds. We check all foreground/background color combinations against WCAG ratios (4.5:1 for normal text, 3:1 for large text).</p>
+					</div>
+					<div class="scan-card">
+						<div class="scan-icon">🏷️</div>
+						<h3>Form Labels</h3>
+						<p>Every form input needs an associated label. Missing labels mean screen readers can't tell users what to enter — and it's the #1 WCAG violation we find.</p>
+					</div>
+					<div class="scan-card">
+						<div class="scan-icon">♿</div>
+						<h3>ARIA Attributes</h3>
+						<p>Incorrect or missing ARIA roles, labels, and states break assistive technology. We validate ARIA usage against WAI-ARIA specifications.</p>
+					</div>
+					<div class="scan-card">
+						<div class="scan-icon">🧭</div>
+						<h3>Navigation</h3>
+						<p>Keyboard navigation, skip links, focus management, and consistent page structure. Can users navigate your site without a mouse?</p>
+					</div>
+					<div class="scan-card">
+						<div class="scan-icon">🖼️</div>
+						<h3>Alt Text & Images</h3>
+						<p>Every image needs descriptive alt text. Decorative images need empty alt attributes. We check them all and flag missing or unhelpful alt text.</p>
+					</div>
+					<div class="scan-card">
+						<div class="scan-icon">📝</div>
+						<h3>Semantic HTML</h3>
+						<p>Proper heading hierarchy, landmark regions, list structures, and data tables. Semantic HTML is the foundation of accessible websites.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <!-- Trust Bar -->
-  <section class="trust-bar" aria-label="Trust signals">
-    <div class="trust-inner">
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span class="trust-label">Expert-Reviewed</span>
-      </div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-        <span class="trust-label">No Technical Jargon</span>
-      </div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <span class="trust-label">24–48 Hour Turnaround</span>
-      </div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-        <span class="trust-label">15+ Years Experience</span>
-      </div>
-    </div>
-  </section>
+		<!-- Why It Matters -->
+		<section class="why-matters">
+			<div class="container">
+				<h2>Why Accessibility <span class="highlight">Compliance Matters</span></h2>
+				<div class="matters-grid">
+					<div class="matters-card">
+						<div class="matters-icon">⚖️</div>
+						<h3>Legal Protection</h3>
+						<p>ADA Title III lawsuits targeting websites have increased 300% since 2018. Average settlement: $50K. Being proactive costs a fraction of being sued.</p>
+					</div>
+					<div class="matters-card">
+						<div class="matters-icon">👥</div>
+						<h3>1.3 Billion Customers</h3>
+						<p>15% of the global population lives with a disability. Accessible websites reach more customers and increase revenue by up to 28%.</p>
+					</div>
+					<div class="matters-card">
+						<div class="matters-icon">🔍</div>
+						<h3>SEO Benefits</h3>
+						<p>Google rewards accessible websites. Proper alt text, semantic HTML, and fast, usable pages all contribute to better search rankings.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <!-- What We Check -->
-  <section class="what-we-check" id="what-we-check">
-    <div class="section-header">
-      <span class="section-tag">Coverage</span>
-      <h2>What We Check</h2>
-      <p class="section-subtitle">Four critical areas that directly impact your traffic, conversions, and compliance.</p>
-    </div>
-    <div class="check-grid">
-      <div class="check-card" data-category="seo">
-        <div class="check-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        </div>
-        <h3>SEO Analysis</h3>
-        <ul>
-          <li>Meta tags &amp; page structure</li>
-          <li>Keyword optimization</li>
-          <li>Mobile friendliness</li>
-          <li>Core Web Vitals</li>
-          <li>Schema markup</li>
-        </ul>
-      </div>
-      <div class="check-card" data-category="security">
-        <div class="check-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-        </div>
-        <h3>Security Check</h3>
-        <ul>
-          <li>SSL certificate status</li>
-          <li>HTTPS enforcement</li>
-          <li>Vulnerability scan</li>
-          <li>Plugin &amp; dependency security</li>
-          <li>Form &amp; data protection</li>
-        </ul>
-      </div>
-      <div class="check-card" data-category="performance">
-        <div class="check-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <h3>Performance</h3>
-        <ul>
-          <li>Page load speed</li>
-          <li>Image &amp; asset optimization</li>
-          <li>Caching configuration</li>
-          <li>Script efficiency</li>
-          <li>Server response time</li>
-        </ul>
-      </div>
-      <div class="check-card" data-category="accessibility">
-        <div class="check-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-        </div>
-        <h3>Accessibility</h3>
-        <ul>
-          <li>WCAG compliance</li>
-          <li>Screen reader compatibility</li>
-          <li>Color contrast ratios</li>
-          <li>Keyboard navigation</li>
-          <li>Alt text &amp; ARIA labels</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+		<!-- Pricing -->
+		<section class="pricing" id="pricing">
+			<div class="container">
+				<h2>Choose Your <span class="highlight">Audit Level</span></h2>
+				<p class="section-sub">From a quick checkup to ongoing compliance monitoring — we've got you covered.</p>
+				<div class="pricing-grid">
+					<div class="pricing-card">
+						<div class="pricing-badge">STARTER</div>
+						<div class="pricing-price">$0</div>
+						<div class="pricing-label">Free Scan</div>
+						<ul class="pricing-features">
+							<li>✓ Instant automated audit</li>
+							<li>✓ Top 3 violations identified</li>
+							<li>✓ Severity level for each issue</li>
+							<li>✓ WCAG guideline references</li>
+							<li class="muted">✗ Detailed fix recommendations</li>
+							<li class="muted">✗ PDF report</li>
+							<li class="muted">✗ Ongoing monitoring</li>
+						</ul>
+						<form action="/success" method="GET" class="pricing-form">
+							<input type="hidden" name="tier" value="free" />
+							<button type="submit" class="btn-secondary">Start Free Scan</button>
+						</form>
+					</div>
+					<div class="pricing-card featured">
+						<div class="pricing-badge">POPULAR</div>
+						<div class="pricing-price">$297</div>
+						<div class="pricing-label">Full Report</div>
+						<ul class="pricing-features">
+							<li>✓ Complete WCAG 2.1 AA audit</li>
+							<li>✓ All violations + affected elements</li>
+							<li>✓ PDF report with branding</li>
+							<li>✓ Detailed fix recommendations</li>
+							<li>✓ WCAG guideline links</li>
+							<li>✓ Priority severity ranking</li>
+							<li class="muted">✗ Ongoing monitoring</li>
+						</ul>
+						<form action="/success" method="GET" class="pricing-form">
+							<input type="hidden" name="tier" value="full" />
+							<button type="submit" class="btn-primary">Get Full Report</button>
+						</form>
+					</div>
+					<div class="pricing-card">
+						<div class="pricing-badge">ONGOING</div>
+						<div class="pricing-price">$97<span class="pricing-period">/mo</span></div>
+						<div class="pricing-label">Monthly Monitoring</div>
+						<ul class="pricing-features">
+							<li>✓ Weekly automated scans</li>
+							<li>✓ Instant alerts on new violations</li>
+							<li>✓ Full PDF reports each scan</li>
+							<li>✓ Fix recommendations included</li>
+							<li>✓ Compliance trend tracking</li>
+							<li>✓ Email + dashboard access</li>
+							<li>✓ Priority support</li>
+						</ul>
+						<form action="/success" method="GET" class="pricing-form">
+							<input type="hidden" name="tier" value="monitoring" />
+							<button type="submit" class="btn-secondary">Start Monitoring</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <!-- How It Works -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="section-header">
-      <span class="section-tag">Process</span>
-      <h2>How It Works</h2>
-      <p class="section-subtitle">From URL to actionable insights in three simple steps.</p>
-    </div>
-    <div class="steps-wrap">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-        </div>
-        <h3>Submit Your URL</h3>
-        <p>Enter your website address and email. Optionally tell us what matters most.</p>
-      </div>
-      <div class="step-connector">
-        <svg viewBox="0 0 80 24" fill="none"><path d="M0 12h70M62 4l8 8-8 8" stroke="rgba(255,255,255,0.12)" stroke-width="2"/></svg>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        </div>
-        <h3>AI + Expert Analysis</h3>
-        <p>Our AI village scans your site across 16+ checkpoints, then an expert reviews the findings.</p>
-      </div>
-      <div class="step-connector">
-        <svg viewBox="0 0 80 24" fill="none"><path d="M0 12h70M62 4l8 8-8 8" stroke="rgba(255,255,255,0.12)" stroke-width="2"/></svg>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        </div>
-        <h3>Get Your Report</h3>
-        <p>Receive a clear, prioritized report with exact fixes — no fluff, no jargon.</p>
-      </div>
-    </div>
-  </section>
+		<!-- Social Proof -->
+		<section class="social-proof">
+			<div class="container">
+				<div class="proof-stats">
+					<div class="proof-stat">
+						<span class="proof-number">500+</span>
+						<span class="proof-label">Websites Audited</span>
+					</div>
+					<div class="proof-stat">
+						<span class="proof-number">5+</span>
+						<span class="proof-label">Average Violations Found</span>
+					</div>
+					<div class="proof-stat">
+						<span class="proof-number">98%</span>
+						<span class="proof-label">Client Satisfaction</span>
+					</div>
+				</div>
+				<div class="testimonials">
+					<div class="testimonial">
+						<p>"CC3PO found 12 WCAG violations on our site that our previous auditor missed completely. The fix recommendations were clear and actionable."</p>
+						<span class="testimonial-author">— Sarah M., Marketing Director</span>
+					</div>
+					<div class="testimonial">
+						<p>"We were facing an ADA lawsuit threat. The full report gave us everything we needed to remediate quickly and demonstrate good faith compliance."</p>
+						<span class="testimonial-author">— David R., Business Owner</span>
+					</div>
+				</div>
+			</div>
+		</section>
 
-  <!-- Report Preview -->
-  <section class="report-preview-section" id="report-preview">
-    <div class="section-header">
-      <span class="section-tag">Deliverable</span>
-      <h2>What You'll Receive</h2>
-      <p class="section-subtitle">A clean, actionable report you can share with your team or developer.</p>
-    </div>
-    <div class="report-preview-card">
-      <div class="rp-header">
-        <div class="rp-logo">
-          <img src="/images/cc3po-logo.png" alt="CC3PO" />
-          <span>CC3PO Audit Report</span>
-        </div>
-        <span class="rp-site">yoursite.com</span>
-      </div>
-      <div class="rp-scores">
-        <div class="rp-score" data-cat="seo">
-          <div class="rp-ring">
-            <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/><circle cx="18" cy="18" r="15.9155" fill="none" stroke="#4cc9f0" stroke-width="3" stroke-dasharray="78, 100" stroke-linecap="round"/></svg>
-            <span class="rp-val">78</span>
-          </div>
-          <span class="rp-label">SEO</span>
-        </div>
-        <div class="rp-score" data-cat="security">
-          <div class="rp-ring">
-            <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/><circle cx="18" cy="18" r="15.9155" fill="none" stroke="#f72585" stroke-width="3" stroke-dasharray="92, 100" stroke-linecap="round"/></svg>
-            <span class="rp-val">92</span>
-          </div>
-          <span class="rp-label">Security</span>
-        </div>
-        <div class="rp-score" data-cat="performance">
-          <div class="rp-ring">
-            <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/><circle cx="18" cy="18" r="15.9155" fill="none" stroke="#4ade80" stroke-width="3" stroke-dasharray="65, 100" stroke-linecap="round"/></svg>
-            <span class="rp-val">65</span>
-          </div>
-          <span class="rp-label">Performance</span>
-        </div>
-        <div class="rp-score" data-cat="accessibility">
-          <div class="rp-ring">
-            <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9155" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/><circle cx="18" cy="18" r="15.9155" fill="none" stroke="#fb923c" stroke-width="3" stroke-dasharray="85, 100" stroke-linecap="round"/></svg>
-            <span class="rp-val">85</span>
-          </div>
-          <span class="rp-label">Accessibility</span>
-        </div>
-      </div>
-      <div class="rp-findings">
-        <div class="rp-findings-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-          <span>Top Priority Fixes</span>
-        </div>
-        <div class="rp-finding-row">
-          <span class="rp-pill high">High</span>
-          <span class="rp-finding-text">Optimize images — 2.3MB savings potential</span>
-          <span class="rp-finding-meta">Performance</span>
-        </div>
-        <div class="rp-finding-row">
-          <span class="rp-pill medium">Medium</span>
-          <span class="rp-finding-text">Add missing alt text to 12 images</span>
-          <span class="rp-finding-meta">Accessibility</span>
-        </div>
-        <div class="rp-finding-row">
-          <span class="rp-pill medium">Medium</span>
-          <span class="rp-finding-text">Enable browser caching for static assets</span>
-          <span class="rp-finding-meta">Performance</span>
-        </div>
-        <div class="rp-finding-row">
-          <span class="rp-pill low">Low</span>
-          <span class="rp-finding-text">Add Open Graph meta tags for social sharing</span>
-          <span class="rp-finding-meta">SEO</span>
-        </div>
-      </div>
-    </div>
-  </section>
+		<!-- CTA Section -->
+		<section class="cta">
+			<div class="container">
+				<h2>Don't Wait for a Lawsuit Letter</h2>
+				<p>Find out where your website stands — for free. Your 30-second scan could save you $50,000+ in legal costs.</p>
+				<form class="scan-form scan-form-center" action="/success" method="GET">
+					<div class="form-row">
+						<input type="url" name="url" placeholder="Enter your website URL" required aria-label="Website URL" />
+						<input type="email" name="email" placeholder="Your email" required aria-label="Email address" />
+						<button type="submit" class="btn-primary">Get Your Free Scan →</button>
+					</div>
+				</form>
+			</div>
+		</section>
 
-  <!-- Testimonials -->
-  <section class="testimonials" id="testimonials">
-    <div class="section-header">
-      <span class="section-tag">Results</span>
-      <h2>What Our Clients Say</h2>
-      <p class="section-subtitle">Real feedback from real business owners.</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"The audit revealed issues we didn't even know existed. After fixing the performance problems, our load time dropped from 8 seconds to under 2."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background: linear-gradient(135deg, #4cc9f0, #4361ee);">M</div>
-          <div class="author-info">
-            <strong>Matt S.</strong>
-            <span>Business Owner, mattsafdari.com</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Finally someone who explains technical issues in plain English. The prioritized action list made it easy to know exactly what to fix first."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background: linear-gradient(135deg, #f72585, #b5179e);">K</div>
-          <div class="author-info">
-            <strong>Karen R.</strong>
-            <span>Marketing Director, Sacramento</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"The accessibility audit helped us avoid potential lawsuits and made our site usable for all customers. Truly invaluable service."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background: linear-gradient(135deg, #4ade80, #22c55e);">J</div>
-          <div class="author-info">
-            <strong>James T.</strong>
-            <span>E-commerce Store Owner, Bay Area</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+		<Footer />
 
-  <!-- Full Form Section -->
-  <section class="full-form-section" id="audit-form">
-    <div class="section-header">
-      <span class="section-tag">Get Started</span>
-      <h2>Request Your Free Audit</h2>
-      <p class="section-subtitle">Want to add more detail? Fill out the full form below. Or use the quick form at the top.</p>
-    </div>
-    <form id="auditFullForm" class="audit-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="name">Your Name *</label>
-          <input type="text" id="name" name="name" required placeholder="John Smith" />
-        </div>
-        <div class="form-group">
-          <label for="email-full">Email Address *</label>
-          <input type="email" id="email-full" name="email" required placeholder="john@example.com" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="website-full">Website URL *</label>
-        <input type="url" id="website-full" name="website" required placeholder="https://yourwebsite.com" />
-      </div>
-      <div class="form-group">
-        <label for="focus">Primary Focus (Optional)</label>
-        <select id="focus" name="focus">
-          <option value="">Select a focus area...</option>
-          <option value="seo">SEO &amp; Search Rankings</option>
-          <option value="security">Security &amp; Protection</option>
-          <option value="performance">Speed &amp; Performance</option>
-          <option value="accessibility">Accessibility &amp; Compliance</option>
-          <option value="all">Complete Overview</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="message">Additional Details (Optional)</label>
-        <textarea id="message" name="message" rows="4" placeholder="Tell us about your website, any specific concerns, or what you'd like us to focus on..."></textarea>
-      </div>
-      <button type="submit" class="submit-button">
-        <span>Submit Audit Request</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </button>
-    </form>
-    <div id="auditFullSuccess" style="display:none;padding:24px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:16px;margin-top:20px;">
-      <h3 style="color:#22c55e;margin-bottom:8px;">✓ Audit request received!</h3>
-      <p style="color:#a1a1aa;">We'll review your site and deliver your report within 24–48 hours. Check your email for confirmation.</p>
-      <p style="color:#71717a;font-size:13px;margin-top:12px;">Next steps:</p>
-      <ol style="color:#a1a1aa;font-size:14px;margin-left:16px;margin-top:8px;">
-        <li>Confirmation email sent to your inbox</li>
-        <li>Our team reviews your website</li>
-        <li>Detailed report delivered within 24–48 hours</li>
-      </ol>
-    </div>
-  </section>
+		<style>
+			/* --- Base --- */
+			:root {
+				--blue-600: #1a56db;
+				--blue-500: #2563eb;
+				--blue-400: #3b82f6;
+				--blue-100: #dbeafe;
+				--blue-50: #eff6ff;
+				--navy-900: #0f172a;
+				--navy-800: #1e293b;
+				--navy-700: #334155;
+				--gray-600: #475569;
+				--gray-400: #94a3b8;
+				--gray-200: #e2e8f0;
+				--gray-100: #f1f5f9;
+				--white: #ffffff;
+				--red-500: #ef4444;
+				--green-500: #22c55e;
+				--amber-500: #f59e0b;
+			}
 
-  <Footer />
-  <script type="module">
-    import { submitAuditRequest } from '/js/lead-capture.js';
+			* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    const heroForm = document.getElementById('auditHeroForm');
-    const heroSuccess = document.getElementById('auditHeroSuccess');
-    heroForm?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fd = new FormData(heroForm);
-      try {
-        await submitAuditRequest({
-          name: fd.get('name'),
-          email: fd.get('email'),
-          website: fd.get('website')
-        }, 'audit-cc3po-hero');
-        heroForm.style.display = 'none';
-        heroSuccess.style.display = 'block';
-      } catch (err) {
-        console.error('Audit submission error:', err);
-        alert('Something went wrong. Please try again or email us at info@cc3po.com');
-      }
-    });
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+				color: var(--navy-900);
+				background: var(--white);
+				line-height: 1.6;
+			}
 
-    const fullForm = document.getElementById('auditFullForm');
-    const fullSuccess = document.getElementById('auditFullSuccess');
-    fullForm?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fd = new FormData(fullForm);
-      try {
-        await submitAuditRequest({
-          name: fd.get('name'),
-          email: fd.get('email'),
-          website: fd.get('website'),
-          focus: fd.get('focus'),
-          message: fd.get('message')
-        }, 'audit-cc3po-form');
-        fullForm.style.display = 'none';
-        fullSuccess.style.display = 'block';
-      } catch (err) {
-        console.error('Audit submission error:', err);
-        alert('Something went wrong. Please try again or email us at info@cc3po.com');
-      }
-    });
-  </script>
-</body>
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 24px;
+			}
+
+			.highlight { color: var(--blue-600); }
+
+			/* --- Hero --- */
+			.hero {
+				background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+				color: var(--white);
+				padding: 100px 0 80px;
+			}
+
+			.hero-badge {
+				display: inline-block;
+				background: rgba(59, 130, 246, 0.2);
+				color: var(--blue-400);
+				padding: 6px 16px;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				font-weight: 700;
+				letter-spacing: 0.05em;
+				margin-bottom: 24px;
+			}
+
+			.hero h1 {
+				font-size: clamp(2.2rem, 5vw, 3.5rem);
+				font-weight: 800;
+				line-height: 1.15;
+				margin-bottom: 20px;
+			}
+
+			.hero-sub {
+				font-size: 1.2rem;
+				color: var(--gray-400);
+				max-width: 640px;
+				margin-bottom: 40px;
+			}
+
+			.hero-stats {
+				display: flex;
+				gap: 40px;
+				margin-bottom: 48px;
+				flex-wrap: wrap;
+			}
+
+			.stat { display: flex; flex-direction: column; }
+
+			.stat-number {
+				font-size: 2rem;
+				font-weight: 800;
+				color: var(--blue-400);
+			}
+
+			.stat-label {
+				font-size: 0.85rem;
+				color: var(--gray-400);
+			}
+
+			/* --- Form --- */
+			.scan-form {
+				max-width: 720px;
+			}
+
+			.scan-form-center {
+				margin: 0 auto;
+			}
+
+			.form-row {
+				display: flex;
+				gap: 12px;
+				flex-wrap: wrap;
+			}
+
+			.form-row input {
+				flex: 1;
+				min-width: 200px;
+				padding: 14px 18px;
+				border: 2px solid var(--gray-200);
+				border-radius: 10px;
+				font-size: 1rem;
+				font-family: inherit;
+				outline: none;
+				transition: border-color 0.2s;
+			}
+
+			.form-row input:focus {
+				border-color: var(--blue-500);
+			}
+
+			.btn-primary {
+				padding: 14px 32px;
+				background: var(--blue-600);
+				color: var(--white);
+				border: none;
+				border-radius: 10px;
+				font-size: 1rem;
+				font-weight: 700;
+				cursor: pointer;
+				white-space: nowrap;
+				transition: background 0.2s;
+			}
+
+			.btn-primary:hover { background: var(--blue-500); }
+
+			.btn-secondary {
+				padding: 14px 32px;
+				background: var(--white);
+				color: var(--blue-600);
+				border: 2px solid var(--blue-600);
+				border-radius: 10px;
+				font-size: 1rem;
+				font-weight: 700;
+				cursor: pointer;
+				transition: all 0.2s;
+			}
+
+			.btn-secondary:hover {
+				background: var(--blue-600);
+				color: var(--white);
+			}
+
+			.form-note {
+				margin-top: 12px;
+				font-size: 0.85rem;
+				color: var(--gray-400);
+			}
+
+			/* --- Scan Details --- */
+			.scan-details {
+				padding: 80px 0;
+				background: var(--gray-100);
+			}
+
+			.scan-details h2 {
+				font-size: 2rem;
+				font-weight: 800;
+				text-align: center;
+				margin-bottom: 12px;
+			}
+
+			.section-sub {
+				text-align: center;
+				color: var(--gray-600);
+				max-width: 600px;
+				margin: 0 auto 48px;
+				font-size: 1.05rem;
+			}
+
+			.scan-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 24px;
+			}
+
+			.scan-card {
+				background: var(--white);
+				padding: 32px;
+				border-radius: 12px;
+				border: 1px solid var(--gray-200);
+			}
+
+			.scan-icon { font-size: 2rem; margin-bottom: 12px; }
+
+			.scan-card h3 {
+				font-size: 1.15rem;
+				font-weight: 700;
+				margin-bottom: 8px;
+			}
+
+			.scan-card p {
+				color: var(--gray-600);
+				font-size: 0.95rem;
+			}
+
+			/* --- Why It Matters --- */
+			.why-matters {
+				padding: 80px 0;
+			}
+
+			.why-matters h2 {
+				font-size: 2rem;
+				font-weight: 800;
+				text-align: center;
+				margin-bottom: 48px;
+			}
+
+			.matters-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 32px;
+			}
+
+			.matters-card {
+				text-align: center;
+				padding: 40px 24px;
+			}
+
+			.matters-icon { font-size: 2.5rem; margin-bottom: 16px; }
+
+			.matters-card h3 {
+				font-size: 1.2rem;
+				font-weight: 700;
+				margin-bottom: 12px;
+			}
+
+			.matters-card p {
+				color: var(--gray-600);
+				font-size: 0.95rem;
+			}
+
+			/* --- Pricing --- */
+			.pricing {
+				padding: 80px 0;
+				background: var(--gray-100);
+			}
+
+			.pricing h2 {
+				font-size: 2rem;
+				font-weight: 800;
+				text-align: center;
+				margin-bottom: 12px;
+			}
+
+			.pricing-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 24px;
+				max-width: 960px;
+				margin: 0 auto;
+			}
+
+			.pricing-card {
+				background: var(--white);
+				padding: 36px 28px;
+				border-radius: 16px;
+				border: 2px solid var(--gray-200);
+				text-align: center;
+			}
+
+			.pricing-card.featured {
+				border-color: var(--blue-600);
+				box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+				transform: scale(1.03);
+			}
+
+			.pricing-badge {
+				display: inline-block;
+				background: var(--blue-100);
+				color: var(--blue-600);
+				padding: 4px 14px;
+				border-radius: 12px;
+				font-size: 0.75rem;
+				font-weight: 700;
+				letter-spacing: 0.05em;
+				margin-bottom: 20px;
+			}
+
+			.pricing-card.featured .pricing-badge {
+				background: var(--blue-600);
+				color: var(--white);
+			}
+
+			.pricing-price {
+				font-size: 3rem;
+				font-weight: 800;
+				color: var(--navy-900);
+			}
+
+			.pricing-period {
+				font-size: 1rem;
+				font-weight: 500;
+				color: var(--gray-600);
+			}
+
+			.pricing-label {
+				font-size: 1.05rem;
+				color: var(--gray-600);
+				margin-bottom: 24px;
+				font-weight: 600;
+			}
+
+			.pricing-features {
+				list-style: none;
+				text-align: left;
+				margin-bottom: 28px;
+			}
+
+			.pricing-features li {
+				padding: 8px 0;
+				font-size: 0.95rem;
+				border-bottom: 1px solid var(--gray-100);
+			}
+
+			.pricing-features li.muted {
+				color: var(--gray-400);
+			}
+
+			.pricing-form { margin-top: auto; }
+
+			.pricing-form button { width: 100%; }
+
+			/* --- Social Proof --- */
+			.social-proof {
+				padding: 80px 0;
+			}
+
+			.proof-stats {
+				display: flex;
+				justify-content: center;
+				gap: 60px;
+				margin-bottom: 60px;
+				flex-wrap: wrap;
+			}
+
+			.proof-stat {
+				text-align: center;
+			}
+
+			.proof-number {
+				display: block;
+				font-size: 2.5rem;
+				font-weight: 800;
+				color: var(--blue-600);
+			}
+
+			.proof-label {
+				font-size: 0.9rem;
+				color: var(--gray-600);
+			}
+
+			.testimonials {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+				gap: 32px;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.testimonial {
+				background: var(--gray-100);
+				padding: 32px;
+				border-radius: 12px;
+				border-left: 4px solid var(--blue-500);
+			}
+
+			.testimonial p {
+				font-size: 1.05rem;
+				margin-bottom: 16px;
+				font-style: italic;
+			}
+
+			.testimonial-author {
+				font-size: 0.9rem;
+				color: var(--gray-600);
+				font-weight: 600;
+			}
+
+			/* --- CTA --- */
+			.cta {
+				padding: 80px 0;
+				background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+				color: var(--white);
+				text-align: center;
+			}
+
+			.cta h2 {
+				font-size: 2rem;
+				font-weight: 800;
+				margin-bottom: 16px;
+			}
+
+			.cta p {
+				color: var(--gray-400);
+				font-size: 1.1rem;
+				margin-bottom: 32px;
+				max-width: 500px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.cta .form-row input {
+				background: var(--navy-700);
+				border-color: var(--navy-700);
+				color: var(--white);
+			}
+
+			.cta .form-row input::placeholder {
+				color: var(--gray-400);
+			}
+
+			/* --- Responsive --- */
+			@media (max-width: 768px) {
+				.hero { padding: 60px 0 50px; }
+				.hero h1 { font-size: 2rem; }
+				.hero-stats { gap: 24px; }
+				.stat-number { font-size: 1.5rem; }
+				.form-row { flex-direction: column; }
+				.form-row input { min-width: 100%; }
+				.pricing-card.featured { transform: none; }
+				.testimonials { grid-template-columns: 1fr; }
+			}
+		</style>
+	</body>
 </html>
-
-<style>
-/* ========== GLOBAL ========== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #0a0a0b;
-  color: #fff;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 100px 24px;
-}
-.section-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
-.section-tag {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #4cc9f0;
-  margin-bottom: 12px;
-  background: rgba(76,201,240,0.08);
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(76,201,240,0.15);
-}
-.section-header h2 {
-  font-size: 38px;
-  font-weight: 800;
-  margin-bottom: 14px;
-  letter-spacing: -0.5px;
-}
-.section-subtitle {
-  color: #a1a1aa;
-  font-size: 17px;
-  max-width: 520px;
-  margin: 0 auto;
-}
-.gradient-text {
-  background: linear-gradient(135deg, #4cc9f0, #f72585);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ========== HERO ========== */
-.hero {
-  padding-top: 120px;
-  padding-bottom: 80px;
-  min-height: auto;
-  position: relative;
-  background-image: url('/images/hero-bg-mobile.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-@media (min-width: 768px) {
-  .hero {
-    background-image: url('/images/hero-bg.webp');
-  }
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,18,0.75) 0%, rgba(15,15,34,0.6) 40%, rgba(10,10,18,0.85) 100%);
-  z-index: 0;
-}
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(76,201,240,0.08);
-  border: 1px solid rgba(76,201,240,0.2);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #4cc9f0;
-  margin-bottom: 20px;
-  letter-spacing: 0.3px;
-}
-.badge-dot {
-  width: 8px; height: 8px;
-  background: #4cc9f0;
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(76,201,240,0.5);
-  animation: pulse-dot 2s infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-.hero h1 {
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 18px;
-  letter-spacing: -1px;
-}
-.hero-subtitle {
-  font-size: 17px;
-  color: #a1a1aa;
-  margin-bottom: 28px;
-  max-width: 460px;
-  line-height: 1.6;
-}
-
-/* Hero Form */
-.hero-form {
-  margin-bottom: 8px;
-}
-.hero-form-row {
-  display: flex;
-  gap: 10px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 14px;
-  padding: 8px;
-}
-.hero-form-row input {
-  flex: 1;
-  padding: 12px 14px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  color: #fff;
-  font-size: 14px;
-  font-family: inherit;
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
-}
-.hero-form-row input:focus {
-  border-color: rgba(76,201,240,0.4);
-  background: rgba(255,255,255,0.06);
-}
-.hero-form-row input::placeholder { color: #71717a; }
-.hero-submit {
-  padding: 12px 22px;
-  background: linear-gradient(135deg, #f72585, #b5179e);
-  border: none;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: transform 0.2s, box-shadow 0.2s;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  min-height: 44px;
-}
-.hero-submit:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(247, 37, 133, 0.35);
-}
-.hero-form-note {
-  font-size: 12px;
-  color: #71717a;
-  margin-top: 10px;
-  margin-left: 4px;
-}
-
-/* Hero Visual — Report Mockup */
-.hero-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.report-mockup {
-  width: 100%;
-  max-width: 420px;
-  background: #141418;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04);
-}
-.mockup-glow {
-  position: absolute;
-  top: -40%;
-  right: -20%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(76,201,240,0.15), transparent 70%);
-  pointer-events: none;
-}
-.mockup-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.02);
-}
-.mockup-dots { display: flex; gap: 6px; }
-.mockup-dots span {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-}
-.mockup-dots span:nth-child(1) { background: #f87171; }
-.mockup-dots span:nth-child(2) { background: #fbbf24; }
-.mockup-dots span:nth-child(3) { background: #4ade80; }
-.mockup-title {
-  font-size: 12px;
-  color: #a1a1aa;
-  font-weight: 500;
-}
-.mockup-body { padding: 22px 18px; }
-.mockup-scores {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.mockup-score {
-  text-align: center;
-  position: relative;
-}
-.mockup-score svg {
-  width: 56px; height: 56px;
-  transform: rotate(-90deg);
-}
-.ms-val {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15px;
-  font-weight: 700;
-}
-.ms-label {
-  display: block;
-  font-size: 10px;
-  color: #a1a1aa;
-  margin-top: 2px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.mockup-findings { display: flex; flex-direction: column; gap: 8px; }
-.mf-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-  padding: 8px 10px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.04);
-}
-.mf-pill {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-  white-space: nowrap;
-}
-.mf-pill.high { background: rgba(248,113,113,0.15); color: #f87171; }
-.mf-pill.medium { background: rgba(251,191,36,0.15); color: #fbbf24; }
-.mf-pill.low { background: rgba(74,222,128,0.15); color: #4ade80; }
-.mf-text { color: #d4d4d8; }
-
-/* ========== TRUST BAR ========== */
-.trust-bar {
-  padding: 36px 24px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  background: rgba(255,255,255,0.015);
-}
-.trust-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 48px;
-  flex-wrap: wrap;
-}
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #a1a1aa;
-  font-size: 14px;
-  font-weight: 500;
-}
-.trust-icon {
-  width: 20px; height: 20px;
-  color: #4cc9f0;
-  flex-shrink: 0;
-}
-
-/* ========== WHAT WE CHECK ========== */
-.what-we-check { padding-top: 100px; }
-.check-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.check-card {
-  background: #141418;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 16px;
-  padding: 28px;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-.check-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255,255,255,0.12);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
-}
-.check-icon-wrap {
-  width: 44px; height: 44px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-.check-icon-wrap svg { width: 22px; height: 22px; }
-.check-card[data-category="seo"] .check-icon-wrap { background: rgba(76,201,240,0.1); color: #4cc9f0; }
-.check-card[data-category="security"] .check-icon-wrap { background: rgba(247,37,133,0.1); color: #f72585; }
-.check-card[data-category="performance"] .check-icon-wrap { background: rgba(74,222,128,0.1); color: #4ade80; }
-.check-card[data-category="accessibility"] .check-icon-wrap { background: rgba(251,146,60,0.1); color: #fb923c; }
-.check-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.check-card ul { list-style: none; }
-.check-card li {
-  color: #a1a1aa;
-  font-size: 13.5px;
-  padding: 6px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.check-card li::before {
-  content: "";
-  width: 14px; height: 14px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234cc9f0' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  flex-shrink: 0;
-}
-
-/* ========== HOW IT WORKS ========== */
-.how-it-works {
-  background: rgba(255,255,255,0.015);
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.steps-wrap {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: 0;
-}
-.step-card {
-  flex: 1;
-  text-align: center;
-  padding: 32px 24px;
-  max-width: 300px;
-}
-.step-num {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #f72585, #b5179e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 700;
-  margin: 0 auto 16px;
-}
-.step-icon {
-  width: 48px; height: 48px;
-  margin: 0 auto 14px;
-  color: #4cc9f0;
-}
-.step-icon svg { width: 100%; height: 100%; }
-.step-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.step-card p {
-  color: #a1a1aa;
-  font-size: 14px;
-  line-height: 1.6;
-}
-.step-connector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  flex-shrink: 0;
-  opacity: 0.5;
-}
-.step-connector svg { width: 100%; }
-
-/* ========== REPORT PREVIEW ========== */
-.report-preview-section { padding-top: 100px; }
-.report-preview-card {
-  max-width: 760px;
-  margin: 0 auto;
-  background: #141418;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.35);
-}
-.rp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.02);
-}
-.rp-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 15px;
-}
-.rp-logo img { width: 26px; height: 26px; border-radius: 6px; object-fit: contain; }
-.rp-site {
-  font-size: 13px;
-  color: #a1a1aa;
-  font-weight: 500;
-}
-.rp-scores {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  padding: 32px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.rp-score { text-align: center; }
-.rp-ring {
-  width: 90px; height: 90px;
-  margin: 0 auto 10px;
-  position: relative;
-}
-.rp-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-.rp-val {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 22px;
-  font-weight: 800;
-}
-.rp-label {
-  font-size: 12px;
-  color: #a1a1aa;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-}
-.rp-findings { padding: 24px; }
-.rp-findings-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 14px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fbbf24;
-}
-.rp-findings-header svg { width: 18px; height: 18px; }
-.rp-finding-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  font-size: 14px;
-}
-.rp-finding-row:last-child { border-bottom: none; }
-.rp-pill {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 5px;
-  white-space: nowrap;
-}
-.rp-pill.high { background: rgba(248,113,113,0.12); color: #f87171; }
-.rp-pill.medium { background: rgba(251,191,36,0.12); color: #fbbf24; }
-.rp-pill.low { background: rgba(74,222,128,0.12); color: #4ade80; }
-.rp-finding-text { color: #e4e4e7; flex: 1; }
-.rp-finding-meta {
-  font-size: 11px;
-  color: #71717a;
-  white-space: nowrap;
-}
-
-/* ========== TESTIMONIALS ========== */
-.testimonials { padding-top: 100px; }
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.testimonial-card {
-  background: #141418;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 16px;
-  padding: 28px;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-.testimonial-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255,255,255,0.12);
-}
-.testimonial-stars {
-  color: #fbbf24;
-  font-size: 16px;
-  letter-spacing: 2px;
-  margin-bottom: 14px;
-}
-.testimonial-text {
-  color: #d4d4d8;
-  font-size: 14.5px;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.author-avatar {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  flex-shrink: 0;
-}
-.author-info strong {
-  display: block;
-  font-size: 14px;
-  color: #fff;
-}
-.author-info span {
-  color: #a1a1aa;
-  font-size: 12.5px;
-}
-
-/* ========== FULL FORM ========== */
-.full-form-section {
-  background: rgba(255,255,255,0.015);
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.audit-form {
-  max-width: 640px;
-  margin: 0 auto;
-  background: #141418;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 18px;
-  padding: 40px;
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.form-group { margin-bottom: 18px; }
-.form-group label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #d4d4d8;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 14px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  color: #fff;
-  font-size: 14px;
-  font-family: inherit;
-  transition: border-color 0.2s, background 0.2s;
-  outline: none;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: rgba(76,201,240,0.4);
-  background: rgba(255,255,255,0.06);
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder { color: #71717a; }
-.form-group select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a1a1aa'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 16px;
-}
-.form-group select option { background: #141418; color: #fff; }
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-.submit-button {
-  width: 100%;
-  padding: 16px 28px;
-  background: linear-gradient(135deg, #f72585, #b5179e);
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  min-height: 44px;
-}
-.submit-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(247, 37, 133, 0.35);
-}
-.submit-button svg { width: 18px; height: 18px; }
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  section { padding: 64px 20px; }
-  .section-header h2 { font-size: 28px; }
-  .section-subtitle { font-size: 15px; }
-
-  .hero { padding-top: 100px; padding-bottom: 60px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero h1 { font-size: 34px; }
-  .hero-subtitle { font-size: 15px; max-width: 100%; }
-
-  .hero-form-row { flex-direction: column; }
-  .hero-form-row input { width: 100%; }
-  .hero-submit { width: 100%; justify-content: center; }
-
-  .hero-visual { order: -1; justify-content: center; }
-  .report-mockup { max-width: 320px; }
-  .mockup-scores { gap: 6px; }
-  .mockup-score svg { width: 44px; height: 44px; }
-  .ms-val { font-size: 13px; }
-  .ms-label { font-size: 9px; }
-
-  .trust-inner { gap: 24px; }
-  .trust-item { font-size: 13px; }
-
-  .check-grid { grid-template-columns: 1fr; }
-  .check-card { padding: 22px; }
-
-  .steps-wrap { flex-direction: column; align-items: center; gap: 0; }
-  .step-card { max-width: 100%; width: 100%; padding: 24px; }
-  .step-connector {
-    width: 100%;
-    height: 40px;
-    transform: rotate(90deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .step-connector svg { width: 60px; }
-
-  .rp-scores { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 24px 20px; }
-  .rp-ring { width: 72px; height: 72px; }
-  .rp-val { font-size: 18px; }
-  .rp-finding-row { flex-wrap: wrap; gap: 6px 10px; }
-  .rp-finding-meta { width: 100%; margin-top: 2px; }
-
-  .testimonials-grid { grid-template-columns: 1fr; }
-
-  .audit-form { padding: 24px; }
-  .form-row { grid-template-columns: 1fr; gap: 0; }
-}
-
-@media (max-width: 480px) {
-  section { padding: 48px 16px; }
-  .hero { padding-top: 90px; }
-  .hero h1 { font-size: 28px; }
-  .hero-subtitle { font-size: 14px; }
-  .section-header h2 { font-size: 24px; }
-  .section-tag { font-size: 11px; padding: 5px 10px; }
-
-  .report-mockup { max-width: 100%; }
-  .mockup-scores { grid-template-columns: repeat(2, 1fr); }
-  .mockup-score svg { width: 52px; height: 52px; }
-
-  .rp-scores { grid-template-columns: repeat(2, 1fr); }
-  .rp-ring { width: 64px; height: 64px; }
-  .rp-val { font-size: 16px; }
-
-  .trust-inner { gap: 16px; }
-  .trust-item { width: 45%; justify-content: center; }
-
-  .testimonial-card { padding: 20px; }
-  .testimonial-text { font-size: 13.5px; }
-}
-</style>
