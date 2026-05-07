@@ -280,22 +280,22 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<style>
 			/* --- Base --- */
 			:root {
-				--blue-600: #1a56db;
-				--blue-500: #2563eb;
-				--blue-400: #3b82f6;
-				--blue-100: #dbeafe;
-				--blue-50: #eff6ff;
-				--navy-900: #0f172a;
-				--navy-800: #1e293b;
-				--navy-700: #334155;
-				--gray-600: #475569;
-				--gray-400: #94a3b8;
-				--gray-200: #e2e8f0;
-				--gray-100: #f1f5f9;
-				--white: #ffffff;
-				--red-500: #ef4444;
-				--green-500: #22c55e;
-				--amber-500: #f59e0b;
+				/* CC3PO Unified Dark Design System */
+				--bg-primary: #0a0a12;
+				--bg-secondary: #11111f;
+				--bg-tertiary: #18182b;
+				--bg-card: rgba(255, 255, 255, 0.04);
+				--text-primary: #fafafa;
+				--text-secondary: #a1a1aa;
+				--text-muted: #71717a;
+				--border: rgba(255, 255, 255, 0.06);
+				--accent: #e94560;
+				--accent-hover: #ff5a75;
+				--accent-secondary: #6b35ff;
+				--grad-hero: linear-gradient(135deg, rgba(10,10,18,0.92) 0%, rgba(17,17,31,0.88) 100%);
+				--danger: #ef4444;
+				--success: #22c55e;
+				--warning: #f59e0b;
 			}
 
 			* { margin: 0; padding: 0; box-sizing: border-box; }
@@ -304,8 +304,8 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 
 			body {
 				font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-				color: var(--navy-900);
-				background: var(--white);
+				color: var(--text-primary);
+				background: var(--bg-primary);
 				line-height: 1.6;
 			}
 
@@ -315,12 +315,12 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				padding: 0 24px;
 			}
 
-			.highlight { color: var(--blue-600); }
+			.highlight { color: var(--accent); }
 
 			/* --- Hero --- */
 			.hero {
-				background: linear-gradient(135deg, rgba(10,10,18,0.92) 0%, rgba(17,17,31,0.88) 100%), url('/images/heroes/cc3po-hero-audit.png') center/cover no-repeat;
-				color: var(--white);
+				background: var(--grad-hero), url('/images/heroes/cc3po-hero-audit.png') center/cover no-repeat;
+				color: var(--text-primary);
 				padding: 100px 0 80px;
 				min-height: 70vh;
 				display: flex;
@@ -329,8 +329,8 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 
 			.hero-badge {
 				display: inline-block;
-				background: rgba(59, 130, 246, 0.2);
-				color: var(--blue-400);
+				background: rgba(233, 69, 96, 0.15);
+				color: var(--accent);
 				padding: 6px 16px;
 				border-radius: 20px;
 				font-size: 0.8rem;
@@ -348,7 +348,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 
 			.hero-sub {
 				font-size: 1.2rem;
-				color: var(--gray-400);
+				color: var(--text-secondary);
 				max-width: 640px;
 				margin-bottom: 40px;
 			}
@@ -365,12 +365,12 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			.stat-number {
 				font-size: 2rem;
 				font-weight: 800;
-				color: var(--blue-400);
+				color: var(--accent);
 			}
 
 			.stat-label {
 				font-size: 0.85rem;
-				color: var(--gray-400);
+				color: var(--text-secondary);
 			}
 
 			/* --- Form --- */
@@ -392,22 +392,24 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				flex: 1;
 				min-width: 200px;
 				padding: 14px 18px;
-				border: 2px solid var(--gray-200);
+				background: var(--bg-secondary);
+				border: 2px solid var(--border);
 				border-radius: 10px;
 				font-size: 1rem;
 				font-family: inherit;
+				color: var(--text-primary);
 				outline: none;
 				transition: border-color 0.2s;
 			}
 
 			.form-row input:focus {
-				border-color: var(--blue-500);
+				border-color: var(--accent);
 			}
 
 			.btn-primary {
 				padding: 14px 32px;
-				background: var(--blue-600);
-				color: var(--white);
+				background: var(--accent);
+				color: var(--text-primary);
 				border: none;
 				border-radius: 10px;
 				font-size: 1rem;
@@ -417,13 +419,13 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				transition: background 0.2s;
 			}
 
-			.btn-primary:hover { background: var(--blue-500); }
+			.btn-primary:hover { background: var(--accent-hover); }
 
 			.btn-secondary {
 				padding: 14px 32px;
-				background: var(--white);
-				color: var(--blue-600);
-				border: 2px solid var(--blue-600);
+				background: transparent;
+				color: var(--accent);
+				border: 2px solid var(--accent);
 				border-radius: 10px;
 				font-size: 1rem;
 				font-weight: 700;
@@ -432,20 +434,20 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.btn-secondary:hover {
-				background: var(--blue-600);
-				color: var(--white);
+				background: var(--accent);
+				color: var(--text-primary);
 			}
 
 			.form-note {
 				margin-top: 12px;
 				font-size: 0.85rem;
-				color: var(--gray-400);
+				color: var(--text-muted);
 			}
 
 			/* --- Scan Details --- */
 			.scan-details {
 				padding: 80px 0;
-				background: var(--gray-100);
+				background: var(--bg-secondary);
 			}
 
 			.scan-details h2 {
@@ -457,7 +459,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 
 			.section-sub {
 				text-align: center;
-				color: var(--gray-600);
+				color: var(--text-secondary);
 				max-width: 600px;
 				margin: 0 auto 48px;
 				font-size: 1.05rem;
@@ -470,10 +472,10 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.scan-card {
-				background: var(--white);
+				background: var(--bg-card);
 				padding: 32px;
 				border-radius: 12px;
-				border: 1px solid var(--gray-200);
+				border: 1px solid var(--border);
 			}
 
 			.scan-icon { font-size: 2rem; margin-bottom: 12px; }
@@ -485,7 +487,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.scan-card p {
-				color: var(--gray-600);
+				color: var(--text-secondary);
 				font-size: 0.95rem;
 			}
 
@@ -521,14 +523,14 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.matters-card p {
-				color: var(--gray-600);
+				color: var(--text-secondary);
 				font-size: 0.95rem;
 			}
 
 			/* --- Pricing --- */
 			.pricing {
 				padding: 80px 0;
-				background: var(--gray-100);
+				background: var(--bg-secondary);
 			}
 
 			.pricing h2 {
@@ -547,23 +549,23 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.pricing-card {
-				background: var(--white);
+				background: var(--bg-card);
 				padding: 36px 28px;
 				border-radius: 16px;
-				border: 2px solid var(--gray-200);
+				border: 2px solid var(--border);
 				text-align: center;
 			}
 
 			.pricing-card.featured {
-				border-color: var(--blue-600);
-				box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+				border-color: var(--accent);
+				box-shadow: 0 8px 30px rgba(233, 69, 96, 0.15);
 				transform: scale(1.03);
 			}
 
 			.pricing-badge {
 				display: inline-block;
-				background: var(--blue-100);
-				color: var(--blue-600);
+				background: rgba(233, 69, 96, 0.1);
+				color: var(--accent);
 				padding: 4px 14px;
 				border-radius: 12px;
 				font-size: 0.75rem;
@@ -573,25 +575,25 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.pricing-card.featured .pricing-badge {
-				background: var(--blue-600);
-				color: var(--white);
+				background: var(--accent);
+				color: var(--text-primary);
 			}
 
 			.pricing-price {
 				font-size: 3rem;
 				font-weight: 800;
-				color: var(--navy-900);
+				color: var(--text-primary);
 			}
 
 			.pricing-period {
 				font-size: 1rem;
 				font-weight: 500;
-				color: var(--gray-600);
+				color: var(--text-muted);
 			}
 
 			.pricing-label {
 				font-size: 1.05rem;
-				color: var(--gray-600);
+				color: var(--text-secondary);
 				margin-bottom: 24px;
 				font-weight: 600;
 			}
@@ -605,11 +607,11 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			.pricing-features li {
 				padding: 8px 0;
 				font-size: 0.95rem;
-				border-bottom: 1px solid var(--gray-100);
+				border-bottom: 1px solid var(--border);
 			}
 
 			.pricing-features li.muted {
-				color: var(--gray-400);
+				color: var(--text-muted);
 			}
 
 			.pricing-card > a.btn-primary,
@@ -627,21 +629,21 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				transition: background 0.2s, transform 0.15s;
 			}
 			.pricing-card > a.btn-primary {
-				background: var(--blue-600);
-				color: var(--white);
+				background: var(--accent);
+				color: var(--text-primary);
 				border: none;
 			}
 			.pricing-card > a.btn-primary:hover {
-				background: var(--blue-500);
+				background: var(--accent-hover);
 			}
 			.pricing-card > a.btn-secondary {
-				background: var(--white);
-				color: var(--blue-600);
-				border: 2px solid var(--blue-600);
+				background: transparent;
+				color: var(--accent);
+				border: 2px solid var(--accent);
 			}
 			.pricing-card > a.btn-secondary:hover {
-				background: var(--blue-600);
-				color: var(--white);
+				background: var(--accent);
+				color: var(--text-primary);
 			}
 
 			/* --- Social Proof --- */
@@ -665,12 +667,12 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				display: block;
 				font-size: 2.5rem;
 				font-weight: 800;
-				color: var(--blue-600);
+				color: var(--accent);
 			}
 
 			.proof-label {
 				font-size: 0.9rem;
-				color: var(--gray-600);
+				color: var(--text-secondary);
 			}
 
 			.testimonials {
@@ -682,10 +684,11 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.testimonial {
-				background: var(--gray-100);
+				background: var(--bg-card);
 				padding: 32px;
 				border-radius: 12px;
-				border-left: 4px solid var(--blue-500);
+				border: 1px solid var(--border);
+				border-left: 4px solid var(--accent);
 			}
 
 			.testimonial p {
@@ -696,15 +699,15 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 
 			.testimonial-author {
 				font-size: 0.9rem;
-				color: var(--gray-600);
+				color: var(--text-secondary);
 				font-weight: 600;
 			}
 
 			/* --- CTA --- */
 			.cta {
 				padding: 80px 0;
-				background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
-				color: var(--white);
+				background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+				color: var(--text-primary);
 				text-align: center;
 			}
 
@@ -715,7 +718,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.cta p {
-				color: var(--gray-400);
+				color: var(--text-secondary);
 				font-size: 1.1rem;
 				margin-bottom: 32px;
 				max-width: 500px;
@@ -724,13 +727,13 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			.cta .form-row input {
-				background: var(--navy-700);
-				border-color: var(--navy-700);
-				color: var(--white);
+				background: var(--bg-tertiary);
+				border-color: var(--border);
+				color: var(--text-primary);
 			}
 
 			.cta .form-row input::placeholder {
-				color: var(--gray-400);
+				color: var(--text-muted);
 			}
 
 			/* --- Responsive --- */
