@@ -78,7 +78,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<Header />
 
 		<!-- Hero Section -->
-		<section class="hero">
+		<section class="hero" id="audit-form">
 			<div class="container">
 				<div class="hero-content">
 					<div class="hero-badge">FREE ACCESSIBILITY SCAN</div>
@@ -98,7 +98,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<span class="stat-label">ADA lawsuits filed per year</span>
 						</div>
 					</div>
-					<form class="scan-form" id="scanForm" action="/success" method="GET">
+					<form class="scan-form" id="scanForm" action="/success" method="GET" data-tier="free">
 						<div class="form-row">
 							<input type="url" name="url" placeholder="Enter your website URL (e.g., https://yoursite.com)" required aria-label="Website URL to audit" />
 							<input type="email" name="email" placeholder="Your email (for results)" required aria-label="Email address for audit results" />
@@ -111,7 +111,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		</section>
 
 		<!-- What We Scan -->
-		<section class="scan-details">
+		<section class="scan-details" id="what-we-check">
 			<div class="container">
 				<h2>What Our <span class="highlight">WCAG 2.1 AA</span> Audit Covers</h2>
 				<p class="section-sub">Our automated scanner checks your website against 50+ WCAG 2.1 AA success criteria using axe-core, the industry-standard accessibility engine.</p>
@@ -193,10 +193,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<li class="muted">✗ PDF report</li>
 							<li class="muted">✗ Ongoing monitoring</li>
 						</ul>
-						<form action="/success" method="GET" class="pricing-form">
-							<input type="hidden" name="tier" value="free" />
-							<button type="submit" class="btn-secondary">Start Free Scan</button>
-						</form>
+						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='free'">Start Free Scan</a>
 					</div>
 					<div class="pricing-card featured">
 						<div class="pricing-badge">POPULAR</div>
@@ -211,10 +208,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<li>✓ Priority severity ranking</li>
 							<li class="muted">✗ Ongoing monitoring</li>
 						</ul>
-						<form action="/success" method="GET" class="pricing-form">
-							<input type="hidden" name="tier" value="full" />
-							<button type="submit" class="btn-primary">Get Full Report</button>
-						</form>
+						<a href="#audit-form" class="btn-primary" onclick="document.getElementById('scanForm').dataset.tier='full'">Get Full Report</a>
 					</div>
 					<div class="pricing-card">
 						<div class="pricing-badge">ONGOING</div>
@@ -229,10 +223,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<li>✓ Email + dashboard access</li>
 							<li>✓ Priority support</li>
 						</ul>
-						<form action="/success" method="GET" class="pricing-form">
-							<input type="hidden" name="tier" value="monitoring" />
-							<button type="submit" class="btn-secondary">Start Monitoring</button>
-						</form>
+						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='monitoring'">Start Monitoring</a>
 					</div>
 				</div>
 			</div>
@@ -274,6 +265,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				<h2>Don't Wait for a Lawsuit Letter</h2>
 				<p>Find out where your website stands — for free. Your 30-second scan could save you $50,000+ in legal costs.</p>
 				<form class="scan-form scan-form-center" action="/success" method="GET">
+					<input type="hidden" name="tier" value="free" />
 					<div class="form-row">
 						<input type="url" name="url" placeholder="Enter your website URL" required aria-label="Website URL" />
 						<input type="email" name="email" placeholder="Your email" required aria-label="Email address" />
@@ -307,6 +299,8 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			* { margin: 0; padding: 0; box-sizing: border-box; }
+
+			html { scroll-behavior: smooth; }
 
 			body {
 				font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -723,5 +717,36 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				.testimonials { grid-template-columns: 1fr; }
 			}
 		</style>
+	
+<script is:inline>
+(function() {
+  var form = document.getElementById('scanForm');
+  var tierField = document.getElementById('tierField');
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+  
+  // When user clicks pricing tier buttons, set tier and scroll to form
+  document.querySelectorAll('a[onclick]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      // The onclick already sets dataset.tier on the form
+      // Sync it to the hidden tier field
+      setTimeout(function() {
+        if (form && form.dataset.tier) {
+          tierField.value = form.dataset.tier;
+        }
+      }, 50);
+    });
+  });
+})();
+</script>
 	</body>
 </html>
