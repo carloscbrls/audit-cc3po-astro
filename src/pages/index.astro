@@ -612,9 +612,37 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				color: var(--gray-400);
 			}
 
-			.pricing-form { margin-top: auto; }
-
-			.pricing-form button { width: 100%; }
+			.pricing-card > a.btn-primary,
+			.pricing-card > a.btn-secondary {
+				display: block;
+				width: 100%;
+				text-align: center;
+				text-decoration: none;
+				margin-top: auto;
+				padding: 14px 32px;
+				border-radius: 10px;
+				font-size: 1rem;
+				font-weight: 700;
+				cursor: pointer;
+				transition: background 0.2s, transform 0.15s;
+			}
+			.pricing-card > a.btn-primary {
+				background: var(--blue-600);
+				color: var(--white);
+				border: none;
+			}
+			.pricing-card > a.btn-primary:hover {
+				background: var(--blue-500);
+			}
+			.pricing-card > a.btn-secondary {
+				background: var(--white);
+				color: var(--blue-600);
+				border: 2px solid var(--blue-600);
+			}
+			.pricing-card > a.btn-secondary:hover {
+				background: var(--blue-600);
+				color: var(--white);
+			}
 
 			/* --- Social Proof --- */
 			.social-proof {
@@ -707,14 +735,27 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 
 			/* --- Responsive --- */
 			@media (max-width: 768px) {
-				.hero { padding: 60px 0 50px; }
+				.hero { padding: 80px 0 50px; }
 				.hero h1 { font-size: 2rem; }
-				.hero-stats { gap: 24px; }
+				.hero-sub { font-size: 1rem; }
+				.hero-stats { gap: 20px; flex-direction: row; justify-content: center; }
+				.stat { min-width: 0; }
 				.stat-number { font-size: 1.5rem; }
 				.form-row { flex-direction: column; }
 				.form-row input { min-width: 100%; }
+				.pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
 				.pricing-card.featured { transform: none; }
+				.proof-stats { flex-direction: column; gap: 24px; }
 				.testimonials { grid-template-columns: 1fr; }
+				.cta { padding: 60px 0 80px; }
+				body { padding-bottom: env(safe-area-inset-bottom, 0); }
+			}
+
+			@media (max-width: 480px) {
+				.hero-stats { flex-direction: column; align-items: center; gap: 16px; }
+				.scan-grid { grid-template-columns: 1fr; }
+				.hero h1 { font-size: 1.6rem; }
+				.btn-primary, .btn-secondary { padding: 14px 24px; font-size: 0.95rem; }
 			}
 		</style>
 	
