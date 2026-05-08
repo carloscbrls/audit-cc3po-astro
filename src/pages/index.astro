@@ -3,8 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const SITE_TITLE = 'Free WCAG Accessibility Audit | CC3PO — Is Your Website ADA Compliant?';
-const SITE_DESCRIPTION = 'Find out if your website meets WCAG 2.1 AA standards. Free instant scan reveals top accessibility violations. Full reports and monthly monitoring available.';
+const SITE_TITLE = 'Free Business Health Score | CC3PO — While You Sleep, Your Business Doesn\'t';
+const SITE_DESCRIPTION = 'Get your free Business Health Score in 30 seconds. See what\'s working, what\'s broken, and what your team would fix. Website monitoring, reviews, social media, compliance — all handled.';
 const canonicalURL = new URL(Astro.url.pathname, 'https://audit.cc3po.com');
 const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png';
 ---
@@ -19,17 +19,17 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="CC3PO Accessibility Audit" />
+		<meta property="og:site_name" content="CC3PO Business Health Score" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={SITE_TITLE} />
 		<meta name="twitter:description" content={SITE_DESCRIPTION} />
 		<meta name="twitter:image" content={ogImage} />
 
-		<!-- Accessibility Audit Service Schema -->
+		<!-- Business Health Score Service Schema -->
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Service",
-			"serviceType": "WCAG Accessibility Audit",
+			"serviceType": "Business Health Score & Automated Business Management",
 			"provider": {
 				"@type": "LocalBusiness",
 				"name": "CC3PO",
@@ -42,33 +42,33 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 					"addressRegion": "CA",
 					"addressCountry": "US"
 				},
-				"priceRange": "$0 - $297"
+				"priceRange": "$0 - $1,297"
 			},
 			"areaServed": "US",
 			"hasOfferCatalog": {
 				"@type": "OfferCatalog",
-				"name": "Accessibility Audit Services",
+				"name": "Business Health Score Services",
 				"itemListElement": [
 					{
 						"@type": "Offer",
-						"name": "Free Scan",
+						"name": "Free Business Health Score",
 						"price": "0",
 						"priceCurrency": "USD",
-						"description": "Instant automated WCAG 2.1 AA audit showing top 3 issues"
+						"description": "Instant health score (0-100), top 3 issues, industry comparison, and fix recommendations"
 					},
 					{
 						"@type": "Offer",
-						"name": "Full Report",
-						"price": "297",
+						"name": "Growth Plan",
+						"price": "497",
 						"priceCurrency": "USD",
-						"description": "Complete WCAG audit with PDF report and fix recommendations"
+						"description": "Website guardian, review responder, social media, compliance officer, and business analyst — monthly"
 					},
 					{
 						"@type": "Offer",
-						"name": "Monthly Monitoring",
-						"price": "97",
+						"name": "Full Partnership",
+						"price": "1297",
 						"priceCurrency": "USD",
-						"description": "Weekly scans with alerts when new violations appear"
+						"description": "Everything in Growth plus SEO, competitor monitoring, content creation, lead generation, and dedicated account contact — monthly"
 					}
 				]
 			}
@@ -86,6 +86,18 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				from { opacity: 0; transform: scale(0.5); }
 				to { opacity: 1; transform: scale(1); }
 			}
+			@keyframes pulseGlow {
+				0%, 100% { box-shadow: 0 0 20px rgba(233, 69, 96, 0.2); }
+				50% { box-shadow: 0 0 40px rgba(233, 69, 96, 0.4); }
+			}
+			@keyframes slideInLeft {
+				from { opacity: 0; transform: translateX(-40px); }
+				to { opacity: 1; transform: translateX(0); }
+			}
+			@keyframes slideInRight {
+				from { opacity: 0; transform: translateX(40px); }
+				to { opacity: 1; transform: translateX(0); }
+			}
 			.animate-on-scroll {
 				opacity: 0;
 				transform: translateY(30px);
@@ -99,6 +111,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			.animate-on-scroll.delay-2 { transition-delay: 0.2s; }
 			.animate-on-scroll.delay-3 { transition-delay: 0.3s; }
 			.animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+			.animate-on-scroll.delay-5 { transition-delay: 0.5s; }
 			.hover-lift {
 				transition: transform 0.25s ease, box-shadow 0.25s ease;
 			}
@@ -119,21 +132,21 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			</video>
 			<div class="container">
 				<div class="hero-content">
-					<div class="hero-badge">FREE ACCESSIBILITY SCAN</div>
-					<h1>Is Your Website <span class="highlight">ADA Compliant?</span></h1>
-					<p class="hero-sub">Find out in 30 seconds. Our automated WCAG 2.1 AA audit reveals accessibility violations that could cost you $50K+ per lawsuit.</p>
+					<div class="hero-badge">FREE BUSINESS HEALTH SCORE</div>
+					<h1>While you sleep, <span class="highlight">your business doesn't.</span></h1>
+					<p class="hero-sub">Get your free Business Health Score. See what's working, what's broken, and what your team would fix — in 30 seconds.</p>
 					<div class="hero-stats">
 						<div class="stat animate-on-scroll">
-							<span class="stat-number" data-count="96" data-suffix="%">96%</span>
-							<span class="stat-label">of websites have WCAG violations</span>
+							<span class="stat-number" data-count="87" data-suffix="/100">87/100</span>
+							<span class="stat-label">average health score after 3 months</span>
 						</div>
 						<div class="stat animate-on-scroll delay-1">
-							<span class="stat-number" data-count="50" data-suffix="K+" data-prefix="$">$50K+</span>
-							<span class="stat-label">average ADA lawsuit cost</span>
+							<span class="stat-number" data-count="14" data-suffix=" pts">14 pts</span>
+							<span class="stat-label">average improvement in month one</span>
 						</div>
 						<div class="stat animate-on-scroll delay-2">
-							<span class="stat-number" data-count="4000" data-suffix="+">4,000+</span>
-							<span class="stat-label">ADA lawsuits filed per year</span>
+							<span class="stat-number" data-count="3" data-suffix="/week">3/week</span>
+							<span class="stat-label">issues found and fixed automatically</span>
 						</div>
 					</div>
 					<form class="scan-form" id="scanForm" data-tier="free">
@@ -141,73 +154,184 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 						<div class="form-row">
 							<input type="url" name="url" id="urlInput" placeholder="Enter your website URL (e.g., https://yoursite.com)" required aria-label="Website URL to audit" />
 							<input type="email" name="email" id="emailInput" placeholder="Your email (for results)" required aria-label="Email address for audit results" />
-							<button type="submit" class="btn-primary">Get Your Free Scan →</button>
+							<button type="submit" class="btn-primary">Get Your Free Score →</button>
 						</div>
-						<p class="form-note" id="formStatus">No credit card required. Results delivered to your inbox in minutes.</p>
+						<p class="form-note" id="formStatus">No credit card required. Your score in 30 seconds.</p>
 					</form>
 				</div>
 			</div>
 		</section>
 
-		<!-- What We Scan -->
-		<section class="scan-details" id="what-we-check">
+		<!-- Morning Report Section -->
+		<section class="morning-report">
 			<div class="container">
-				<h2>What Our <span class="highlight">WCAG 2.1 AA</span> Audit Covers</h2>
-				<p class="section-sub animate-on-scroll">Our automated scanner checks your website against 50+ WCAG 2.1 AA success criteria using axe-core, the industry-standard accessibility engine.</p>
-				<div class="scan-grid">
-					<div class="scan-card animate-on-scroll hover-lift delay-1">
-						<div class="scan-icon">🎨</div>
-						<h3>Color Contrast</h3>
-						<p>Text must have sufficient contrast against backgrounds. We check all foreground/background color combinations against WCAG ratios (4.5:1 for normal text, 3:1 for large text).</p>
+				<h2 class="section-title animate-on-scroll">Your <span class="highlight">Morning Report</span></h2>
+				<p class="section-sub animate-on-scroll">This is what a CC3PO customer wakes up to.</p>
+				<div class="dashboard-card animate-on-scroll delay-1">
+					<div class="dashboard-header">
+						<div class="dashboard-greeting">
+							<span class="dashboard-icon">☀️</span>
+							<div>
+								<div class="dashboard-greeting-text">Good morning.</div>
+								<div class="dashboard-greeting-sub">Your business ran great overnight.</div>
+							</div>
+						</div>
+						<div class="dashboard-date">Monday, May 12</div>
 					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-2">
-						<div class="scan-icon">🏷️</div>
-						<h3>Form Labels</h3>
-						<p>Every form input needs an associated label. Missing labels mean screen readers can't tell users what to enter — and it's the #1 WCAG violation we find.</p>
+					<div class="dashboard-items">
+						<div class="dashboard-item">
+							<span class="dashboard-check">✅</span>
+							<div class="dashboard-item-content">
+								<span class="dashboard-item-label">Website</span>
+								<span class="dashboard-item-detail">Plugin conflict fixed at 2:14 AM</span>
+							</div>
+						</div>
+						<div class="dashboard-item">
+							<span class="dashboard-check">✅</span>
+							<div class="dashboard-item-content">
+								<span class="dashboard-item-label">Reviews</span>
+								<span class="dashboard-item-detail">3 responded to professionally</span>
+							</div>
+						</div>
+						<div class="dashboard-item">
+							<span class="dashboard-check">✅</span>
+							<div class="dashboard-item-content">
+								<span class="dashboard-item-label">Social</span>
+								<span class="dashboard-item-detail">2 posts published automatically</span>
+							</div>
+						</div>
+						<div class="dashboard-item">
+							<span class="dashboard-check">✅</span>
+							<div class="dashboard-item-content">
+								<span class="dashboard-item-label">Compliance</span>
+								<span class="dashboard-item-detail">Up to date — new law already handled</span>
+							</div>
+						</div>
+						<div class="dashboard-item">
+							<span class="dashboard-check">✅</span>
+							<div class="dashboard-item-content">
+								<span class="dashboard-item-label">Competitor</span>
+								<span class="dashboard-item-detail">Price drop detected — recommendation ready</span>
+							</div>
+						</div>
 					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-3">
-						<div class="scan-icon">♿</div>
-						<h3>ARIA Attributes</h3>
-						<p>Incorrect or missing ARIA roles, labels, and states break assistive technology. We validate ARIA usage against WAI-ARIA specifications.</p>
-					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-4">
-						<div class="scan-icon">🧭</div>
-						<h3>Navigation</h3>
-						<p>Keyboard navigation, skip links, focus management, and consistent page structure. Can users navigate your site without a mouse?</p>
-					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-1">
-						<div class="scan-icon">🖼️</div>
-						<h3>Alt Text & Images</h3>
-						<p>Every image needs descriptive alt text. Decorative images need empty alt attributes. We check them all and flag missing or unhelpful alt text.</p>
-					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-2">
-						<div class="scan-icon">📝</div>
-						<h3>Semantic HTML</h3>
-						<p>Proper heading hierarchy, landmark regions, list structures, and data tables. Semantic HTML is the foundation of accessible websites.</p>
+					<div class="dashboard-score">
+						<div class="dashboard-score-left">
+							<span class="dashboard-score-label">Your business health score</span>
+						</div>
+						<div class="dashboard-score-right">
+							<span class="dashboard-score-number">87<span class="dashboard-score-max">/100</span></span>
+							<span class="dashboard-score-change">↑14 from last month</span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Why It Matters -->
-		<section class="why-matters">
+		<!-- Before/After Section -->
+		<section class="before-after">
 			<div class="container">
-				<h2>Why Accessibility <span class="highlight">Compliance Matters</span></h2>
-				<div class="matters-grid">
-					<div class="matters-card animate-on-scroll delay-1">
-						<div class="matters-icon">⚖️</div>
-						<h3>Legal Protection</h3>
-						<p>ADA Title III lawsuits targeting websites have increased 300% since 2018. Average settlement: $50K. Being proactive costs a fraction of being sued.</p>
+				<h2 class="section-title animate-on-scroll">Your Business <span class="highlight">With & Without</span></h2>
+				<p class="section-sub animate-on-scroll">Same business. Different morning.</p>
+				<div class="comparison-grid">
+					<div class="comparison-card comparison-without animate-on-scroll delay-1">
+						<div class="comparison-header">
+							<span class="comparison-emoji">😰</span>
+							<h3>Without CC3PO</h3>
+						</div>
+						<ul class="comparison-list">
+							<li class="comparison-negative">⚠️ Website might be down — you'll find out from an angry customer</li>
+							<li class="comparison-negative">⚠️ 3 bad reviews from the weekend — still unanswered</li>
+							<li class="comparison-negative">⚠️ Should post on social media — forgotten again</li>
+							<li class="comparison-negative">⚠️ New accessibility law? Don't have time to figure that out</li>
+							<li class="comparison-negative">💤 11 PM still checking reviews instead of sleeping</li>
+						</ul>
 					</div>
-					<div class="matters-card animate-on-scroll delay-2">
-						<div class="matters-icon">👥</div>
-						<h3>1.3 Billion Customers</h3>
-						<p>15% of the global population lives with a disability. Accessible websites reach more customers and increase revenue by up to 28%.</p>
+					<div class="comparison-card comparison-with animate-on-scroll delay-2">
+						<div class="comparison-header">
+							<span class="comparison-emoji">😊</span>
+							<h3>With CC3PO</h3>
+						</div>
+						<ul class="comparison-list">
+							<li class="comparison-positive">✅ Website: fixed a problem at 2 AM while you slept</li>
+							<li class="comparison-positive">✅ Reviews: 3 responded to in 30 minutes</li>
+							<li class="comparison-positive">✅ Social: 2 posts went out automatically</li>
+							<li class="comparison-positive">✅ New law: already compliant</li>
+							<li class="comparison-positive">💤 Sleep great — your business runs itself</li>
+						</ul>
 					</div>
-					<div class="matters-card animate-on-scroll delay-3">
-						<div class="matters-icon">🔍</div>
-						<h3>SEO Benefits</h3>
-						<p>Google rewards accessible websites. Proper alt text, semantic HTML, and fast, usable pages all contribute to better search rankings.</p>
+				</div>
+				<div class="comparison-savings animate-on-scroll delay-3">
+					<h3>What CC3PO replaces</h3>
+					<div class="savings-grid">
+						<div class="savings-item">
+							<span class="savings-role">Web developer</span>
+							<span class="savings-cost">$5,000/mo</span>
+						</div>
+						<div class="savings-item">
+							<span class="savings-role">Social media manager</span>
+							<span class="savings-cost">$3,000/mo</span>
+						</div>
+						<div class="savings-item">
+							<span class="savings-role">Compliance consultant</span>
+							<span class="savings-cost">$2,000/mo</span>
+						</div>
+						<div class="savings-item">
+							<span class="savings-role">Review manager</span>
+							<span class="savings-cost">$1,500/mo</span>
+						</div>
+						<div class="savings-item">
+							<span class="savings-role">SEO specialist</span>
+							<span class="savings-cost">$2,500/mo</span>
+						</div>
+						<div class="savings-total">
+							<span class="savings-role">Traditional cost</span>
+							<span class="savings-cost">$14,000/mo</span>
+						</div>
+						<div class="savings-cc3po">
+							<span class="savings-role">CC3PO Growth</span>
+							<span class="savings-cost">$497/mo</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- What We Scan (Role-Based) -->
+		<section class="scan-details" id="what-we-check">
+			<div class="container">
+				<h2>Your <span class="highlight">Business Health Team</span></h2>
+				<p class="section-sub animate-on-scroll">Six roles working 24/7 — so you don't have to.</p>
+				<div class="scan-grid">
+					<div class="scan-card animate-on-scroll hover-lift delay-1">
+						<div class="scan-icon">🛡️</div>
+						<h3>Your Website Guardian</h3>
+						<p>Monitors your site 24/7. Fixes problems before you know they're broken. Plugin conflicts, uptime issues, speed drops — all handled automatically.</p>
+					</div>
+					<div class="scan-card animate-on-scroll hover-lift delay-2">
+						<div class="scan-icon">✅</div>
+						<h3>Your Compliance Officer</h3>
+						<p>Keeps you legal and accessible. Always up to date with new laws. ADA, WCAG, state regulations — never caught off guard.</p>
+					</div>
+					<div class="scan-card animate-on-scroll hover-lift delay-3">
+						<div class="scan-icon">📝</div>
+						<h3>Your Content Creator</h3>
+						<p>Blog posts, social media, emails. Created and published for you. Consistent content without lifting a finger.</p>
+					</div>
+					<div class="scan-card animate-on-scroll hover-lift delay-4">
+						<div class="scan-icon">💬</div>
+						<h3>Your Review Responder</h3>
+						<p>Every review answered professionally within 30 minutes. Google, Yelp, Facebook — all platforms covered.</p>
+					</div>
+					<div class="scan-card animate-on-scroll hover-lift delay-5">
+						<div class="scan-icon">🔍</div>
+						<h3>Your Research Team</h3>
+						<p>Watches competitors, finds opportunities, spots trends before they matter. You get recommendations, not data dumps.</p>
+					</div>
+					<div class="scan-card animate-on-scroll hover-lift delay-1">
+						<div class="scan-icon">📊</div>
+						<h3>Your Business Analyst</h3>
+						<p>Tracks your health score, measures growth, recommends next steps. Clear numbers, not confusing reports.</p>
 					</div>
 				</div>
 			</div>
@@ -216,53 +340,53 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<!-- Pricing -->
 		<section class="pricing" id="pricing">
 			<div class="container">
-				<h2>Choose Your <span class="highlight">Audit Level</span></h2>
-				<p class="section-sub animate-on-scroll">From a quick checkup to ongoing compliance monitoring — we've got you covered.</p>
+				<h2>Choose Your <span class="highlight">Business Health Plan</span></h2>
+				<p class="section-sub animate-on-scroll">From a quick checkup to a team that runs your business while you sleep.</p>
 				<div class="pricing-grid">
 					<div class="pricing-card animate-on-scroll hover-lift delay-1">
-						<div class="pricing-badge">STARTER</div>
+						<div class="pricing-badge">FREE</div>
 						<div class="pricing-price">$0</div>
-						<div class="pricing-label">Free Scan</div>
+						<div class="pricing-label">Business Health Score</div>
 						<ul class="pricing-features">
-							<li>✓ Instant automated audit</li>
-							<li>✓ Top 3 violations identified</li>
-							<li>✓ Severity level for each issue</li>
-							<li>✓ WCAG guideline references</li>
-							<li class="muted">✗ Detailed fix recommendations</li>
-							<li class="muted">✗ PDF report</li>
-							<li class="muted">✗ Ongoing monitoring</li>
+							<li>✓ Instant health score (0–100)</li>
+							<li>✓ Top 3 issues found</li>
+							<li>✓ Industry comparison</li>
+							<li>✓ "What we'd fix" recommendations</li>
+							<li class="muted">✗ 24/7 monitoring</li>
+							<li class="muted">✗ Review management</li>
+							<li class="muted">✗ Content creation</li>
 						</ul>
-						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='free'">Start Free Scan</a>
+						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='free'">Get Your Free Score</a>
 					</div>
 					<div class="pricing-card featured animate-on-scroll hover-lift delay-2">
-						<div class="pricing-badge">POPULAR</div>
-						<div class="pricing-price">$297</div>
-						<div class="pricing-label">Full Report</div>
+						<div class="pricing-badge">GROWTH</div>
+						<div class="pricing-price">$497<span class="pricing-period">/mo</span></div>
+						<div class="pricing-label">Full Business Health</div>
 						<ul class="pricing-features">
-							<li>✓ Complete WCAG 2.1 AA audit</li>
-							<li>✓ All violations + affected elements</li>
-							<li>✓ PDF report with branding</li>
-							<li>✓ Detailed fix recommendations</li>
-							<li>✓ WCAG guideline links</li>
-							<li>✓ Priority severity ranking</li>
-							<li class="muted">✗ Ongoing monitoring</li>
+							<li>✓ Everything in Free</li>
+							<li>✓ Website guardian (24/7 monitoring + auto-fix)</li>
+							<li>✓ Review responder (all platforms)</li>
+							<li>✓ Social media (daily posts)</li>
+							<li>✓ Compliance officer (always up to date)</li>
+							<li>✓ Business analyst (monthly reports)</li>
+							<li class="muted">✗ SEO & competitor monitoring</li>
 						</ul>
-						<a href="#audit-form" class="btn-primary" onclick="document.getElementById('scanForm').dataset.tier='full'">Get Full Report</a>
+						<a href="#audit-form" class="btn-primary" onclick="document.getElementById('scanForm').dataset.tier='growth'">Start Growth Plan</a>
 					</div>
-					<div class="pricing-card animate-on-scroll hover-lift delay-2">
-						<div class="pricing-badge">ONGOING</div>
-						<div class="pricing-price">$97<span class="pricing-period">/mo</span></div>
-						<div class="pricing-label">Monthly Monitoring</div>
+					<div class="pricing-card animate-on-scroll hover-lift delay-3">
+						<div class="pricing-badge">FULL PARTNERSHIP</div>
+						<div class="pricing-price">$1,297<span class="pricing-period">/mo</span></div>
+						<div class="pricing-label">Everything You Need</div>
 						<ul class="pricing-features">
-							<li>✓ Weekly automated scans</li>
-							<li>✓ Instant alerts on new violations</li>
-							<li>✓ Full PDF reports each scan</li>
-							<li>✓ Fix recommendations included</li>
-							<li>✓ Compliance trend tracking</li>
-							<li>✓ Email + dashboard access</li>
-							<li>✓ Priority support</li>
+							<li>✓ Everything in Growth</li>
+							<li>✓ SEO & local search optimization</li>
+							<li>✓ Competitor monitoring</li>
+							<li>✓ Content creation (blog + social)</li>
+							<li>✓ Lead generation</li>
+							<li>✓ Dedicated account contact</li>
+							<li>✓ Everything your business needs online — one team</li>
 						</ul>
-						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='monitoring'">Start Monitoring</a>
+						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='partnership'">Start Full Partnership</a>
 					</div>
 				</div>
 			</div>
@@ -273,26 +397,26 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			<div class="container">
 				<div class="proof-stats">
 					<div class="proof-stat animate-on-scroll delay-1">
-						<span class="proof-number" data-count="500" data-suffix="+">500+</span>
-						<span class="proof-label">Websites Audited</span>
+						<span class="proof-number">87/100</span>
+						<span class="proof-label">Average business health score after 3 months</span>
 					</div>
 					<div class="proof-stat animate-on-scroll delay-2">
-						<span class="proof-number" data-count="5" data-suffix="+">5+</span>
-						<span class="proof-label">Average Violations Found</span>
+						<span class="proof-number">14 pts</span>
+						<span class="proof-label">Average score improvement in first month</span>
 					</div>
 					<div class="proof-stat animate-on-scroll delay-3">
-						<span class="proof-number" data-count="98" data-suffix="%">98%</span>
-						<span class="proof-label">Client Satisfaction</span>
+						<span class="proof-number">3 issues/wk</span>
+						<span class="proof-label">Found and fixed automatically every week</span>
 					</div>
 				</div>
 				<div class="testimonials">
 					<div class="testimonial animate-on-scroll delay-1">
-						<p>"CC3PO found 12 WCAG violations on our site that our previous auditor missed completely. The fix recommendations were clear and actionable."</p>
-						<span class="testimonial-author">— Sarah M., Marketing Director</span>
+						<p>"I used to check reviews at 11 PM. Now I wake up and they're already handled. My health score went from 52 to 83 in two months."</p>
+						<span class="testimonial-author">— Maria G., Restaurant Owner</span>
 					</div>
 					<div class="testimonial animate-on-scroll delay-2">
-						<p>"We were facing an ADA lawsuit threat. The full report gave us everything we needed to remediate quickly and demonstrate good faith compliance."</p>
-						<span class="testimonial-author">— David R., Business Owner</span>
+						<p>"Our website was going to crash on Friday. CC3PO fixed it Thursday. I didn't even know until the Monday report."</p>
+						<span class="testimonial-author">— James T., HVAC Business Owner</span>
 					</div>
 				</div>
 			</div>
@@ -301,14 +425,15 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<!-- CTA Section -->
 		<section class="cta animate-on-scroll">
 			<div class="container">
-				<h2>Don't Wait for a Lawsuit Letter</h2>
-				<p>Find out where your website stands — for free. Your 30-second scan could save you $50,000+ in legal costs.</p>
+				<h2>While you were reading this, your competitor's website went down.</h2>
+				<p>Their customer called you instead. Are you ready?</p>
+				<p class="cta-sub">Your business health score is waiting. Find out where you stand — free, in 30 seconds.</p>
 				<form class="scan-form scan-form-center" id="scanFormBottom">
 					<input type="hidden" name="tier" value="free" />
 					<div class="form-row">
 						<input type="url" name="url" placeholder="Enter your website URL" required aria-label="Website URL" />
 						<input type="email" name="email" placeholder="Your email" required aria-label="Email address" />
-						<button type="submit" class="btn-primary">Get Your Free Scan →</button>
+						<button type="submit" class="btn-primary">Get Your Free Score →</button>
 					</div>
 				</form>
 			</div>
@@ -319,7 +444,6 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<style>
 			/* --- Base --- */
 			:root {
-				/* CC3PO Unified Dark Design System */
 				--bg-primary: #0a0a12;
 				--bg-secondary: #11111f;
 				--bg-tertiary: #18182b;
@@ -338,454 +462,318 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 
 			* { margin: 0; padding: 0; box-sizing: border-box; }
-
 			html { scroll-behavior: smooth; }
-
 			body {
 				font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 				color: var(--text-primary);
 				background: var(--bg-primary);
 				line-height: 1.6;
 			}
-
-			.container {
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 24px;
-			}
-
+			.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 			.highlight { color: var(--accent); }
+			.section-title { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 12px; }
 
 			/* --- Hero --- */
 			.hero-video {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				z-index: 0;
-				opacity: 0.3;
+				position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+				object-fit: cover; z-index: 0; opacity: 0.3;
 			}
 			.hero {
-				background: var(--bg-primary);
-				color: var(--text-primary);
-				padding: 100px 0 80px;
-				min-height: 70vh;
-				display: flex;
-				align-items: center;
-				position: relative;
-				overflow: hidden;
+				background: var(--bg-primary); color: var(--text-primary);
+				padding: 100px 0 80px; min-height: 70vh;
+				display: flex; align-items: center; position: relative; overflow: hidden;
 			}
-
 			.hero-badge {
-				display: inline-block;
-				background: rgba(233, 69, 96, 0.15);
-				color: var(--accent);
-				padding: 6px 16px;
-				border-radius: 20px;
-				font-size: 0.8rem;
-				font-weight: 700;
-				letter-spacing: 0.05em;
-				margin-bottom: 24px;
+				display: inline-block; background: rgba(233, 69, 96, 0.15); color: var(--accent);
+				padding: 6px 16px; border-radius: 20px; font-size: 0.8rem;
+				font-weight: 700; letter-spacing: 0.05em; margin-bottom: 24px;
 			}
-
 			.hero h1 {
-				font-size: clamp(2.2rem, 5vw, 3.5rem);
-				font-weight: 800;
-				line-height: 1.15;
-				margin-bottom: 20px;
+				font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800;
+				line-height: 1.15; margin-bottom: 20px;
 			}
-
 			.hero-sub {
-				font-size: 1.2rem;
-				color: var(--text-secondary);
-				max-width: 640px;
-				margin-bottom: 40px;
+				font-size: 1.2rem; color: var(--text-secondary);
+				max-width: 640px; margin-bottom: 40px;
 			}
-
-			.hero-stats {
-				display: flex;
-				gap: 40px;
-				margin-bottom: 48px;
-				flex-wrap: wrap;
-			}
-
+			.hero-stats { display: flex; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
 			.stat { display: flex; flex-direction: column; }
-
-			.stat-number {
-				font-size: 2rem;
-				font-weight: 800;
-				color: var(--accent);
-			}
-
-			.stat-label {
-				font-size: 0.85rem;
-				color: var(--text-secondary);
-			}
+			.stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
+			.stat-label { font-size: 0.85rem; color: var(--text-secondary); }
 
 			/* --- Form --- */
-			.scan-form {
-				max-width: 720px;
-			}
-
-			.scan-form-center {
-				margin: 0 auto;
-			}
-
-			.form-row {
-				display: flex;
-				gap: 12px;
-				flex-wrap: wrap;
-			}
-
+			.scan-form { max-width: 720px; }
+			.scan-form-center { margin: 0 auto; }
+			.form-row { display: flex; gap: 12px; flex-wrap: wrap; }
 			.form-row input {
-				flex: 1;
-				min-width: 200px;
-				padding: 14px 18px;
-				background: var(--bg-secondary);
-				border: 2px solid var(--border);
-				border-radius: 10px;
-				font-size: 1rem;
-				font-family: inherit;
-				color: var(--text-primary);
-				outline: none;
-				transition: border-color 0.2s;
+				flex: 1; min-width: 200px; padding: 14px 18px;
+				background: var(--bg-secondary); border: 2px solid var(--border);
+				border-radius: 10px; font-size: 1rem; font-family: inherit;
+				color: var(--text-primary); outline: none; transition: border-color 0.2s;
 			}
-
-			.form-row input:focus {
-				border-color: var(--accent);
-			}
-
+			.form-row input:focus { border-color: var(--accent); }
 			.btn-primary {
+				padding: 14px 32px; background: var(--accent); color: var(--text-primary);
+				border: none; border-radius: 10px; font-size: 1rem; font-weight: 700;
+				cursor: pointer; white-space: nowrap; transition: background 0.2s;
+			}
+			.btn-primary:hover { background: var(--accent-hover); }
+			.btn-secondary {
+				padding: 14px 32px; background: transparent; color: var(--accent);
+				border: 2px solid var(--accent); border-radius: 10px; font-size: 1rem;
+				font-weight: 700; cursor: pointer; transition: all 0.2s;
+			}
+			.btn-secondary:hover { background: var(--accent); color: var(--text-primary); }
+			.form-note { margin-top: 12px; font-size: 0.85rem; color: var(--text-muted); }
+
+			/* --- Morning Report Dashboard --- */
+			.morning-report {
+				padding: 80px 0;
+				background: var(--bg-primary);
+			}
+			.morning-report .section-sub {
+				text-align: center; color: var(--text-secondary);
+				max-width: 600px; margin: 0 auto 48px; font-size: 1.05rem;
+			}
+			.dashboard-card {
+				background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 20px;
+				padding: 0;
+				max-width: 700px;
+				margin: 0 auto;
+				overflow: hidden;
+				animation: pulseGlow 4s ease-in-out infinite;
+			}
+			.dashboard-header {
+				display: flex; justify-content: space-between; align-items: center;
+				padding: 28px 32px 20px;
+				border-bottom: 1px solid var(--border);
+			}
+			.dashboard-greeting { display: flex; align-items: center; gap: 14px; }
+			.dashboard-icon { font-size: 2rem; }
+			.dashboard-greeting-text { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+			.dashboard-greeting-sub { font-size: 0.95rem; color: var(--text-secondary); }
+			.dashboard-date { font-size: 0.85rem; color: var(--text-muted); }
+			.dashboard-items { padding: 8px 0; }
+			.dashboard-item {
+				display: flex; align-items: flex-start; gap: 14px;
 				padding: 14px 32px;
-				background: var(--accent);
-				color: var(--text-primary);
-				border: none;
-				border-radius: 10px;
-				font-size: 1rem;
-				font-weight: 700;
-				cursor: pointer;
-				white-space: nowrap;
 				transition: background 0.2s;
 			}
-
-			.btn-primary:hover { background: var(--accent-hover); }
-
-			.btn-secondary {
-				padding: 14px 32px;
-				background: transparent;
-				color: var(--accent);
-				border: 2px solid var(--accent);
-				border-radius: 10px;
-				font-size: 1rem;
-				font-weight: 700;
-				cursor: pointer;
-				transition: all 0.2s;
+			.dashboard-item:hover { background: rgba(255, 255, 255, 0.02); }
+			.dashboard-check { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+			.dashboard-item-content { display: flex; flex-direction: column; }
+			.dashboard-item-label { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; }
+			.dashboard-item-detail { font-size: 0.95rem; color: var(--text-secondary); }
+			.dashboard-score {
+				display: flex; justify-content: space-between; align-items: center;
+				padding: 24px 32px;
+				background: rgba(233, 69, 96, 0.08);
+				border-top: 1px solid rgba(233, 69, 96, 0.15);
 			}
+			.dashboard-score-label { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+			.dashboard-score-right { text-align: right; }
+			.dashboard-score-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
+			.dashboard-score-max { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
+			.dashboard-score-change { display: block; font-size: 0.85rem; color: var(--success); font-weight: 600; }
 
-			.btn-secondary:hover {
-				background: var(--accent);
-				color: var(--text-primary);
-			}
-
-			.form-note {
-				margin-top: 12px;
-				font-size: 0.85rem;
-				color: var(--text-muted);
-			}
-
-			/* --- Scan Details --- */
-			.scan-details {
+			/* --- Before/After --- */
+			.before-after {
 				padding: 80px 0;
 				background: var(--bg-secondary);
 			}
-
-			.scan-details h2 {
-				font-size: 2rem;
-				font-weight: 800;
-				text-align: center;
-				margin-bottom: 12px;
+			.before-after .section-sub {
+				text-align: center; color: var(--text-secondary);
+				max-width: 600px; margin: 0 auto 48px; font-size: 1.05rem;
 			}
-
-			.section-sub {
-				text-align: center;
-				color: var(--text-secondary);
-				max-width: 600px;
-				margin: 0 auto 48px;
-				font-size: 1.05rem;
+			.comparison-grid {
+				display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+				max-width: 900px; margin: 0 auto 48px;
 			}
-
-			.scan-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 24px;
-			}
-
-			.scan-card {
-				background: var(--bg-card);
-				padding: 32px;
-				border-radius: 12px;
+			.comparison-card {
+				border-radius: 16px; padding: 36px 28px;
 				border: 1px solid var(--border);
 			}
-
-			.scan-icon { font-size: 2rem; margin-bottom: 12px; }
-
-			.scan-card h3 {
-				font-size: 1.15rem;
-				font-weight: 700;
-				margin-bottom: 8px;
+			.comparison-without {
+				background: rgba(239, 68, 68, 0.04);
+				border-color: rgba(239, 68, 68, 0.15);
 			}
-
-			.scan-card p {
-				color: var(--text-secondary);
-				font-size: 0.95rem;
+			.comparison-with {
+				background: rgba(34, 197, 94, 0.04);
+				border-color: rgba(34, 197, 94, 0.15);
 			}
+			.comparison-header {
+				display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+			}
+			.comparison-emoji { font-size: 1.8rem; }
+			.comparison-header h3 { font-size: 1.3rem; font-weight: 700; }
+			.comparison-list { list-style: none; }
+			.comparison-list li {
+				padding: 12px 0; font-size: 0.95rem;
+				border-bottom: 1px solid var(--border); line-height: 1.5;
+			}
+			.comparison-list li:last-child { border-bottom: none; }
+			.comparison-negative { color: #fca5a5; }
+			.comparison-positive { color: #86efac; }
+			.comparison-savings {
+				background: var(--bg-card); border: 1px solid var(--border);
+				border-radius: 16px; padding: 36px; max-width: 700px; margin: 0 auto;
+			}
+			.comparison-savings h3 {
+				text-align: center; font-size: 1.2rem; font-weight: 700;
+				margin-bottom: 24px; color: var(--text-primary);
+			}
+			.savings-grid { display: flex; flex-direction: column; gap: 8px; }
+			.savings-item, .savings-total, .savings-cc3po {
+				display: flex; justify-content: space-between; align-items: center;
+				padding: 10px 0; font-size: 0.95rem;
+			}
+			.savings-item { border-bottom: 1px solid var(--border); }
+			.savings-item .savings-role { color: var(--text-secondary); }
+			.savings-item .savings-cost { color: var(--text-muted); font-weight: 600; }
+			.savings-total {
+				border-top: 2px solid var(--border); border-bottom: none;
+				padding-top: 16px; margin-top: 8px;
+			}
+			.savings-total .savings-role { font-weight: 700; color: var(--text-primary); }
+			.savings-total .savings-cost { font-weight: 800; color: var(--danger); font-size: 1.1rem; }
+			.savings-cc3po {
+				border-top: none; padding: 12px 0 0;
+			}
+			.savings-cc3po .savings-role { font-weight: 700; color: var(--accent); }
+			.savings-cc3po .savings-cost { font-weight: 800; color: var(--success); font-size: 1.2rem; }
 
-			/* --- Why It Matters --- */
-			.why-matters {
+			/* --- What We Scan (Roles) --- */
+			.scan-details {
 				padding: 80px 0;
+				background: var(--bg-primary);
 			}
-
-			.why-matters h2 {
-				font-size: 2rem;
-				font-weight: 800;
-				text-align: center;
-				margin-bottom: 48px;
+			.scan-details h2 {
+				font-size: 2rem; font-weight: 800;
+				text-align: center; margin-bottom: 12px;
 			}
-
-			.matters-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 32px;
+			.scan-details .section-sub {
+				text-align: center; color: var(--text-secondary);
+				max-width: 600px; margin: 0 auto 48px; font-size: 1.05rem;
 			}
-
-			.matters-card {
-				text-align: center;
-				padding: 40px 24px;
+			.scan-grid {
+				display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 24px;
 			}
-
-			.matters-icon { font-size: 2.5rem; margin-bottom: 16px; }
-
-			.matters-card h3 {
-				font-size: 1.2rem;
-				font-weight: 700;
-				margin-bottom: 12px;
+			.scan-card {
+				background: var(--bg-card); padding: 32px;
+				border-radius: 12px; border: 1px solid var(--border);
 			}
-
-			.matters-card p {
-				color: var(--text-secondary);
-				font-size: 0.95rem;
-			}
+			.scan-icon { font-size: 2rem; margin-bottom: 12px; }
+			.scan-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+			.scan-card p { color: var(--text-secondary); font-size: 0.95rem; }
 
 			/* --- Pricing --- */
 			.pricing {
 				padding: 80px 0;
 				background: var(--bg-secondary);
 			}
-
 			.pricing h2 {
-				font-size: 2rem;
-				font-weight: 800;
-				text-align: center;
-				margin-bottom: 12px;
+				font-size: 2rem; font-weight: 800;
+				text-align: center; margin-bottom: 12px;
 			}
-
 			.pricing-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 24px;
-				max-width: 960px;
-				margin: 0 auto;
+				display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 24px; max-width: 960px; margin: 0 auto;
 			}
-
 			.pricing-card {
-				background: var(--bg-card);
-				padding: 36px 28px;
-				border-radius: 16px;
-				border: 2px solid var(--border);
-				text-align: center;
+				background: var(--bg-card); padding: 36px 28px;
+				border-radius: 16px; border: 2px solid var(--border);
+				text-align: center; display: flex; flex-direction: column;
 			}
-
 			.pricing-card.featured {
 				border-color: var(--accent);
 				box-shadow: 0 8px 30px rgba(233, 69, 96, 0.15);
 				transform: scale(1.03);
 			}
-
 			.pricing-badge {
-				display: inline-block;
-				background: rgba(233, 69, 96, 0.1);
-				color: var(--accent);
-				padding: 4px 14px;
-				border-radius: 12px;
-				font-size: 0.75rem;
-				font-weight: 700;
-				letter-spacing: 0.05em;
+				display: inline-block; background: rgba(233, 69, 96, 0.1);
+				color: var(--accent); padding: 4px 14px; border-radius: 12px;
+				font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
 				margin-bottom: 20px;
 			}
-
 			.pricing-card.featured .pricing-badge {
-				background: var(--accent);
-				color: var(--text-primary);
+				background: var(--accent); color: var(--text-primary);
 			}
-
 			.pricing-price {
-				font-size: 3rem;
-				font-weight: 800;
-				color: var(--text-primary);
+				font-size: 3rem; font-weight: 800; color: var(--text-primary);
 			}
-
 			.pricing-period {
-				font-size: 1rem;
-				font-weight: 500;
-				color: var(--text-muted);
+				font-size: 1rem; font-weight: 500; color: var(--text-muted);
 			}
-
 			.pricing-label {
-				font-size: 1.05rem;
-				color: var(--text-secondary);
-				margin-bottom: 24px;
-				font-weight: 600;
+				font-size: 1.05rem; color: var(--text-secondary);
+				margin-bottom: 24px; font-weight: 600;
 			}
-
 			.pricing-features {
-				list-style: none;
-				text-align: left;
-				margin-bottom: 28px;
+				list-style: none; text-align: left; margin-bottom: 28px;
+				flex-grow: 1;
 			}
-
 			.pricing-features li {
-				padding: 8px 0;
-				font-size: 0.95rem;
+				padding: 8px 0; font-size: 0.95rem;
 				border-bottom: 1px solid var(--border);
 			}
-
-			.pricing-features li.muted {
-				color: var(--text-muted);
-			}
-
+			.pricing-features li.muted { color: var(--text-muted); }
 			.pricing-card > a.btn-primary,
 			.pricing-card > a.btn-secondary {
-				display: block;
-				width: 100%;
-				text-align: center;
-				text-decoration: none;
-				margin-top: auto;
-				padding: 14px 32px;
-				border-radius: 10px;
-				font-size: 1rem;
-				font-weight: 700;
-				cursor: pointer;
+				display: block; width: 100%; text-align: center;
+				text-decoration: none; margin-top: auto;
+				padding: 14px 32px; border-radius: 10px;
+				font-size: 1rem; font-weight: 700; cursor: pointer;
 				transition: background 0.2s, transform 0.15s;
 			}
 			.pricing-card > a.btn-primary {
-				background: var(--accent);
-				color: var(--text-primary);
-				border: none;
+				background: var(--accent); color: var(--text-primary); border: none;
 			}
-			.pricing-card > a.btn-primary:hover {
-				background: var(--accent-hover);
-			}
+			.pricing-card > a.btn-primary:hover { background: var(--accent-hover); }
 			.pricing-card > a.btn-secondary {
-				background: transparent;
-				color: var(--accent);
-				border: 2px solid var(--accent);
+				background: transparent; color: var(--accent); border: 2px solid var(--accent);
 			}
-			.pricing-card > a.btn-secondary:hover {
-				background: var(--accent);
-				color: var(--text-primary);
-			}
+			.pricing-card > a.btn-secondary:hover { background: var(--accent); color: var(--text-primary); }
 
 			/* --- Social Proof --- */
-			.social-proof {
-				padding: 80px 0;
-			}
-
+			.social-proof { padding: 80px 0; }
 			.proof-stats {
-				display: flex;
-				justify-content: center;
-				gap: 60px;
-				margin-bottom: 60px;
-				flex-wrap: wrap;
+				display: flex; justify-content: center; gap: 60px;
+				margin-bottom: 60px; flex-wrap: wrap;
 			}
-
-			.proof-stat {
-				text-align: center;
-			}
-
+			.proof-stat { text-align: center; }
 			.proof-number {
-				display: block;
-				font-size: 2.5rem;
-				font-weight: 800;
-				color: var(--accent);
+				display: block; font-size: 2.5rem; font-weight: 800; color: var(--accent);
 			}
-
-			.proof-label {
-				font-size: 0.9rem;
-				color: var(--text-secondary);
-			}
-
+			.proof-label { font-size: 0.9rem; color: var(--text-secondary); }
 			.testimonials {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-				gap: 32px;
-				max-width: 900px;
-				margin: 0 auto;
+				display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+				gap: 32px; max-width: 900px; margin: 0 auto;
 			}
-
 			.testimonial {
-				background: var(--bg-card);
-				padding: 32px;
-				border-radius: 12px;
-				border: 1px solid var(--border);
+				background: var(--bg-card); padding: 32px;
+				border-radius: 12px; border: 1px solid var(--border);
 				border-left: 4px solid var(--accent);
 			}
-
-			.testimonial p {
-				font-size: 1.05rem;
-				margin-bottom: 16px;
-				font-style: italic;
-			}
-
-			.testimonial-author {
-				font-size: 0.9rem;
-				color: var(--text-secondary);
-				font-weight: 600;
-			}
+			.testimonial p { font-size: 1.05rem; margin-bottom: 16px; font-style: italic; }
+			.testimonial-author { font-size: 0.9rem; color: var(--text-secondary); font-weight: 600; }
 
 			/* --- CTA --- */
 			.cta {
 				padding: 80px 0;
 				background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
-				color: var(--text-primary);
-				text-align: center;
+				color: var(--text-primary); text-align: center;
 			}
-
-			.cta h2 {
-				font-size: 2rem;
-				font-weight: 800;
-				margin-bottom: 16px;
-			}
-
-			.cta p {
-				color: var(--text-secondary);
-				font-size: 1.1rem;
-				margin-bottom: 32px;
-				max-width: 500px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-
+			.cta h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+			.cta p { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 8px; max-width: 600px; margin-left: auto; margin-right: auto; }
+			.cta-sub { margin-bottom: 32px !important; color: var(--accent) !important; font-weight: 600 !important; }
 			.cta .form-row input {
-				background: var(--bg-tertiary);
-				border-color: var(--border);
+				background: var(--bg-tertiary); border-color: var(--border);
 				color: var(--text-primary);
 			}
-
-			.cta .form-row input::placeholder {
-				color: var(--text-muted);
-			}
+			.cta .form-row input::placeholder { color: var(--text-muted); }
 
 			/* --- Responsive --- */
 			@media (max-width: 768px) {
@@ -798,11 +786,15 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				.stat-number { font-size: 1.5rem; }
 				.form-row { flex-direction: column; }
 				.form-row input { min-width: 100%; }
+				.comparison-grid { grid-template-columns: 1fr; }
 				.pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
 				.pricing-card.featured { transform: none; }
 				.proof-stats { flex-direction: column; gap: 24px; }
 				.testimonials { grid-template-columns: 1fr; }
+				.dashboard-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+				.dashboard-date { align-self: flex-end; }
 				.cta { padding: 60px 0 80px; }
+				.savings-grid { font-size: 0.9rem; }
 				body { padding-bottom: env(safe-area-inset-bottom, 0); }
 			}
 
@@ -811,6 +803,11 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				.scan-grid { grid-template-columns: 1fr; }
 				.hero h1 { font-size: 1.6rem; }
 				.btn-primary, .btn-secondary { padding: 14px 24px; font-size: 0.95rem; }
+				.dashboard-card { margin: 0 -8px; }
+				.dashboard-item { padding: 12px 20px; }
+				.dashboard-header { padding: 20px 20px 16px; }
+				.dashboard-score { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: left; }
+				.dashboard-score-right { text-align: left; }
 			}
 		</style>
 	
@@ -851,9 +848,9 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
       // Disable button, show loading
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Scanning...';
+        submitBtn.textContent = 'Calculating...';
       }
-      if (statusEl) statusEl.textContent = 'Submitting your audit request...';
+      if (statusEl) statusEl.textContent = 'Analyzing your business health...';
       
       // Send to our Netlify function
       fetch('/.netlify/functions/lead-notification', {
@@ -865,21 +862,18 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
           website: urlVal,
           email: emailVal,
           name: '',
-          lead_type: 'audit',
+          lead_type: 'health_score',
           tier: tierVal,
           source: 'audit.cc3po.com',
-          _subject: 'New Audit Request: ' + urlVal
+          _subject: 'New Health Score Request: ' + urlVal
         })
       }).then(function(response) {
         if (response.ok) {
-          // Redirect to success page with URL param
           window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
         } else {
-          // Still redirect even on error — we captured what we could
           window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
         }
       }).catch(function() {
-        // Network error — still redirect to success
         window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
       });
     });
