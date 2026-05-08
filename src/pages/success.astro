@@ -72,6 +72,25 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				</a>
 			</div>
 			
+			<!-- Morning Report Preview -->
+			<div class="morning-report-card">
+				<div class="morning-report-header">
+					<span class="morning-sun">☀️</span>
+					<h3>Here's what your morning could look like</h3>
+				</div>
+				<ul class="morning-report-list">
+					<li><span class="check">✅</span> Website: Issues found and fixed automatically</li>
+					<li><span class="check">✅</span> Reviews: Responded to within 30 minutes</li>
+					<li><span class="check">✅</span> Social: Posts published daily</li>
+					<li><span class="check">✅</span> Compliance: Always up to date</li>
+					<li><span class="check">✅</span> Competitor: Moves detected and recommendations ready</li>
+				</ul>
+				<div class="morning-report-score">
+					<span class="score-label">Business Health Score:</span>
+					<span class="score-value">Coming to your inbox within 24 hours</span>
+				</div>
+			</div>
+
 			<div class="success-actions">
 				<a href="https://cc3po.com" class="action-button secondary">Back to Home</a>
 				<a href="https://offers.cc3po.com" class="action-button primary">View Our Services</a>
@@ -263,6 +282,81 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		box-shadow: 0 8px 30px rgba(107, 53, 255, 0.4);
 	}
 	
+	/* Morning Report Card */
+	.morning-report-card {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		border-radius: 20px;
+		padding: 32px;
+		max-width: 520px;
+		margin-bottom: 40px;
+		text-align: left;
+	}
+
+	.morning-report-header {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 24px;
+	}
+
+	.morning-sun {
+		font-size: 28px;
+	}
+
+	.morning-report-header h3 {
+		font-size: 18px;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	.morning-report-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 24px;
+	}
+
+	.morning-report-list li {
+		color: #a1a1aa;
+		font-size: 15px;
+		padding: 10px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.morning-report-list li:last-child {
+		border-bottom: none;
+	}
+
+	.morning-report-list .check {
+		font-size: 14px;
+		flex-shrink: 0;
+	}
+
+	.morning-report-score {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		padding-top: 20px;
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	.score-label {
+		font-size: 14px;
+		color: #71717a;
+	}
+
+	.score-value {
+		font-size: 16px;
+		font-weight: 600;
+		background: linear-gradient(135deg, #e94560, #4cc9f0);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
 	@media (max-width: 768px) {
 		h1 {
 			font-size: 32px;
