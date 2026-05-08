@@ -136,13 +136,14 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<span class="stat-label">ADA lawsuits filed per year</span>
 						</div>
 					</div>
-					<form class="scan-form" id="scanForm" action="/success" method="GET" data-tier="free">
+					<form class="scan-form" id="scanForm" data-tier="free">
+						<input type="hidden" name="tier" value="free" />
 						<div class="form-row">
-							<input type="url" name="url" placeholder="Enter your website URL (e.g., https://yoursite.com)" required aria-label="Website URL to audit" />
-							<input type="email" name="email" placeholder="Your email (for results)" required aria-label="Email address for audit results" />
+							<input type="url" name="url" id="urlInput" placeholder="Enter your website URL (e.g., https://yoursite.com)" required aria-label="Website URL to audit" />
+							<input type="email" name="email" id="emailInput" placeholder="Your email (for results)" required aria-label="Email address for audit results" />
 							<button type="submit" class="btn-primary">Get Your Free Scan →</button>
 						</div>
-						<p class="form-note">No credit card required. Results delivered to your inbox in minutes.</p>
+						<p class="form-note" id="formStatus">No credit card required. Results delivered to your inbox in minutes.</p>
 					</form>
 				</div>
 			</div>
@@ -302,7 +303,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			<div class="container">
 				<h2>Don't Wait for a Lawsuit Letter</h2>
 				<p>Find out where your website stands — for free. Your 30-second scan could save you $50,000+ in legal costs.</p>
-				<form class="scan-form scan-form-center" action="/success" method="GET">
+				<form class="scan-form scan-form-center" id="scanFormBottom">
 					<input type="hidden" name="tier" value="free" />
 					<div class="form-row">
 						<input type="url" name="url" placeholder="Enter your website URL" required aria-label="Website URL" />
@@ -815,8 +816,76 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 	
 <script is:inline>
 (function() {
-  var form = document.getElementById('scanForm');
-  var tierField = document.getElementById('tierField');
+  // Form submission handler — captures URL + email, sends to API, then redirects
+  function handleFormSubmit(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var urlInput = form.querySelector('input[name="url"]');
+      var emailInput = form.querySelector('input[name="email"]');
+      var tierInput = form.querySelector('input[name="tier"]');
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var statusEl = document.getElementById('formStatus');
+      
+      var urlVal = urlInput ? urlInput.value.trim() : '';
+      var emailVal = emailInput ? emailInput.value.trim() : '';
+      var tierVal = tierInput ? tierInput.value : (form.dataset.tier || 'free');
+      
+      // Basic validation
+      if (!urlVal) {
+        urlInput.focus();
+        if (statusEl) statusEl.textContent = 'Please enter a website URL.';
+        return;
+      }
+      if (!emailVal) {
+        emailInput.focus();
+        if (statusEl) statusEl.textContent = 'Please enter your email.';
+        return;
+      }
+      
+      // Ensure URL has protocol
+      if (!/^https?:\/\//i.test(urlVal)) {
+        urlVal = 'https://' + urlVal;
+      }
+      
+      // Disable button, show loading
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Scanning...';
+      }
+      if (statusEl) statusEl.textContent = 'Submitting your audit request...';
+      
+      // Send to Formspree
+      fetch('https://formspree.io/f/xwpkvgjq', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          url: urlVal,
+          email: emailVal,
+          tier: tierVal,
+          source: 'audit.cc3po.com',
+          _subject: 'New Audit Request: ' + urlVal
+        })
+      }).then(function(response) {
+        if (response.ok) {
+          // Redirect to success page with URL param
+          window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
+        } else {
+          // Still redirect even on error — we captured what we could
+          window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
+        }
+      }).catch(function() {
+        // Network error — still redirect to success
+        window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
+      });
+    });
+  }
+  
+  // Attach to both forms
+  var mainForm = document.getElementById('scanForm');
+  var bottomForm = document.getElementById('scanFormBottom');
+  if (mainForm) handleFormSubmit(mainForm);
+  if (bottomForm) handleFormSubmit(bottomForm);
   
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
@@ -829,16 +898,13 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
     });
   });
   
-  // When user clicks pricing tier buttons, set tier and scroll to form
+  // Pricing tier buttons sync tier to form
   document.querySelectorAll('a[onclick]').forEach(function(a) {
     a.addEventListener('click', function() {
-      // The onclick already sets dataset.tier on the form
-      // Sync it to the hidden tier field
-      setTimeout(function() {
-        if (form && form.dataset.tier) {
-          tierField.value = form.dataset.tier;
-        }
-      }, 50);
+      if (mainForm && mainForm.dataset.tier) {
+        var tierField = mainForm.querySelector('input[name="tier"]');
+        if (tierField) tierField.value = mainForm.dataset.tier;
+      }
     });
   });
 })();
