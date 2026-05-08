@@ -78,9 +78,9 @@ exports.handler = async (event) => {
   const importantTypes = ['audit', 'consultation'];
   const isImportant = importantTypes.includes(lead_type) || table === 'audit_requests';
 
-  const to = ['leads@cc3po.com'];
+  const to = ['info@cc3po.com', 'alerts@cc3po.com'];
   if (isImportant) {
-    to.push('ccabrales@cc3po.com');
+    to.push('910gokat@zohomail.com');
   }
 
   // Build email

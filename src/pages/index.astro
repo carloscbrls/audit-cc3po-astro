@@ -855,13 +855,17 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
       }
       if (statusEl) statusEl.textContent = 'Submitting your audit request...';
       
-      // Send to Formspree
-      fetch('https://formspree.io/f/xwpkvgjq', {
+      // Send to our Netlify function
+      fetch('/.netlify/functions/lead-notification', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          table: 'audit_requests',
           url: urlVal,
+          website: urlVal,
           email: emailVal,
+          name: '',
+          lead_type: 'audit',
           tier: tierVal,
           source: 'audit.cc3po.com',
           _subject: 'New Audit Request: ' + urlVal
