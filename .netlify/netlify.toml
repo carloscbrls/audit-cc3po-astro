@@ -1,5 +1,5 @@
 functionsDirectory = "/Users/cc3po/.openclaw/workspace/audit-cc3po-astro/netlify/functions"
-functionsDirectoryOrigin = "default"
+functionsDirectoryOrigin = "config-v1"
 headersOrigin = "config"
 plugins = []
 redirects = []

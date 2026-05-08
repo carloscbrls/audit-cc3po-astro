@@ -47,7 +47,7 @@ async function sendEmail({ to, subject, html }) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      from: 'CC3PO Audit <onboarding@resend.dev>',
+      from: 'CC3PO Audit <audit@cc3po.com>',
       to: to,
       subject,
       html
