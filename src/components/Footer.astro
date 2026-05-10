@@ -71,6 +71,14 @@ function getSvg(icon: string) {
   <p style="margin-top: 12px; font-size: 12px;">
     <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a> · <a href="/disclaimer">Disclaimer</a>
   </p>
+  <div style="margin-top: 16px; font-size: 12px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+    <a href="https://cc3po.com" style="color: #a1a1aa;">Main Site</a> ·
+    <a href="https://offers.cc3po.com" style="color: #a1a1aa;">Services & Pricing</a> ·
+    <a href="https://insights.cc3po.com" style="color: #a1a1aa;">Blog & Insights</a> ·
+    <a href="https://pricing.cc3po.com" style="color: #a1a1aa;">Pricing</a> ·
+    <a href="https://docs.cc3po.com" style="color: #a1a1aa;">Docs</a> ·
+    <a href="https://status.cc3po.com" style="color: #a1a1aa;">Status</a>
+  </div>
   <div class="social-icons">
     {socialLinks.map(link => (
       <a href={link.url} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label={link.name} set:html={getSvg(link.icon)} />
