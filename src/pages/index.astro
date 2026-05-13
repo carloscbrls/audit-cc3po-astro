@@ -3,8 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const SITE_TITLE = 'Free Business Health Score | CC3PO — While You Sleep, Your Business Doesn\'t';
-const SITE_DESCRIPTION = 'Get your free Business Health Score in 30 seconds. See what\'s working, what\'s broken, and what your team would fix. Website monitoring, reviews, social media, compliance — all handled.';
+const SITE_TITLE = 'Free Compliance Score | CC3PO — Is Your Website a Lawsuit Target?';
+const SITE_DESCRIPTION = 'Get your free CC3PO Living Compliance Score in 30 seconds. ADA lawsuits are up 300%. $4K per violation in California. Find out if your website is compliant before you get a demand letter.';
 const canonicalURL = new URL(Astro.url.pathname, 'https://audit.cc3po.com');
 const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png';
 ---
@@ -19,7 +19,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="CC3PO Business Health Score" />
+		<meta property="og:site_name" content="CC3PO Living Compliance Score" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={SITE_TITLE} />
 		<meta name="twitter:description" content={SITE_DESCRIPTION} />
@@ -29,7 +29,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Service",
-			"serviceType": "Business Health Score & Automated Business Management",
+"serviceType": "Website Compliance & Living Compliance Score",
 			"provider": {
 				"@type": "LocalBusiness",
 				"name": "CC3PO",
@@ -42,33 +42,40 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 					"addressRegion": "CA",
 					"addressCountry": "US"
 				},
-				"priceRange": "$0 - $1,297"
+				"priceRange": "$0 - $499"
 			},
 			"areaServed": "US",
 			"hasOfferCatalog": {
 				"@type": "OfferCatalog",
-				"name": "Business Health Score Services",
+				"name": "CC3PO Living Compliance Score Services",
 				"itemListElement": [
 					{
 						"@type": "Offer",
-						"name": "Free Business Health Score",
+						"name": "Free Compliance Scan",
 						"price": "0",
 						"priceCurrency": "USD",
-						"description": "Instant health score (0-100), top 3 issues, industry comparison, and fix recommendations"
+						"description": "Instant Living Compliance Score (0-100), top compliance risks, industry comparison, and fix recommendations"
 					},
 					{
 						"@type": "Offer",
-						"name": "Growth Plan",
-						"price": "497",
+						"name": "Compliance Shield",
+						"price": "99",
 						"priceCurrency": "USD",
-						"description": "Website guardian, review responder, social media, compliance officer, and business analyst — monthly"
+						"description": "Living Compliance Score, ADA/WCAG monitoring, demand letter protection, and monthly compliance reports - monthly"
 					},
 					{
 						"@type": "Offer",
-						"name": "Full Partnership",
-						"price": "1297",
+						"name": "Compliance Pro",
+						"price": "299",
 						"priceCurrency": "USD",
-						"description": "Everything in Growth plus SEO, competitor monitoring, content creation, lead generation, and dedicated account contact — monthly"
+						"description": "Everything in Shield plus automated compliance fixes, review management, social media, and priority support - monthly"
+					},
+					{
+						"@type": "Offer",
+						"name": "Compliance Command",
+						"price": "499",
+						"priceCurrency": "USD",
+						"description": "Everything in Pro plus SEO, competitor monitoring, content creation, lead generation, and dedicated account contact - monthly"
 					}
 				]
 			}
@@ -134,21 +141,21 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			</video>
 			<div class="container">
 				<div class="hero-content">
-					<div class="hero-badge">FREE BUSINESS HEALTH SCORE</div>
-					<h1>While you sleep, <span class="highlight">your business doesn't.</span></h1>
-					<p class="hero-sub">Get your free Business Health Score. See what's working, what's broken, and what your team would fix — in 30 seconds.</p>
+					<div class="hero-badge">⚠️ FREE COMPLIANCE SCORE - ARE YOU A LAWSUIT TARGET?</div>
+					<h1>Your website could cost you <span class="highlight">$4,000 per violation.</span></h1>
+					<p class="hero-sub">ADA lawsuits are up 300%. Demand letters are hitting small businesses every day. Get your free CC3PO Living Compliance Score - find out if your site is compliant before a lawyer does.</p>
 					<div class="hero-stats">
 						<div class="stat animate-on-scroll">
-							<span class="stat-number" data-count="87" data-suffix="/100">87/100</span>
-							<span class="stat-label">average health score after 3 months</span>
+							<span class="stat-number" data-count="300" data-suffix="%">300%</span>
+							<span class="stat-label">increase in ADA web lawsuits since 2018</span>
 						</div>
 						<div class="stat animate-on-scroll delay-1">
-							<span class="stat-number" data-count="14" data-suffix=" pts">14 pts</span>
-							<span class="stat-label">average improvement in month one</span>
+							<span class="stat-number" data-count="4" data-suffix="K/violation">$4K/violation</span>
+							<span class="stat-label">in California - and demand letters are rising</span>
 						</div>
 						<div class="stat animate-on-scroll delay-2">
-							<span class="stat-number" data-count="3" data-suffix="/week">3/week</span>
-							<span class="stat-label">issues found and fixed automatically</span>
+							<span class="stat-number" data-count="92" data-suffix="%">92%</span>
+							<span class="stat-label">of small business websites fail basic compliance</span>
 						</div>
 					</div>
 					<form class="scan-form" id="scanForm" data-tier="free">
@@ -158,7 +165,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<input type="email" name="email" id="emailInput" placeholder="Your email (for results)" required aria-label="Email address for audit results" />
 							<button type="submit" class="btn-primary">Get Your Free Score →</button>
 						</div>
-						<p class="form-note" id="formStatus">No credit card required. Your score in 30 seconds.</p>
+						<p class="form-note" id="formStatus">No credit card required. See your compliance risks in 30 seconds.</p>
 					</form>
 				</div>
 			</div>
@@ -167,15 +174,15 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<!-- Morning Report Section -->
 		<section class="morning-report">
 			<div class="container">
-				<h2 class="section-title animate-on-scroll">Your <span class="highlight">Morning Report</span></h2>
-				<p class="section-sub animate-on-scroll">This is what a CC3PO customer wakes up to.</p>
+				<h2 class="section-title animate-on-scroll">Your <span class="highlight">Compliance Morning Report</span></h2>
+				<p class="section-sub animate-on-scroll">This is what compliance peace of mind looks like.</p>
 				<div class="dashboard-card animate-on-scroll delay-1">
 					<div class="dashboard-header">
 						<div class="dashboard-greeting">
 							<span class="dashboard-icon">☀️</span>
 							<div>
 								<div class="dashboard-greeting-text">Good morning.</div>
-								<div class="dashboard-greeting-sub">Your business ran great overnight.</div>
+								<div class="dashboard-greeting-sub">Your compliance is handled overnight.</div>
 							</div>
 						</div>
 						<div class="dashboard-date">Monday, May 12</div>
@@ -206,20 +213,20 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<span class="dashboard-check">✅</span>
 							<div class="dashboard-item-content">
 								<span class="dashboard-item-label">Compliance</span>
-								<span class="dashboard-item-detail">Up to date — new law already handled</span>
+								<span class="dashboard-item-detail">Up to date - new law already handled</span>
 							</div>
 						</div>
 						<div class="dashboard-item">
 							<span class="dashboard-check">✅</span>
 							<div class="dashboard-item-content">
 								<span class="dashboard-item-label">Competitor</span>
-								<span class="dashboard-item-detail">Price drop detected — recommendation ready</span>
+								<span class="dashboard-item-detail">Price drop detected - recommendation ready</span>
 							</div>
 						</div>
 					</div>
 					<div class="dashboard-score">
 						<div class="dashboard-score-left">
-							<span class="dashboard-score-label">Your business health score</span>
+							<span class="dashboard-score-label">Your Living Compliance Score</span>
 						</div>
 						<div class="dashboard-score-right">
 							<span class="dashboard-score-number">87<span class="dashboard-score-max">/100</span></span>
@@ -233,8 +240,8 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<!-- Before/After Section -->
 		<section class="before-after">
 			<div class="container">
-				<h2 class="section-title animate-on-scroll">Your Business <span class="highlight">With & Without</span></h2>
-				<p class="section-sub animate-on-scroll">Same business. Different morning.</p>
+				<h2 class="section-title animate-on-scroll">Your Compliance <span class="highlight">Nightmare vs. Peace of Mind</span></h2>
+				<p class="section-sub animate-on-scroll">One demand letter can cost you $4,000+.</p>
 				<div class="comparison-grid">
 					<div class="comparison-card comparison-without animate-on-scroll delay-1">
 						<div class="comparison-header">
@@ -242,11 +249,11 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<h3>Without CC3PO</h3>
 						</div>
 						<ul class="comparison-list">
-							<li class="comparison-negative">⚠️ Website might be down — you'll find out from an angry customer</li>
-							<li class="comparison-negative">⚠️ 3 bad reviews from the weekend — still unanswered</li>
-							<li class="comparison-negative">⚠️ Should post on social media — forgotten again</li>
-							<li class="comparison-negative">⚠️ New accessibility law? Don't have time to figure that out</li>
-							<li class="comparison-negative">💤 11 PM still checking reviews instead of sleeping</li>
+							<li class="comparison-negative">⚠️ Your website isn't ADA compliant - you just don't know it yet</li>
+							<li class="comparison-negative">⚠️ A demand letter could arrive any day - $4K+ per violation in CA</li>
+							<li class="comparison-negative">⚠️ New accessibility laws keep changing - no one's tracking them for you</li>
+							<li class="comparison-negative">⚠️ 3 bad reviews unanswered - and your reputation is sliding</li>
+							<li class="comparison-negative">💤 11 PM googling "ADA website compliance" instead of sleeping</li>
 						</ul>
 					</div>
 					<div class="comparison-card comparison-with animate-on-scroll delay-2">
@@ -255,44 +262,44 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 							<h3>With CC3PO</h3>
 						</div>
 						<ul class="comparison-list">
-							<li class="comparison-positive">✅ Website: fixed a problem at 2 AM while you slept</li>
+							<li class="comparison-positive">✅ ADA/WCAG compliance: continuously monitored and fixed</li>
+							<li class="comparison-positive">✅ Demand letter protection: issues caught before lawyers find them</li>
+							<li class="comparison-positive">✅ New laws: automatically tracked and applied to your site</li>
 							<li class="comparison-positive">✅ Reviews: 3 responded to in 30 minutes</li>
-							<li class="comparison-positive">✅ Social: 2 posts went out automatically</li>
-							<li class="comparison-positive">✅ New law: already compliant</li>
-							<li class="comparison-positive">💤 Sleep great — your business runs itself</li>
+							<li class="comparison-positive">💤 Sleep great - your compliance is handled 24/7</li>
 						</ul>
 					</div>
 				</div>
 				<div class="comparison-savings animate-on-scroll delay-3">
-					<h3>What CC3PO replaces</h3>
+					<h3>What you'd pay without CC3PO</h3>
 					<div class="savings-grid">
 						<div class="savings-item">
-							<span class="savings-role">Web developer</span>
-							<span class="savings-cost">$5,000/mo</span>
-						</div>
-						<div class="savings-item">
-							<span class="savings-role">Social media manager</span>
+							<span class="savings-role">ADA compliance consultant</span>
 							<span class="savings-cost">$3,000/mo</span>
 						</div>
 						<div class="savings-item">
-							<span class="savings-role">Compliance consultant</span>
+							<span class="savings-role">Website monitoring & maintenance</span>
 							<span class="savings-cost">$2,000/mo</span>
 						</div>
 						<div class="savings-item">
-							<span class="savings-role">Review manager</span>
+							<span class="savings-role">Legal fees (one demand letter)</span>
+							<span class="savings-cost">$4,000+/violation</span>
+						</div>
+						<div class="savings-item">
+							<span class="savings-role">Review & reputation manager</span>
 							<span class="savings-cost">$1,500/mo</span>
 						</div>
 						<div class="savings-item">
-							<span class="savings-role">SEO specialist</span>
+							<span class="savings-role">SEO & local search specialist</span>
 							<span class="savings-cost">$2,500/mo</span>
 						</div>
 						<div class="savings-total">
-							<span class="savings-role">Traditional cost</span>
-							<span class="savings-cost">$14,000/mo</span>
+							<span class="savings-role">Risk of non-compliance</span>
+							<span class="savings-cost">$13,000+/mo</span>
 						</div>
 						<div class="savings-cc3po">
-							<span class="savings-role">CC3PO Growth</span>
-							<span class="savings-cost">$497/mo</span>
+							<span class="savings-role">CC3PO Compliance Pro</span>
+							<span class="savings-cost">$299/mo</span>
 						</div>
 					</div>
 				</div>
@@ -302,38 +309,38 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<!-- What We Scan (Role-Based) -->
 		<section class="scan-details" id="what-we-check">
 			<div class="container">
-				<h2>Your <span class="highlight">Business Health Team</span></h2>
-				<p class="section-sub animate-on-scroll">Six roles working 24/7 — so you don't have to.</p>
+				<h2>Your <span class="highlight">Compliance Team</span></h2>
+				<p class="section-sub animate-on-scroll">Six roles protecting your business 24/7 - so you never get a demand letter.</p>
 				<div class="scan-grid">
 					<div class="scan-card animate-on-scroll hover-lift delay-1">
 						<div class="scan-icon">🛡️</div>
 						<h3>Your Website Guardian</h3>
-						<p>Monitors your site 24/7. Fixes problems before you know they're broken. Plugin conflicts, uptime issues, speed drops — all handled automatically.</p>
+						<p>Monitors your site 24/7. Catches uptime issues, broken links, and plugin conflicts before they become compliance risks.</p>
 					</div>
 					<div class="scan-card animate-on-scroll hover-lift delay-2">
 						<div class="scan-icon">✅</div>
 						<h3>Your Compliance Officer</h3>
-						<p>Keeps you legal and accessible. Always up to date with new laws. ADA, WCAG, state regulations — never caught off guard.</p>
+						<p>ADA, WCAG, state regulations - always tracked and applied. New laws? Already handled before they affect you.</p>
 					</div>
 					<div class="scan-card animate-on-scroll hover-lift delay-3">
 						<div class="scan-icon">📝</div>
 						<h3>Your Content Creator</h3>
-						<p>Blog posts, social media, emails. Created and published for you. Consistent content without lifting a finger.</p>
+						<p>Blog posts, social media, emails - all created and published for you. Consistent content that keeps your site active and authoritative.</p>
 					</div>
 					<div class="scan-card animate-on-scroll hover-lift delay-4">
 						<div class="scan-icon">💬</div>
 						<h3>Your Review Responder</h3>
-						<p>Every review answered professionally within 30 minutes. Google, Yelp, Facebook — all platforms covered.</p>
+						<p>Every review answered professionally within 30 minutes. Google, Yelp, Facebook - all platforms covered. Reputation is compliance.</p>
 					</div>
 					<div class="scan-card animate-on-scroll hover-lift delay-5">
 						<div class="scan-icon">🔍</div>
 						<h3>Your Research Team</h3>
-						<p>Watches competitors, finds opportunities, spots trends before they matter. You get recommendations, not data dumps.</p>
+						<p>Watches competitors, finds opportunities, spots trends before they matter. You get actionable recommendations, not data dumps.</p>
 					</div>
 					<div class="scan-card animate-on-scroll hover-lift delay-1">
 						<div class="scan-icon">📊</div>
 						<h3>Your Business Analyst</h3>
-						<p>Tracks your health score, measures growth, recommends next steps. Clear numbers, not confusing reports.</p>
+						<p>Tracks your Living Compliance Score, measures growth, recommends next steps. Clear numbers, not confusing reports.</p>
 					</div>
 				</div>
 			</div>
@@ -342,53 +349,68 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<!-- Pricing -->
 		<section class="pricing" id="pricing">
 			<div class="container">
-				<h2>Choose Your <span class="highlight">Business Health Plan</span></h2>
-				<p class="section-sub animate-on-scroll">From a quick checkup to a team that runs your business while you sleep.</p>
+				<h2>Choose Your <span class="highlight">Compliance Plan</span></h2>
+				<p class="section-sub animate-on-scroll">From a free compliance scan to full protection - stop demand letters before they arrive.</p>
 				<div class="pricing-grid">
 					<div class="pricing-card animate-on-scroll hover-lift delay-1">
 						<div class="pricing-badge">FREE</div>
 						<div class="pricing-price">$0</div>
-						<div class="pricing-label">Business Health Score</div>
+						<div class="pricing-label">Compliance Scan</div>
 						<ul class="pricing-features">
-							<li>✓ Instant health score (0–100)</li>
-							<li>✓ Top 3 issues found</li>
+							<li>✓ Instant Living Compliance Score (0-100)</li>
+							<li>✓ Top 3 compliance risks identified</li>
 							<li>✓ Industry comparison</li>
-							<li>✓ "What we'd fix" recommendations</li>
-							<li class="muted">✗ 24/7 monitoring</li>
-							<li class="muted">✗ Review management</li>
-							<li class="muted">✗ Content creation</li>
+							<li>✓ "What to fix first" recommendations</li>
+							<li class="muted">✗ 24/7 compliance monitoring</li>
+							<li class="muted">✗ Demand letter protection</li>
+							<li class="muted">✗ Automated fixes</li>
 						</ul>
 						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='free'">Get Your Free Score</a>
 					</div>
 					<div class="pricing-card featured animate-on-scroll hover-lift delay-2">
-						<div class="pricing-badge">GROWTH</div>
-						<div class="pricing-price">$497<span class="pricing-period">/mo</span></div>
-						<div class="pricing-label">Full Business Health</div>
+						<div class="pricing-badge">COMPLIANCE SHIELD</div>
+						<div class="pricing-price">$99<span class="pricing-period">/mo</span></div>
+						<div class="pricing-label">Demand Letter Protection</div>
 						<ul class="pricing-features">
 							<li>✓ Everything in Free</li>
-							<li>✓ Website guardian (24/7 monitoring + auto-fix)</li>
-							<li>✓ Review responder (all platforms)</li>
-							<li>✓ Social media (daily posts)</li>
-							<li>✓ Compliance officer (always up to date)</li>
-							<li>✓ Business analyst (monthly reports)</li>
-							<li class="muted">✗ SEO & competitor monitoring</li>
+							<li>✓ 24/7 ADA/WCAG compliance monitoring</li>
+							<li>✓ Demand letter protection alerts</li>
+							<li>✓ Website uptime monitoring + auto-fix</li>
+							<li>✓ Monthly compliance report</li>
+							<li>✓ Living Compliance Score dashboard</li>
+							<li class="muted">✗ Review management</li>
 						</ul>
-						<a href="#audit-form" class="btn-primary" onclick="document.getElementById('scanForm').dataset.tier='growth'">Start Growth Plan</a>
+						<a href="#audit-form" class="btn-primary" onclick="document.getElementById('scanForm').dataset.tier='shield'">Start Compliance Shield</a>
 					</div>
 					<div class="pricing-card animate-on-scroll hover-lift delay-3">
-						<div class="pricing-badge">FULL PARTNERSHIP</div>
-						<div class="pricing-price">$1,297<span class="pricing-period">/mo</span></div>
+						<div class="pricing-badge">COMPLIANCE PRO</div>
+						<div class="pricing-price">$299<span class="pricing-period">/mo</span></div>
+						<div class="pricing-label">Full Compliance + Growth</div>
+						<ul class="pricing-features">
+							<li>✓ Everything in Shield</li>
+							<li>✓ Automated compliance fixes</li>
+							<li>✓ Review management (all platforms)</li>
+							<li>✓ Social media management</li>
+							<li>✓ Priority support</li>
+							<li>✓ Monthly business insights report</li>
+							<li class="muted">✗ SEO & competitor monitoring</li>
+						</ul>
+						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='pro'">Start Compliance Pro</a>
+					</div>
+					<div class="pricing-card animate-on-scroll hover-lift delay-4">
+						<div class="pricing-badge">COMPLIANCE COMMAND</div>
+						<div class="pricing-price">$499<span class="pricing-period">/mo</span></div>
 						<div class="pricing-label">Everything You Need</div>
 						<ul class="pricing-features">
-							<li>✓ Everything in Growth</li>
+							<li>✓ Everything in Pro</li>
 							<li>✓ SEO & local search optimization</li>
 							<li>✓ Competitor monitoring</li>
 							<li>✓ Content creation (blog + social)</li>
 							<li>✓ Lead generation</li>
 							<li>✓ Dedicated account contact</li>
-							<li>✓ Everything your business needs online — one team</li>
+							<li>✓ Full compliance command — one team, zero risk</li>
 						</ul>
-						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='partnership'">Start Full Partnership</a>
+						<a href="#audit-form" class="btn-secondary" onclick="document.getElementById('scanForm').dataset.tier='command'">Start Compliance Command</a>
 					</div>
 				</div>
 			</div>
@@ -399,26 +421,26 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			<div class="container">
 				<div class="proof-stats">
 					<div class="proof-stat animate-on-scroll delay-1">
-						<span class="proof-number">87/100</span>
-						<span class="proof-label">Average business health score after 3 months</span>
+						<span class="proof-number">92%</span>
+						<span class="proof-label">of small business websites fail basic compliance</span>
 					</div>
 					<div class="proof-stat animate-on-scroll delay-2">
-						<span class="proof-number">14 pts</span>
-						<span class="proof-label">Average score improvement in first month</span>
+						<span class="proof-number">$4K+</span>
+						<span class="proof-label">average cost per ADA violation in California</span>
 					</div>
 					<div class="proof-stat animate-on-scroll delay-3">
-						<span class="proof-number">3 issues/wk</span>
-						<span class="proof-label">Found and fixed automatically every week</span>
+						<span class="proof-number">300% ↑</span>
+						<span class="proof-label">increase in ADA web lawsuits since 2018</span>
 					</div>
 				</div>
 				<div class="testimonials">
 					<div class="testimonial animate-on-scroll delay-1">
-						<p>"I used to check reviews at 11 PM. Now I wake up and they're already handled. My health score went from 52 to 83 in two months."</p>
-						<span class="testimonial-author">— Maria G., Restaurant Owner</span>
+						<p>"We got a demand letter for $12,000. After signing up with CC3PO, our Living Compliance Score went from 31 to 94. Haven't had a problem since."</p>
+						<span class="testimonial-author">- Maria G., Restaurant Owner</span>
 					</div>
 					<div class="testimonial animate-on-scroll delay-2">
-						<p>"Our website was going to crash on Friday. CC3PO fixed it Thursday. I didn't even know until the Monday report."</p>
-						<span class="testimonial-author">— James T., HVAC Business Owner</span>
+						<p>"Our HVAC site had 47 accessibility violations. CC3PO found them all in the free scan, and fixed them within a week. That would have been a $188K lawsuit."</p>
+						<span class="testimonial-author">- James T., HVAC Business Owner</span>
 					</div>
 				</div>
 			</div>
@@ -427,9 +449,9 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<!-- CTA Section -->
 		<section class="cta animate-on-scroll">
 			<div class="container">
-				<h2>While you were reading this, your competitor's website went down.</h2>
-				<p>Their customer called you instead. Are you ready?</p>
-				<p class="cta-sub">Your business health score is waiting. Find out where you stand — free, in 30 seconds.</p>
+				<h2>While you were reading this, another small business got a demand letter.</h2>
+				<p>$4,000 per violation. Don't be next.</p>
+				<p class="cta-sub">Your free CC3PO Living Compliance Score is waiting. Find out if you're exposed — in 30 seconds.</p>
 				<form class="scan-form scan-form-center" id="scanFormBottom">
 					<input type="hidden" name="tier" value="free" />
 					<div class="form-row">
@@ -813,24 +835,24 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				.dashboard-score-right { text-align: left; }
 			}
 		</style>
-	
+
 <script is:inline>
 (function() {
-  // Form submission handler — captures URL + email, sends to API, then redirects
+  // Form submission handler - captures URL + email, sends to API, then redirects
   function handleFormSubmit(form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      
+
       var urlInput = form.querySelector('input[name="url"]');
       var emailInput = form.querySelector('input[name="email"]');
       var tierInput = form.querySelector('input[name="tier"]');
       var submitBtn = form.querySelector('button[type="submit"]');
       var statusEl = document.getElementById('formStatus');
-      
+
       var urlVal = urlInput ? urlInput.value.trim() : '';
       var emailVal = emailInput ? emailInput.value.trim() : '';
       var tierVal = tierInput ? tierInput.value : (form.dataset.tier || 'free');
-      
+
       // Basic validation
       if (!urlVal) {
         urlInput.focus();
@@ -842,19 +864,19 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
         if (statusEl) statusEl.textContent = 'Please enter your email.';
         return;
       }
-      
+
       // Ensure URL has protocol
       if (!/^https?:\/\//i.test(urlVal)) {
         urlVal = 'https://' + urlVal;
       }
-      
+
       // Disable button, show loading
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Calculating...';
       }
       if (statusEl) statusEl.textContent = 'Analyzing your business health...';
-      
+
       // Send to our Netlify function
       fetch('/.netlify/functions/lead-notification', {
         method: 'POST',
@@ -881,13 +903,13 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
       });
     });
   }
-  
+
   // Attach to both forms
   var mainForm = document.getElementById('scanForm');
   var bottomForm = document.getElementById('scanFormBottom');
   if (mainForm) handleFormSubmit(mainForm);
   if (bottomForm) handleFormSubmit(bottomForm);
-  
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
@@ -898,7 +920,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
       }
     });
   });
-  
+
   // Pricing tier buttons sync tier to form
   document.querySelectorAll('a[onclick]').forEach(function(a) {
     a.addEventListener('click', function() {
