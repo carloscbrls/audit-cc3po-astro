@@ -1,8 +1,9 @@
 ---
 const navLinks = [
-	{ href: '#what-we-check', label: 'What We Check' },
-	{ href: '#pricing', label: 'Pricing' },
-	{ href: '#audit-form', label: 'Get Your Score', cta: true },
+	{ href: 'https://cc3po.com', label: 'Home' },
+	{ href: 'https://insights.cc3po.com', label: 'Blog' },
+	{ href: 'https://audit.cc3po.com', label: 'Free Audit', active: true },
+	{ href: 'https://cc3po.com/contact', label: 'Contact' },
 ];
 ---
 
@@ -82,6 +83,10 @@ const navLinks = [
 		color: #fff;
 		background: rgba(255,255,255,0.04);
 	}
+	nav .nav-links a.active {
+		color: #e94560;
+		font-weight: 600;
+	}
 	.nav-cta {
 		background: linear-gradient(135deg, #f72585, #b5179e);
 		padding: 9px 18px;
@@ -157,9 +162,8 @@ const navLinks = [
 	.mobile-menu a:hover {
 		color: #fff;
 	}
-	.mobile-menu .nav-cta {
-		text-align: center;
-		margin-top: 8px;
+	.mobile-menu a.active {
+		color: #e94560;
 	}
 	@media (max-width: 768px) {
 		nav .nav-links {
@@ -178,12 +182,12 @@ const navLinks = [
 	<div class="inner">
 		<a href="https://cc3po.com" class="logo">
 			<img src="/images/cc3po-logo.png" alt="CC3PO" class="nav-logo-img" />
-			<span class="logo-text">CC3PO <span>Compliance</span></span>
+			<span class="logo-text">CC3PO <span>Business Scan</span></span>
 		</a>
 		<ul class="nav-links">
-			<li><a href="#what-we-check">What We Check</a></li>
-			<li><a href="#pricing">Pricing</a></li>
-			<li><a href="#audit-form" class="nav-cta">Get Your Score</a></li>
+			{navLinks.map(link => (
+				<li><a href={link.href} class:list={[link.active ? 'active' : '', link.active ? 'nav-cta' : '']}>{link.label}</a></li>
+			))}
 		</ul>
 		<button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
 			<span></span>
@@ -193,9 +197,9 @@ const navLinks = [
 	</div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-	<a href="#what-we-check">What We Check</a>
-	<a href="#pricing">Pricing</a>
-	<a href="#audit-form" class="nav-cta">Get Your Free Score</a>
+	{navLinks.map(link => (
+		<a href={link.href} class:list={[link.active ? 'active' : '']}>{link.label}</a>
+	))}
 </div>
 
 <script is:inline>

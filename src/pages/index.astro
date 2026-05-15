@@ -3,8 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const SITE_TITLE = 'Free Compliance Score | CC3PO — Is Your Website a Lawsuit Target?';
-const SITE_DESCRIPTION = 'Get your free CC3PO Living Compliance Score in 30 seconds. ADA lawsuits are up 300%. $4K per violation in California. Find out if your website is compliant before you get a demand letter.';
+const SITE_TITLE = 'Free Website Compliance & Performance Scan | CC3PO';
+const SITE_DESCRIPTION = 'Free website compliance and performance scanner. Check your site for ADA, WCAG, HIPAA, and SEO issues in 60 seconds. CC3PO Business Scan.';
 const canonicalURL = new URL(Astro.url.pathname, 'https://audit.cc3po.com');
 const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png';
 ---
@@ -19,65 +19,37 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="CC3PO Living Compliance Score" />
+		<meta property="og:site_name" content="CC3PO Business Scan" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={SITE_TITLE} />
 		<meta name="twitter:description" content={SITE_DESCRIPTION} />
 		<meta name="twitter:image" content={ogImage} />
 
-		<!-- Business Health Score Service Schema -->
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Service",
-"serviceType": "Website Compliance & Living Compliance Score",
+			"name": "CC3PO Free Website Compliance Scan",
+			"serviceType": "Website Compliance & Performance Scanner",
+			"description": "Free website compliance and performance scanner. Check your site for ADA, WCAG, HIPAA, and SEO issues in 60 seconds.",
 			"provider": {
 				"@type": "LocalBusiness",
 				"name": "CC3PO",
 				"telephone": "+1-209-423-6633",
 				"email": "info@cc3po.com",
-				"url": "https://audit.cc3po.com",
+				"url": "https://cc3po.com",
 				"address": {
 					"@type": "PostalAddress",
 					"addressLocality": "Stockton",
 					"addressRegion": "CA",
 					"addressCountry": "US"
-				},
-				"priceRange": "$0 - $499"
+				}
 			},
 			"areaServed": "US",
-			"hasOfferCatalog": {
-				"@type": "OfferCatalog",
-				"name": "CC3PO Living Compliance Score Services",
-				"itemListElement": [
-					{
-						"@type": "Offer",
-						"name": "Free Compliance Scan",
-						"price": "0",
-						"priceCurrency": "USD",
-						"description": "Instant Living Compliance Score (0-100), top compliance risks, industry comparison, and fix recommendations"
-					},
-					{
-						"@type": "Offer",
-						"name": "Compliance Shield",
-						"price": "99",
-						"priceCurrency": "USD",
-						"description": "Living Compliance Score, ADA/WCAG monitoring, demand letter protection, and monthly compliance reports - monthly"
-					},
-					{
-						"@type": "Offer",
-						"name": "Compliance Pro",
-						"price": "299",
-						"priceCurrency": "USD",
-						"description": "Everything in Shield plus automated compliance fixes, review management, social media, and priority support - monthly"
-					},
-					{
-						"@type": "Offer",
-						"name": "Compliance Command",
-						"price": "499",
-						"priceCurrency": "USD",
-						"description": "Everything in Pro plus SEO, competitor monitoring, content creation, lead generation, and dedicated account contact - monthly"
-					}
-				]
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD",
+				"description": "Free instant compliance and performance scan"
 			}
 		})} />
 	</head>
@@ -86,388 +58,6 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 		<Header />
 
 		<style>
-		.skip-link{position:absolute;top:-100px;left:0;background:#0d9488;color:#fff;padding:12px 24px;z-index:10000;font-size:16px;font-weight:600;text-decoration:none;border-radius:0 0 8px 0;transition:top .2s}.skip-link:focus{top:0;outline:3px solid #0d9488;outline-offset:2px}:focus-visible{outline:3px solid #0d9488;outline-offset:2px;border-radius:2px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-			@keyframes fadeInUp {
-				from { opacity: 0; transform: translateY(30px); }
-				to { opacity: 1; transform: translateY(0); }
-			}
-			@keyframes countUp {
-				from { opacity: 0; transform: scale(0.5); }
-				to { opacity: 1; transform: scale(1); }
-			}
-			@keyframes pulseGlow {
-				0%, 100% { box-shadow: 0 0 20px rgba(233, 69, 96, 0.2); }
-				50% { box-shadow: 0 0 40px rgba(233, 69, 96, 0.4); }
-			}
-			@keyframes slideInLeft {
-				from { opacity: 0; transform: translateX(-40px); }
-				to { opacity: 1; transform: translateX(0); }
-			}
-			@keyframes slideInRight {
-				from { opacity: 0; transform: translateX(40px); }
-				to { opacity: 1; transform: translateX(0); }
-			}
-			.animate-on-scroll {
-				opacity: 0;
-				transform: translateY(30px);
-				transition: opacity 0.6s ease, transform 0.6s ease;
-			}
-			.animate-on-scroll.visible {
-				opacity: 1;
-				transform: translateY(0);
-			}
-			.animate-on-scroll.delay-1 { transition-delay: 0.1s; }
-			.animate-on-scroll.delay-2 { transition-delay: 0.2s; }
-			.animate-on-scroll.delay-3 { transition-delay: 0.3s; }
-			.animate-on-scroll.delay-4 { transition-delay: 0.4s; }
-			.animate-on-scroll.delay-5 { transition-delay: 0.5s; }
-			.hover-lift {
-				transition: transform 0.25s ease, box-shadow 0.25s ease;
-			}
-			.hover-lift:hover {
-				transform: translateY(-4px);
-				box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
-			}
-			@media (prefers-reduced-motion: reduce) {
-				.animate-on-scroll { opacity: 1; transform: none; transition: none; }
-			}
-		</style>
-
-		<!-- Hero Section -->
-		<section class="hero" id="main-content">
-			<video class="hero-video" autoplay loop muted playsinline>
-				<source src="/videos/hero-scan.webm" type="video/webm">
-				<source src="/videos/hero-scan.mp4" type="video/mp4">
-			</video>
-			<div class="container">
-				<div class="hero-content">
-					<div class="hero-badge">⚠️ FREE COMPLIANCE SCORE - ARE YOU A LAWSUIT TARGET?</div>
-					<h1>Your website could cost you <span class="highlight">$4,000 per violation.</span></h1>
-					<p class="hero-sub">ADA lawsuits are up 300%. Demand letters are hitting small businesses every day. Get your free CC3PO Living Compliance Score - find out if your site is compliant before a lawyer does.</p>
-					<div class="hero-stats">
-						<div class="stat animate-on-scroll">
-							<span class="stat-number" data-count="300" data-suffix="%">300%</span>
-							<span class="stat-label">increase in ADA web lawsuits since 2018</span>
-						</div>
-						<div class="stat animate-on-scroll delay-1">
-							<span class="stat-number" data-count="4" data-suffix="K/violation">$4K/violation</span>
-							<span class="stat-label">in California - and demand letters are rising</span>
-						</div>
-						<div class="stat animate-on-scroll delay-2">
-							<span class="stat-number" data-count="92" data-suffix="%">92%</span>
-							<span class="stat-label">of small business websites fail basic compliance</span>
-						</div>
-					</div>
-					<form class="scan-form" id="scanForm" data-tier="free">
-						<input type="hidden" name="tier" value="free" />
-						<div class="form-row">
-							<input type="url" name="url" id="urlInput" placeholder="Enter your website URL (e.g., https://yoursite.com)" required aria-label="Website URL to audit" />
-							<input type="email" name="email" id="emailInput" placeholder="Your email (for results)" required aria-label="Email address for audit results" />
-							<button type="submit" class="btn-primary">Get Your Free Score →</button>
-						</div>
-						<p class="form-note" id="formStatus">No credit card required. See your compliance risks in 30 seconds.</p>
-					</form>
-				</div>
-			</div>
-		</section>
-
-		<!-- Morning Report Section -->
-		<section class="morning-report">
-			<div class="container">
-				<h2 class="section-title animate-on-scroll">Your <span class="highlight">Compliance Morning Report</span></h2>
-				<p class="section-sub animate-on-scroll">This is what compliance peace of mind looks like.</p>
-				<div class="dashboard-card animate-on-scroll delay-1">
-					<div class="dashboard-header">
-						<div class="dashboard-greeting">
-							<span class="dashboard-icon">☀️</span>
-							<div>
-								<div class="dashboard-greeting-text">Good morning.</div>
-								<div class="dashboard-greeting-sub">Your compliance is handled overnight.</div>
-							</div>
-						</div>
-						<div class="dashboard-date">Monday, May 12</div>
-					</div>
-					<div class="dashboard-items">
-						<div class="dashboard-item">
-							<span class="dashboard-check">✅</span>
-							<div class="dashboard-item-content">
-								<span class="dashboard-item-label">Website</span>
-								<span class="dashboard-item-detail">Plugin conflict fixed at 2:14 AM</span>
-							</div>
-						</div>
-						<div class="dashboard-item">
-							<span class="dashboard-check">✅</span>
-							<div class="dashboard-item-content">
-								<span class="dashboard-item-label">Reviews</span>
-								<span class="dashboard-item-detail">3 responded to professionally</span>
-							</div>
-						</div>
-						<div class="dashboard-item">
-							<span class="dashboard-check">✅</span>
-							<div class="dashboard-item-content">
-								<span class="dashboard-item-label">Social</span>
-								<span class="dashboard-item-detail">2 posts published automatically</span>
-							</div>
-						</div>
-						<div class="dashboard-item">
-							<span class="dashboard-check">✅</span>
-							<div class="dashboard-item-content">
-								<span class="dashboard-item-label">Compliance</span>
-								<span class="dashboard-item-detail">Up to date - new law already handled</span>
-							</div>
-						</div>
-						<div class="dashboard-item">
-							<span class="dashboard-check">✅</span>
-							<div class="dashboard-item-content">
-								<span class="dashboard-item-label">Competitor</span>
-								<span class="dashboard-item-detail">Price drop detected - recommendation ready</span>
-							</div>
-						</div>
-					</div>
-					<div class="dashboard-score">
-						<div class="dashboard-score-left">
-							<span class="dashboard-score-label">Your Living Compliance Score</span>
-						</div>
-						<div class="dashboard-score-right">
-							<span class="dashboard-score-number">87<span class="dashboard-score-max">/100</span></span>
-							<span class="dashboard-score-change">↑14 from last month</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Before/After Section -->
-		<section class="before-after">
-			<div class="container">
-				<h2 class="section-title animate-on-scroll">Your Compliance <span class="highlight">Nightmare vs. Peace of Mind</span></h2>
-				<p class="section-sub animate-on-scroll">One demand letter can cost you $4,000+.</p>
-				<div class="comparison-grid">
-					<div class="comparison-card comparison-without animate-on-scroll delay-1">
-						<div class="comparison-header">
-							<span class="comparison-emoji">😰</span>
-							<h3>Without CC3PO</h3>
-						</div>
-						<ul class="comparison-list">
-							<li class="comparison-negative">⚠️ Your website isn't ADA compliant - you just don't know it yet</li>
-							<li class="comparison-negative">⚠️ A demand letter could arrive any day - $4K+ per violation in CA</li>
-							<li class="comparison-negative">⚠️ New accessibility laws keep changing - no one's tracking them for you</li>
-							<li class="comparison-negative">⚠️ 3 bad reviews unanswered - and your reputation is sliding</li>
-							<li class="comparison-negative">💤 11 PM googling "ADA website compliance" instead of sleeping</li>
-						</ul>
-					</div>
-					<div class="comparison-card comparison-with animate-on-scroll delay-2">
-						<div class="comparison-header">
-							<span class="comparison-emoji">😊</span>
-							<h3>With CC3PO</h3>
-						</div>
-						<ul class="comparison-list">
-							<li class="comparison-positive">✅ ADA/WCAG compliance: continuously monitored and fixed</li>
-							<li class="comparison-positive">✅ Demand letter protection: issues caught before lawyers find them</li>
-							<li class="comparison-positive">✅ New laws: automatically tracked and applied to your site</li>
-							<li class="comparison-positive">✅ Reviews: 3 responded to in 30 minutes</li>
-							<li class="comparison-positive">💤 Sleep great - your compliance is handled 24/7</li>
-						</ul>
-					</div>
-				</div>
-				<div class="comparison-savings animate-on-scroll delay-3">
-					<h3>What you'd pay without CC3PO</h3>
-					<div class="savings-grid">
-						<div class="savings-item">
-							<span class="savings-role">ADA compliance consultant</span>
-							<span class="savings-cost">$3,000/mo</span>
-						</div>
-						<div class="savings-item">
-							<span class="savings-role">Website monitoring & maintenance</span>
-							<span class="savings-cost">$2,000/mo</span>
-						</div>
-						<div class="savings-item">
-							<span class="savings-role">Legal fees (one demand letter)</span>
-							<span class="savings-cost">$4,000+/violation</span>
-						</div>
-						<div class="savings-item">
-							<span class="savings-role">Review & reputation manager</span>
-							<span class="savings-cost">$1,500/mo</span>
-						</div>
-						<div class="savings-item">
-							<span class="savings-role">SEO & local search specialist</span>
-							<span class="savings-cost">$2,500/mo</span>
-						</div>
-						<div class="savings-total">
-							<span class="savings-role">Risk of non-compliance</span>
-							<span class="savings-cost">$13,000+/mo</span>
-						</div>
-						<div class="savings-cc3po">
-							<span class="savings-role">CC3PO Compliance Pro</span>
-							<span class="savings-cost">$299/mo</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- What We Scan (Role-Based) -->
-		<section class="scan-details" id="what-we-check">
-			<div class="container">
-				<h2>Your <span class="highlight">Compliance Team</span></h2>
-				<p class="section-sub animate-on-scroll">Six roles protecting your business 24/7 - so you never get a demand letter.</p>
-				<div class="scan-grid">
-					<div class="scan-card animate-on-scroll hover-lift delay-1">
-						<div class="scan-icon">🛡️</div>
-						<h3>Your Website Guardian</h3>
-						<p>Monitors your site 24/7. Catches uptime issues, broken links, and plugin conflicts before they become compliance risks.</p>
-					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-2">
-						<div class="scan-icon">✅</div>
-						<h3>Your Compliance Officer</h3>
-						<p>ADA, WCAG, state regulations - always tracked and applied. New laws? Already handled before they affect you.</p>
-					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-3">
-						<div class="scan-icon">📝</div>
-						<h3>Your Content Creator</h3>
-						<p>Blog posts, social media, emails - all created and published for you. Consistent content that keeps your site active and authoritative.</p>
-					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-4">
-						<div class="scan-icon">💬</div>
-						<h3>Your Review Responder</h3>
-						<p>Every review answered professionally within 30 minutes. Google, Yelp, Facebook - all platforms covered. Reputation is compliance.</p>
-					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-5">
-						<div class="scan-icon">🔍</div>
-						<h3>Your Research Team</h3>
-						<p>Watches competitors, finds opportunities, spots trends before they matter. You get actionable recommendations, not data dumps.</p>
-					</div>
-					<div class="scan-card animate-on-scroll hover-lift delay-1">
-						<div class="scan-icon">📊</div>
-						<h3>Your Business Analyst</h3>
-						<p>Tracks your Living Compliance Score, measures growth, recommends next steps. Clear numbers, not confusing reports.</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Pricing -->
-		<section class="pricing" id="pricing">
-			<div class="container">
-				<h2>Choose Your <span class="highlight">Compliance Plan</span></h2>
-				<p class="section-sub animate-on-scroll">From a free compliance scan to full protection - stop demand letters before they arrive.</p>
-				<div class="pricing-grid">
-					<div class="pricing-card animate-on-scroll hover-lift delay-1">
-						<div class="pricing-badge">FREE</div>
-						<div class="pricing-price">$0</div>
-						<div class="pricing-label">Compliance Scan</div>
-						<ul class="pricing-features">
-							<li>✓ Instant Living Compliance Score (0-100)</li>
-							<li>✓ Top 3 compliance risks identified</li>
-							<li>✓ Industry comparison</li>
-							<li>✓ "What to fix first" recommendations</li>
-							<li class="muted">✗ 24/7 compliance monitoring</li>
-							<li class="muted">✗ Demand letter protection</li>
-							<li class="muted">✗ Automated fixes</li>
-						</ul>
-						<a href="#main-content" class="btn-secondary">Get Your Free Score →</a>
-					</div>
-					<div class="pricing-card featured animate-on-scroll hover-lift delay-2">
-						<div class="pricing-badge">COMPLIANCE SHIELD</div>
-						<div class="pricing-price">$99<span class="pricing-period">/mo</span></div>
-						<div class="pricing-label">Demand Letter Protection</div>
-						<ul class="pricing-features">
-							<li>✓ Everything in Free</li>
-							<li>✓ 24/7 ADA/WCAG compliance monitoring</li>
-							<li>✓ Demand letter protection alerts</li>
-							<li>✓ Website uptime monitoring + auto-fix</li>
-							<li>✓ Monthly compliance report</li>
-							<li>✓ Living Compliance Score dashboard</li>
-							<li class="muted">✗ Review management</li>
-						</ul>
-						<a href="https://buy.stripe.com/test_00w00ifQyejB2DaaWo1B60c" class="btn-primary" target="_blank" rel="noopener">Start Compliance Shield →</a>
-					</div>
-					<div class="pricing-card animate-on-scroll hover-lift delay-3">
-						<div class="pricing-badge">COMPLIANCE PRO</div>
-						<div class="pricing-price">$299<span class="pricing-period">/mo</span></div>
-						<div class="pricing-label">Full Compliance + Growth</div>
-						<ul class="pricing-features">
-							<li>✓ Everything in Shield</li>
-							<li>✓ Automated compliance fixes</li>
-							<li>✓ Review management (all platforms)</li>
-							<li>✓ Social media management</li>
-							<li>✓ Priority support</li>
-							<li>✓ Monthly business insights report</li>
-							<li class="muted">✗ SEO & competitor monitoring</li>
-						</ul>
-						<a href="https://buy.stripe.com/test_dRm14mcEm2AT5PmaWo1B60d" class="btn-secondary" target="_blank" rel="noopener">Start Compliance Pro →</a>
-					</div>
-					<div class="pricing-card animate-on-scroll hover-lift delay-4">
-						<div class="pricing-badge">COMPLIANCE COMMAND</div>
-						<div class="pricing-price">$499<span class="pricing-period">/mo</span></div>
-						<div class="pricing-label">Everything You Need</div>
-						<ul class="pricing-features">
-							<li>✓ Everything in Pro</li>
-							<li>✓ SEO & local search optimization</li>
-							<li>✓ Competitor monitoring</li>
-							<li>✓ Content creation (blog + social)</li>
-							<li>✓ Lead generation</li>
-							<li>✓ Dedicated account contact</li>
-							<li>✓ Full compliance command — one team, zero risk</li>
-						</ul>
-						<a href="https://buy.stripe.com/test_4gMcN447Qb7p5Pm7Kc1B60e" class="btn-secondary" target="_blank" rel="noopener">Start Compliance Command →</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Social Proof -->
-		<section class="social-proof">
-			<div class="container">
-				<div class="proof-stats">
-					<div class="proof-stat animate-on-scroll delay-1">
-						<span class="proof-number">92%</span>
-						<span class="proof-label">of small business websites fail basic compliance</span>
-					</div>
-					<div class="proof-stat animate-on-scroll delay-2">
-						<span class="proof-number">$4K+</span>
-						<span class="proof-label">average cost per ADA violation in California</span>
-					</div>
-					<div class="proof-stat animate-on-scroll delay-3">
-						<span class="proof-number">300% ↑</span>
-						<span class="proof-label">increase in ADA web lawsuits since 2018</span>
-					</div>
-				</div>
-				<div class="testimonials">
-					<div class="testimonial animate-on-scroll delay-1">
-						<p>"We got a demand letter for $12,000. After signing up with CC3PO, our Living Compliance Score went from 31 to 94. Haven't had a problem since."</p>
-						<span class="testimonial-author">- Maria G., Restaurant Owner</span>
-					</div>
-					<div class="testimonial animate-on-scroll delay-2">
-						<p>"Our HVAC site had 47 accessibility violations. CC3PO found them all in the free scan, and fixed them within a week. That would have been a $188K lawsuit."</p>
-						<span class="testimonial-author">- James T., HVAC Business Owner</span>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- CTA Section -->
-		<section class="cta animate-on-scroll">
-			<div class="container">
-				<h2>While you were reading this, another small business got a demand letter.</h2>
-				<p>$4,000 per violation. Don't be next.</p>
-				<p class="cta-sub">Your free CC3PO Living Compliance Score is waiting. Find out if you're exposed — in 30 seconds.</p>
-				<form class="scan-form scan-form-center" id="scanFormBottom">
-					<input type="hidden" name="tier" value="free" />
-					<div class="form-row">
-						<input type="url" name="url" placeholder="Enter your website URL" required aria-label="Website URL" />
-						<input type="email" name="email" placeholder="Your email" required aria-label="Email address" />
-						<button type="submit" class="btn-primary">Get Your Free Score →</button>
-					</div>
-				</form>
-			</div>
-		</section>
-
-		<Footer />
-
-		<style>
-		.skip-link{position:absolute;top:-100px;left:0;background:#0d9488;color:#fff;padding:12px 24px;z-index:10000;font-size:16px;font-weight:600;text-decoration:none;border-radius:0 0 8px 0;transition:top .2s}.skip-link:focus{top:0;outline:3px solid #0d9488;outline-offset:2px}:focus-visible{outline:3px solid #0d9488;outline-offset:2px;border-radius:2px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-			/* --- Base --- */
 			:root {
 				--bg-primary: #0a0a12;
 				--bg-secondary: #11111f;
@@ -480,8 +70,6 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				--accent: #e94560;
 				--accent-hover: #ff5a75;
 				--accent-secondary: #6b35ff;
-				--grad-hero: linear-gradient(135deg, rgba(10,10,18,0.92) 0%, rgba(17,17,31,0.88) 100%);
-				--danger: #ef4444;
 				--success: #22c55e;
 				--warning: #f59e0b;
 			}
@@ -496,486 +84,568 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 			}
 			.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 			.highlight { color: var(--accent); }
-			.section-title { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 12px; }
+
+			.skip-link{position:absolute;top:-100px;left:0;background:#0d9488;color:#fff;padding:12px 24px;z-index:10000;font-size:16px;font-weight:600;text-decoration:none;border-radius:0 0 8px 0;transition:top .2s}.skip-link:focus{top:0;outline:3px solid #0d9488;outline-offset:2px}:focus-visible{outline:3px solid #0d9488;outline-offset:2px;border-radius:2px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+			@keyframes fadeInUp {
+				from { opacity: 0; transform: translateY(30px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+			@keyframes pulseGlow {
+				0%, 100% { box-shadow: 0 0 20px rgba(233, 69, 96, 0.15); }
+				50% { box-shadow: 0 0 40px rgba(233, 69, 96, 0.3); }
+			}
+			@keyframes scanLine {
+				0% { top: 0; }
+				100% { top: 100%; }
+			}
+
+			.animate-on-scroll {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.6s ease, transform 0.6s ease;
+			}
+			.animate-on-scroll.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+			.animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+			.animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+			.animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+			.hover-lift {
+				transition: transform 0.25s ease, box-shadow 0.25s ease;
+			}
+			.hover-lift:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 30px rgba(233, 69, 96, 0.15);
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.animate-on-scroll { opacity: 1; transform: none; transition: none; }
+			}
 
 			/* --- Hero --- */
-			.hero-video {
-				position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-				object-fit: cover; z-index: 0; opacity: 0.3;
-			}
 			.hero {
-				background: var(--bg-primary); color: var(--text-primary);
-				padding: 100px 0 80px; min-height: 70vh;
-				display: flex; align-items: center; position: relative; overflow: hidden;
+				padding: 120px 0 80px;
+				min-height: 80vh;
+				display: flex;
+				align-items: center;
+				position: relative;
+				overflow: hidden;
+				background: radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.08) 0%, transparent 50%),
+				            radial-gradient(ellipse at 80% 50%, rgba(107, 53, 255, 0.06) 0%, transparent 50%),
+				            var(--bg-primary);
+			}
+			.hero::before {
+				content: '';
+				position: absolute;
+				top: 0; left: 0; right: 0; bottom: 0;
+				background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+				opacity: 0.5;
+				pointer-events: none;
+			}
+			.hero-content {
+				position: relative;
+				z-index: 1;
 			}
 			.hero-badge {
-				display: inline-block; background: rgba(233, 69, 96, 0.15); color: var(--accent);
-				padding: 6px 16px; border-radius: 20px; font-size: 0.8rem;
-				font-weight: 700; letter-spacing: 0.05em; margin-bottom: 24px;
+				display: inline-block;
+				background: rgba(233, 69, 96, 0.12);
+				border: 1px solid rgba(233, 69, 96, 0.25);
+				color: var(--accent);
+				padding: 8px 20px;
+				border-radius: 24px;
+				font-size: 0.8rem;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				margin-bottom: 28px;
 			}
 			.hero h1 {
-				font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800;
-				line-height: 1.15; margin-bottom: 20px;
+				font-size: clamp(2.2rem, 5vw, 3.8rem);
+				font-weight: 800;
+				line-height: 1.1;
+				margin-bottom: 24px;
+				letter-spacing: -0.02em;
 			}
 			.hero-sub {
-				font-size: 1.2rem; color: var(--text-secondary);
-				max-width: 640px; margin-bottom: 40px;
+				font-size: 1.25rem;
+				color: var(--text-secondary);
+				max-width: 600px;
+				margin-bottom: 40px;
+				line-height: 1.7;
 			}
-			.hero-stats { display: flex; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
-			.stat { display: flex; flex-direction: column; }
-			.stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
-			.stat-label { font-size: 0.85rem; color: var(--text-secondary); }
 
-			/* --- Form --- */
-			.scan-form { max-width: 720px; }
-			.scan-form-center { margin: 0 auto; }
-			.form-row { display: flex; gap: 12px; flex-wrap: wrap; }
-			.form-row input {
-				flex: 1; min-width: 200px; padding: 14px 18px;
-				background: var(--bg-secondary); border: 2px solid var(--border);
-				border-radius: 10px; font-size: 1rem; font-family: inherit;
-				color: var(--text-primary); outline: none; transition: border-color 0.2s;
-			}
-			.form-row input:focus { border-color: var(--accent); }
-			.btn-primary {
-				padding: 14px 32px; background: var(--accent); color: var(--text-primary);
-				border: none; border-radius: 10px; font-size: 1rem; font-weight: 700;
-				cursor: pointer; white-space: nowrap; transition: background 0.2s;
-			}
-			.btn-primary:hover { background: var(--accent-hover); }
-			.btn-secondary {
-				padding: 14px 32px; background: transparent; color: var(--accent);
-				border: 2px solid var(--accent); border-radius: 10px; font-size: 1rem;
-				font-weight: 700; cursor: pointer; transition: all 0.2s;
-			}
-			.btn-secondary:hover { background: var(--accent); color: var(--text-primary); }
-			.form-note { margin-top: 12px; font-size: 0.85rem; color: var(--text-muted); }
-
-			/* --- Morning Report Dashboard --- */
-			.morning-report {
-				padding: 80px 0;
-				background: var(--bg-primary);
-			}
-			.morning-report .section-sub {
-				text-align: center; color: var(--text-secondary);
-				max-width: 600px; margin: 0 auto 48px; font-size: 1.05rem;
-			}
-			.dashboard-card {
-				background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-				border: 1px solid rgba(255, 255, 255, 0.08);
+			/* --- Scan Form --- */
+			.scan-form {
+				background: var(--bg-secondary);
+				border: 1px solid var(--border);
 				border-radius: 20px;
-				padding: 0;
-				max-width: 700px;
-				margin: 0 auto;
+				padding: 32px;
+				max-width: 680px;
+				position: relative;
 				overflow: hidden;
-				animation: pulseGlow 4s ease-in-out infinite;
 			}
-			.dashboard-header {
-				display: flex; justify-content: space-between; align-items: center;
-				padding: 28px 32px 20px;
-				border-bottom: 1px solid var(--border);
+			.scan-form::after {
+				content: '';
+				position: absolute;
+				top: 0; left: 0; right: 0;
+				height: 3px;
+				background: linear-gradient(90deg, var(--accent), var(--accent-secondary), var(--accent));
+				background-size: 200% 100%;
+				animation: scanLine 2s ease-in-out infinite alternate;
 			}
-			.dashboard-greeting { display: flex; align-items: center; gap: 14px; }
-			.dashboard-icon { font-size: 2rem; }
-			.dashboard-greeting-text { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
-			.dashboard-greeting-sub { font-size: 0.95rem; color: var(--text-secondary); }
-			.dashboard-date { font-size: 0.85rem; color: var(--text-muted); }
-			.dashboard-items { padding: 8px 0; }
-			.dashboard-item {
-				display: flex; align-items: flex-start; gap: 14px;
-				padding: 14px 32px;
-				transition: background 0.2s;
+			.form-row {
+				display: flex;
+				gap: 12px;
+				flex-wrap: wrap;
 			}
-			.dashboard-item:hover { background: rgba(255, 255, 255, 0.02); }
-			.dashboard-check { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-			.dashboard-item-content { display: flex; flex-direction: column; }
-			.dashboard-item-label { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; }
-			.dashboard-item-detail { font-size: 0.95rem; color: var(--text-secondary); }
-			.dashboard-score {
-				display: flex; justify-content: space-between; align-items: center;
-				padding: 24px 32px;
-				background: rgba(233, 69, 96, 0.08);
-				border-top: 1px solid rgba(233, 69, 96, 0.15);
+			.form-row input {
+				flex: 1;
+				min-width: 200px;
+				padding: 16px 20px;
+				background: var(--bg-primary);
+				border: 2px solid var(--border);
+				border-radius: 12px;
+				font-size: 1rem;
+				font-family: inherit;
+				color: var(--text-primary);
+				outline: none;
+				transition: border-color 0.2s, box-shadow 0.2s;
 			}
-			.dashboard-score-label { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
-			.dashboard-score-right { text-align: right; }
-			.dashboard-score-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
-			.dashboard-score-max { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
-			.dashboard-score-change { display: block; font-size: 0.85rem; color: var(--success); font-weight: 600; }
+			.form-row input:focus {
+				border-color: var(--accent);
+				box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15);
+			}
+			.form-row input::placeholder { color: var(--text-muted); }
+			.btn-primary {
+				padding: 16px 36px;
+				background: linear-gradient(135deg, var(--accent), #b5179e);
+				color: var(--text-primary);
+				border: none;
+				border-radius: 12px;
+				font-size: 1rem;
+				font-weight: 700;
+				cursor: pointer;
+				white-space: nowrap;
+				transition: transform 0.2s, box-shadow 0.2s;
+			}
+			.btn-primary:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 24px rgba(233, 69, 96, 0.35);
+			}
+			.form-note {
+				margin-top: 14px;
+				font-size: 0.85rem;
+				color: var(--text-muted);
+			}
 
-			/* --- Before/After --- */
-			.before-after {
-				padding: 80px 0;
+			/* --- Stats Bar --- */
+			.stats-bar {
+				padding: 60px 0;
 				background: var(--bg-secondary);
 			}
-			.before-after .section-sub {
-				text-align: center; color: var(--text-secondary);
-				max-width: 600px; margin: 0 auto 48px; font-size: 1.05rem;
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 40px;
+				text-align: center;
 			}
-			.comparison-grid {
-				display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
-				max-width: 900px; margin: 0 auto 48px;
+			.stat-item {}
+			.stat-number {
+				font-size: clamp(2rem, 4vw, 3rem);
+				font-weight: 800;
+				color: var(--accent);
+				display: block;
+				margin-bottom: 8px;
 			}
-			.comparison-card {
-				border-radius: 16px; padding: 36px 28px;
-				border: 1px solid var(--border);
+			.stat-label {
+				font-size: 1rem;
+				color: var(--text-secondary);
+				line-height: 1.5;
 			}
-			.comparison-without {
-				background: rgba(239, 68, 68, 0.04);
-				border-color: rgba(239, 68, 68, 0.15);
-			}
-			.comparison-with {
-				background: rgba(34, 197, 94, 0.04);
-				border-color: rgba(34, 197, 94, 0.15);
-			}
-			.comparison-header {
-				display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
-			}
-			.comparison-emoji { font-size: 1.8rem; }
-			.comparison-header h3 { font-size: 1.3rem; font-weight: 700; }
-			.comparison-list { list-style: none; }
-			.comparison-list li {
-				padding: 12px 0; font-size: 0.95rem;
-				border-bottom: 1px solid var(--border); line-height: 1.5;
-			}
-			.comparison-list li:last-child { border-bottom: none; }
-			.comparison-negative { color: #fca5a5; }
-			.comparison-positive { color: #86efac; }
-			.comparison-savings {
-				background: var(--bg-card); border: 1px solid var(--border);
-				border-radius: 16px; padding: 36px; max-width: 700px; margin: 0 auto;
-			}
-			.comparison-savings h3 {
-				text-align: center; font-size: 1.2rem; font-weight: 700;
-				margin-bottom: 24px; color: var(--text-primary);
-			}
-			.savings-grid { display: flex; flex-direction: column; gap: 8px; }
-			.savings-item, .savings-total, .savings-cc3po {
-				display: flex; justify-content: space-between; align-items: center;
-				padding: 10px 0; font-size: 0.95rem;
-			}
-			.savings-item { border-bottom: 1px solid var(--border); }
-			.savings-item .savings-role { color: var(--text-secondary); }
-			.savings-item .savings-cost { color: var(--text-muted); font-weight: 600; }
-			.savings-total {
-				border-top: 2px solid var(--border); border-bottom: none;
-				padding-top: 16px; margin-top: 8px;
-			}
-			.savings-total .savings-role { font-weight: 700; color: var(--text-primary); }
-			.savings-total .savings-cost { font-weight: 800; color: var(--danger); font-size: 1.1rem; }
-			.savings-cc3po {
-				border-top: none; padding: 12px 0 0;
-			}
-			.savings-cc3po .savings-role { font-weight: 700; color: var(--accent); }
-			.savings-cc3po .savings-cost { font-weight: 800; color: var(--success); font-size: 1.2rem; }
 
-			/* --- What We Scan (Roles) --- */
-			.scan-details {
+			/* --- What We Check --- */
+			.what-we-check {
 				padding: 80px 0;
 				background: var(--bg-primary);
 			}
-			.scan-details h2 {
-				font-size: 2rem; font-weight: 800;
-				text-align: center; margin-bottom: 12px;
+			.section-title {
+				font-size: clamp(1.8rem, 3vw, 2.5rem);
+				font-weight: 800;
+				text-align: center;
+				margin-bottom: 16px;
 			}
-			.scan-details .section-sub {
-				text-align: center; color: var(--text-secondary);
-				max-width: 600px; margin: 0 auto 48px; font-size: 1.05rem;
+			.section-sub {
+				text-align: center;
+				color: var(--text-secondary);
+				max-width: 600px;
+				margin: 0 auto 56px;
+				font-size: 1.05rem;
 			}
-			.scan-grid {
-				display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			.check-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 				gap: 24px;
 			}
-			.scan-card {
-				background: var(--bg-card); padding: 32px;
-				border-radius: 12px; border: 1px solid var(--border);
+			.check-card {
+				background: var(--bg-card);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				padding: 36px 28px;
+				transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 			}
-			.scan-icon { font-size: 2rem; margin-bottom: 12px; }
-			.scan-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
-			.scan-card p { color: var(--text-secondary); font-size: 0.95rem; }
+			.check-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+				border-color: rgba(255, 255, 255, 0.12);
+			}
+			.check-icon {
+				width: 56px;
+				height: 56px;
+				border-radius: 14px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.6rem;
+				margin-bottom: 20px;
+			}
+			.check-card:nth-child(1) .check-icon { background: rgba(233, 69, 96, 0.12); }
+			.check-card:nth-child(2) .check-icon { background: rgba(34, 197, 94, 0.12); }
+			.check-card:nth-child(3) .check-icon { background: rgba(245, 158, 11, 0.12); }
+			.check-card:nth-child(4) .check-icon { background: rgba(107, 53, 255, 0.12); }
+			.check-card h3 {
+				font-size: 1.2rem;
+				font-weight: 700;
+				margin-bottom: 10px;
+			}
+			.check-card p {
+				color: var(--text-secondary);
+				font-size: 0.95rem;
+				line-height: 1.6;
+			}
+			.check-list {
+				list-style: none;
+				margin-top: 16px;
+			}
+			.check-list li {
+				padding: 6px 0;
+				font-size: 0.9rem;
+				color: var(--text-secondary);
+				position: relative;
+				padding-left: 20px;
+			}
+			.check-list li::before {
+				content: '✓';
+				position: absolute;
+				left: 0;
+				color: var(--success);
+				font-weight: 700;
+			}
 
-			/* --- Pricing --- */
-			.pricing {
+			/* --- How It Works --- */
+			.how-it-works {
 				padding: 80px 0;
 				background: var(--bg-secondary);
 			}
-			.pricing h2 {
-				font-size: 2rem; font-weight: 800;
-				text-align: center; margin-bottom: 12px;
+			.steps-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 32px;
+				position: relative;
 			}
-			.pricing-grid {
-				display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 24px; max-width: 960px; margin: 0 auto;
+			.step-card {
+				text-align: center;
+				padding: 32px 24px;
 			}
-			.pricing-card {
-				background: var(--bg-card); padding: 36px 28px;
-				border-radius: 16px; border: 2px solid var(--border);
-				text-align: center; display: flex; flex-direction: column;
+			.step-number {
+				width: 56px;
+				height: 56px;
+				border-radius: 50%;
+				background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+				color: #fff;
+				font-size: 1.4rem;
+				font-weight: 800;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 auto 20px;
 			}
-			.pricing-card.featured {
-				border-color: var(--accent);
-				box-shadow: 0 8px 30px rgba(233, 69, 96, 0.15);
-				transform: scale(1.03);
+			.step-card h3 {
+				font-size: 1.15rem;
+				font-weight: 700;
+				margin-bottom: 10px;
 			}
-			.pricing-badge {
-				display: inline-block; background: rgba(233, 69, 96, 0.1);
-				color: var(--accent); padding: 4px 14px; border-radius: 12px;
-				font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
-				margin-bottom: 20px;
+			.step-card p {
+				color: var(--text-secondary);
+				font-size: 0.95rem;
+				line-height: 1.6;
 			}
-			.pricing-card.featured .pricing-badge {
-				background: var(--accent); color: var(--text-primary);
-			}
-			.pricing-price {
-				font-size: 3rem; font-weight: 800; color: var(--text-primary);
-			}
-			.pricing-period {
-				font-size: 1rem; font-weight: 500; color: var(--text-muted);
-			}
-			.pricing-label {
-				font-size: 1.05rem; color: var(--text-secondary);
-				margin-bottom: 24px; font-weight: 600;
-			}
-			.pricing-features {
-				list-style: none; text-align: left; margin-bottom: 28px;
-				flex-grow: 1;
-			}
-			.pricing-features li {
-				padding: 8px 0; font-size: 0.95rem;
-				border-bottom: 1px solid var(--border);
-			}
-			.pricing-features li.muted { color: var(--text-muted); }
-			.pricing-card > a.btn-primary,
-			.pricing-card > a.btn-secondary {
-				display: block; width: 100%; text-align: center;
-				text-decoration: none; margin-top: auto;
-				padding: 14px 32px; border-radius: 10px;
-				font-size: 1rem; font-weight: 700; cursor: pointer;
-				transition: background 0.2s, transform 0.15s;
-			}
-			.pricing-card > a.btn-primary {
-				background: var(--accent); color: var(--text-primary); border: none;
-			}
-			.pricing-card > a.btn-primary:hover { background: var(--accent-hover); }
-			.pricing-card > a.btn-secondary {
-				background: transparent; color: var(--accent); border: 2px solid var(--accent);
-			}
-			.pricing-card > a.btn-secondary:hover { background: var(--accent); color: var(--text-primary); }
-
-			/* --- Social Proof --- */
-			.social-proof { padding: 80px 0; }
-			.proof-stats {
-				display: flex; justify-content: center; gap: 60px;
-				margin-bottom: 60px; flex-wrap: wrap;
-			}
-			.proof-stat { text-align: center; }
-			.proof-number {
-				display: block; font-size: 2.5rem; font-weight: 800; color: var(--accent);
-			}
-			.proof-label { font-size: 0.9rem; color: var(--text-secondary); }
-			.testimonials {
-				display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-				gap: 32px; max-width: 900px; margin: 0 auto;
-			}
-			.testimonial {
-				background: var(--bg-card); padding: 32px;
-				border-radius: 12px; border: 1px solid var(--border);
-				border-left: 4px solid var(--accent);
-			}
-			.testimonial p { font-size: 1.05rem; margin-bottom: 16px; font-style: italic; }
-			.testimonial-author { font-size: 0.9rem; color: var(--text-secondary); font-weight: 600; }
 
 			/* --- CTA --- */
-			.cta {
+			.cta-section {
 				padding: 80px 0;
-				background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
-				color: var(--text-primary); text-align: center;
+				background: radial-gradient(ellipse at center, rgba(233, 69, 96, 0.08) 0%, transparent 60%),
+				            var(--bg-primary);
+				text-align: center;
 			}
-			.cta h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
-			.cta p { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 8px; max-width: 600px; margin-left: auto; margin-right: auto; }
-			.cta-sub { margin-bottom: 32px !important; color: var(--accent) !important; font-weight: 600 !important; }
-			.cta .form-row input {
-				background: var(--bg-tertiary); border-color: var(--border);
-				color: var(--text-primary);
+			.cta-section h2 {
+				font-size: clamp(1.8rem, 3vw, 2.5rem);
+				font-weight: 800;
+				margin-bottom: 16px;
 			}
-			.cta .form-row input::placeholder { color: var(--text-muted); }
+			.cta-section p {
+				color: var(--text-secondary);
+				font-size: 1.1rem;
+				margin-bottom: 32px;
+				max-width: 560px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.cta-link {
+				display: inline-block;
+				padding: 18px 48px;
+				background: linear-gradient(135deg, var(--accent), #b5179e);
+				color: #fff;
+				text-decoration: none;
+				border-radius: 14px;
+				font-size: 1.15rem;
+				font-weight: 700;
+				transition: transform 0.2s, box-shadow 0.2s;
+			}
+			.cta-link:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 30px rgba(233, 69, 96, 0.35);
+			}
 
 			/* --- Responsive --- */
 			@media (max-width: 768px) {
-				.hero-video { opacity: 0.2; }
-				.hero { padding: 80px 0 50px; }
+				.hero { padding: 100px 0 60px; min-height: auto; }
 				.hero h1 { font-size: 2rem; }
 				.hero-sub { font-size: 1rem; }
-				.hero-stats { gap: 20px; flex-direction: row; justify-content: center; }
-				.stat { min-width: 0; }
-				.stat-number { font-size: 1.5rem; }
+				.scan-form { padding: 24px; }
 				.form-row { flex-direction: column; }
 				.form-row input { min-width: 100%; }
-				.comparison-grid { grid-template-columns: 1fr; }
-				.pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
-				.pricing-card.featured { transform: none; }
-				.proof-stats { flex-direction: column; gap: 24px; }
-				.testimonials { grid-template-columns: 1fr; }
-				.dashboard-header { flex-direction: column; gap: 8px; align-items: flex-start; }
-				.dashboard-date { align-self: flex-end; }
-				.cta { padding: 60px 0 80px; }
-				.savings-grid { font-size: 0.9rem; }
-				body { padding-bottom: env(safe-area-inset-bottom, 0); }
+				.stats-grid { grid-template-columns: 1fr; gap: 32px; }
+				.check-grid { grid-template-columns: 1fr; }
+				.steps-grid { grid-template-columns: 1fr; gap: 24px; }
+				.cta-section { padding: 60px 0; }
 			}
 
 			@media (max-width: 480px) {
-				.hero-stats { flex-direction: column; align-items: center; gap: 16px; }
-				.scan-grid { grid-template-columns: 1fr; }
-				.hero h1 { font-size: 1.6rem; }
-				.btn-primary, .btn-secondary { padding: 14px 24px; font-size: 0.95rem; }
-				.dashboard-card { margin: 0 -8px; }
-				.dashboard-item { padding: 12px 20px; }
-				.dashboard-header { padding: 20px 20px 16px; }
-				.dashboard-score { padding: 16px 20px; flex-direction: column; gap: 8px; text-align: left; }
-				.dashboard-score-right { text-align: left; }
+				.hero { padding: 90px 0 50px; }
+				.hero h1 { font-size: 1.7rem; }
+				.btn-primary { padding: 14px 24px; font-size: 0.95rem; }
+				.scan-form { padding: 20px; }
 			}
 		</style>
 
-<script is:inline>
-(function() {
-  // Form submission handler - captures URL + email, sends to API, then redirects
-  function handleFormSubmit(form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
+		<!-- Hero Section -->
+		<section class="hero" id="main-content">
+			<div class="container">
+				<div class="hero-content">
+					<div class="hero-badge animate-on-scroll">Free Compliance & Performance Scan</div>
+					<h1 class="animate-on-scroll delay-1">Is Your Website Costing You <span class="highlight">Customers?</span></h1>
+					<p class="hero-sub animate-on-scroll delay-2">Get a free instant scan of your website's compliance, performance, and SEO health. Find hidden issues before they cost you — ADA violations, slow load times, security gaps, and more.</p>
+					<form class="scan-form animate-on-scroll delay-3" id="scanForm" data-tier="free">
+						<input type="hidden" name="tier" value="free" />
+						<div class="form-row">
+							<input type="url" name="url" id="urlInput" placeholder="Enter your website URL (e.g., https://yoursite.com)" required aria-label="Website URL to scan" />
+							<input type="email" name="email" id="emailInput" placeholder="Your email (for results)" required aria-label="Email address for scan results" />
+							<button type="submit" class="btn-primary">Scan My Site →</button>
+						</div>
+						<p class="form-note" id="formStatus">No credit card required. See your compliance score in 60 seconds.</p>
+					</form>
+				</div>
+			</div>
+		</section>
 
-      var urlInput = form.querySelector('input[name="url"]');
-      var emailInput = form.querySelector('input[name="email"]');
-      var tierInput = form.querySelector('input[name="tier"]');
-      var submitBtn = form.querySelector('button[type="submit"]');
-      var statusEl = document.getElementById('formStatus');
+		<!-- Stats Bar -->
+		<section class="stats-bar">
+			<div class="container">
+				<div class="stats-grid">
+					<div class="stat-item animate-on-scroll">
+						<span class="stat-number">95%</span>
+						<span class="stat-label">of small business websites have compliance issues</span>
+					</div>
+					<div class="stat-item animate-on-scroll delay-1">
+						<span class="stat-number">40%</span>
+						<span class="stat-label">of visitors leave if your site loads in 3+ seconds</span>
+					</div>
+					<div class="stat-item animate-on-scroll delay-2">
+						<span class="stat-number">$4K+</span>
+						<span class="stat-label">per ADA violation — demand letters are rising</span>
+					</div>
+				</div>
+			</div>
+		</section>
 
-      var urlVal = urlInput ? urlInput.value.trim() : '';
-      var emailVal = emailInput ? emailInput.value.trim() : '';
-      var tierVal = tierInput ? tierInput.value : (form.dataset.tier || 'free');
+		<!-- What We Check -->
+		<section class="what-we-check" id="what-we-check">
+			<div class="container">
+				<h2 class="section-title">What We <span class="highlight">Check</span></h2>
+				<p class="section-sub">Our scanner analyzes your website across four critical areas that impact your business.</p>
+				<div class="check-grid">
+					<div class="check-card animate-on-scroll hover-lift">
+						<div class="check-icon">🛡️</div>
+						<h3>WCAG / ADA Compliance</h3>
+						<p>Full accessibility audit against WCAG 2.1 AA standards and ADA requirements.</p>
+						<ul class="check-list">
+							<li>Color contrast ratios</li>
+							<li>Missing alt text on images</li>
+							<li>Keyboard navigation gaps</li>
+							<li>ARIA label issues</li>
+							<li>Form accessibility</li>
+						</ul>
+					</div>
+					<div class="check-card animate-on-scroll delay-1 hover-lift">
+						<div class="check-icon">⚡</div>
+						<h3>Performance & Speed</h3>
+						<p>Core Web Vitals and load time analysis that directly impact your conversion rate.</p>
+						<ul class="check-list">
+							<li>Page load time</li>
+							<li>Largest Contentful Paint</li>
+							<li>Cumulative Layout Shift</li>
+							<li>First Input Delay</li>
+							<li>Mobile performance</li>
+						</ul>
+					</div>
+					<div class="check-card animate-on-scroll delay-2 hover-lift">
+						<div class="check-icon">🔍</div>
+						<h3>SEO Issues</h3>
+						<p>Search engine optimization gaps that are hiding your site from potential customers.</p>
+						<ul class="check-list">
+							<li>Missing meta descriptions</li>
+							<li>Heading structure issues</li>
+							<li>Broken links</li>
+							<li>Mobile usability</li>
+							<li>Schema markup gaps</li>
+						</ul>
+					</div>
+					<div class="check-card animate-on-scroll delay-3 hover-lift">
+						<div class="check-icon">🔒</div>
+						<h3>Security Gaps</h3>
+						<p>Security vulnerabilities that put your business and customer data at risk.</p>
+						<ul class="check-list">
+							<li>SSL/TLS configuration</li>
+							<li>Missing security headers</li>
+							<li>Mixed content warnings</li>
+							<li>Cookie consent compliance</li>
+							<li>Data privacy issues</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
 
-      // Basic validation
-      if (!urlVal) {
-        urlInput.focus();
-        if (statusEl) statusEl.textContent = 'Please enter a website URL.';
-        return;
-      }
-      if (!emailVal) {
-        emailInput.focus();
-        if (statusEl) statusEl.textContent = 'Please enter your email.';
-        return;
-      }
+		<!-- How It Works -->
+		<section class="how-it-works">
+			<div class="container">
+				<h2 class="section-title">How It <span class="highlight">Works</span></h2>
+				<p class="section-sub">Get your free scan in three simple steps — no signup required.</p>
+				<div class="steps-grid">
+					<div class="step-card animate-on-scroll">
+						<div class="step-number">1</div>
+						<h3>Enter Your URL</h3>
+						<p>Type your website address and email. That's it — no account setup, no credit card.</p>
+					</div>
+					<div class="step-card animate-on-scroll delay-1">
+						<div class="step-number">2</div>
+						<h3>We Scan Everything</h3>
+						<p>Our scanner checks your site for 50+ compliance, performance, SEO, and security issues in 60 seconds.</p>
+					</div>
+					<div class="step-card animate-on-scroll delay-2">
+						<div class="step-number">3</div>
+						<h3>Get Your Report</h3>
+						<p>Receive a detailed report with your Living Compliance Score, prioritized issues, and fix recommendations.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-      // Ensure URL has protocol
-      if (!/^https?:\/\//i.test(urlVal)) {
-        urlVal = 'https://' + urlVal;
-      }
+		<!-- CTA Section -->
+		<section class="cta-section">
+			<div class="container">
+				<h2>Get Your Free Business Scan</h2>
+				<p>Find out if your website has hidden compliance, performance, or security issues — before they cost you.</p>
+				<a href="https://audit.cc3po.com" class="cta-link">Start Your Free Scan →</a>
+			</div>
+		</section>
 
-      // Disable button, show loading
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Calculating...';
-      }
-      if (statusEl) statusEl.textContent = 'Analyzing your business health...';
+		<Footer />
 
-      // Send to our Netlify function
-      fetch('/.netlify/functions/lead-notification', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          table: 'audit_requests',
-          url: urlVal,
-          website: urlVal,
-          email: emailVal,
-          name: '',
-          lead_type: 'health_score',
-          tier: tierVal,
-          source: 'audit.cc3po.com',
-          _subject: 'New Health Score Request: ' + urlVal
-        })
-      }).then(function(response) {
-        if (response.ok) {
-          window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
-        } else {
-          window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
-        }
-      }).catch(function() {
-        window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
-      });
-    });
-  }
+		<script is:inline>
+		(function() {
+			// Form submission
+			function handleFormSubmit(form) {
+				form.addEventListener('submit', function(e) {
+					e.preventDefault();
+					var urlInput = form.querySelector('input[name="url"]');
+					var emailInput = form.querySelector('input[name="email"]');
+					var tierInput = form.querySelector('input[name="tier"]');
+					var submitBtn = form.querySelector('button[type="submit"]');
+					var statusEl = document.getElementById('formStatus');
 
-  // Attach to both forms
-  var mainForm = document.getElementById('scanForm');
-  var bottomForm = document.getElementById('scanFormBottom');
-  if (mainForm) handleFormSubmit(mainForm);
-  if (bottomForm) handleFormSubmit(bottomForm);
+					var urlVal = urlInput ? urlInput.value.trim() : '';
+					var emailVal = emailInput ? emailInput.value.trim() : '';
+					var tierVal = tierInput ? tierInput.value : 'free';
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+					if (!urlVal) { urlInput.focus(); if (statusEl) statusEl.textContent = 'Please enter a website URL.'; return; }
+					if (!emailVal) { emailInput.focus(); if (statusEl) statusEl.textContent = 'Please enter your email.'; return; }
+					if (!/^https?:\/\//i.test(urlVal)) urlVal = 'https://' + urlVal;
 
-  // Pricing tier buttons sync tier to form
-  document.querySelectorAll('a[onclick]').forEach(function(a) {
-    a.addEventListener('click', function() {
-      if (mainForm && mainForm.dataset.tier) {
-        var tierField = mainForm.querySelector('input[name="tier"]');
-        if (tierField) tierField.value = mainForm.dataset.tier;
-      }
-    });
-  });
-})();
-</script>
-	<script>
-	(function() {
-		var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		var observerOptions = { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 };
-		var observer = new IntersectionObserver(function(entries) {
-			entries.forEach(function(entry) {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('visible');
-					if (entry.target.hasAttribute('data-count')) { animateCounter(entry.target); }
-					observer.unobserve(entry.target);
-				}
-			});
-		}, observerOptions);
-		document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
-			if (prefersReducedMotion) { el.classList.add('visible'); } else { observer.observe(el); }
-		});
-		function animateCounter(el) {
-			var target = parseInt(el.getAttribute('data-count'), 10);
-			var suffix = el.getAttribute('data-suffix') || '';
-			var prefix = el.getAttribute('data-prefix') || '';
-			var duration = parseInt(el.getAttribute('data-duration') || '2000', 10);
-			var startTime = performance.now();
-			function update(currentTime) {
-				var elapsed = currentTime - startTime;
-				var progress = Math.min(elapsed / duration, 1);
-				var eased = 1 - Math.pow(1 - progress, 3);
-				var current = Math.floor(target * eased);
-				el.textContent = prefix + current.toLocaleString() + suffix;
-				if (progress < 1) { requestAnimationFrame(update); }
-				else { el.textContent = prefix + target.toLocaleString() + suffix; }
+					if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Scanning...'; }
+					if (statusEl) statusEl.textContent = 'Analyzing your website...';
+
+					fetch('/.netlify/functions/lead-notification', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({
+							table: 'audit_requests',
+							url: urlVal,
+							website: urlVal,
+							email: emailVal,
+							name: '',
+							lead_type: 'compliance_scan',
+							tier: tierVal,
+							source: 'audit.cc3po.com',
+							_subject: 'New Scan Request: ' + urlVal
+						})
+					}).then(function(response) {
+						window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
+					}).catch(function() {
+						window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
+					});
+				});
 			}
-			requestAnimationFrame(update);
-		}
-		document.querySelectorAll('[data-count]').forEach(function(el) {
-			if (!el.classList.contains('animate-on-scroll')) { el.classList.add('animate-on-scroll'); observer.observe(el); }
-		});
-		var nav = document.querySelector('nav');
-		if (nav) {
-			window.addEventListener('scroll', function() {
-				if (window.scrollY > 20) { nav.classList.add('scrolled'); }
-				else { nav.classList.remove('scrolled'); }
-			}, { passive: true });
-		}
-	})();
-	</script>
+
+			var mainForm = document.getElementById('scanForm');
+			if (mainForm) handleFormSubmit(mainForm);
+
+			// Scroll animations
+			var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			var observer = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+
+			document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+				if (prefersReducedMotion) { el.classList.add('visible'); } else { observer.observe(el); }
+			});
+
+			// Nav scroll effect
+			var nav = document.querySelector('nav');
+			if (nav) {
+				window.addEventListener('scroll', function() {
+					if (window.scrollY > 20) nav.classList.add('scrolled');
+					else nav.classList.remove('scrolled');
+				}, { passive: true });
+			}
+		})();
+		</script>
 	</body>
 </html>
