@@ -576,45 +576,36 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 
 		<script is:inline>
 		(function() {
-			// Form submission
+			// Form submission — calls real edge scanner
 			function handleFormSubmit(form) {
 				form.addEventListener('submit', function(e) {
 					e.preventDefault();
 					var urlInput = form.querySelector('input[name="url"]');
 					var emailInput = form.querySelector('input[name="email"]');
-					var tierInput = form.querySelector('input[name="tier"]');
 					var submitBtn = form.querySelector('button[type="submit"]');
 					var statusEl = document.getElementById('formStatus');
 
 					var urlVal = urlInput ? urlInput.value.trim() : '';
 					var emailVal = emailInput ? emailInput.value.trim() : '';
-					var tierVal = tierInput ? tierInput.value : 'free';
 
 					if (!urlVal) { urlInput.focus(); if (statusEl) statusEl.textContent = 'Please enter a website URL.'; return; }
-					if (!emailVal) { emailInput.focus(); if (statusEl) statusEl.textContent = 'Please enter your email.'; return; }
 					if (!/^https?:\/\//i.test(urlVal)) urlVal = 'https://' + urlVal;
 
 					if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Scanning...'; }
-					if (statusEl) statusEl.textContent = 'Analyzing your website...';
+					if (statusEl) { statusEl.textContent = 'Analyzing your website...'; statusEl.style.color = 'var(--text-secondary)'; }
 
-					fetch('/.netlify/functions/lead-notification', {
+					// Call the real edge scanner API
+					fetch('https://scanner.cc3po.com/api/scan', {
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({
-							table: 'audit_requests',
-							url: urlVal,
-							website: urlVal,
-							email: emailVal,
-							name: '',
-							lead_type: 'compliance_scan',
-							tier: tierVal,
-							source: 'audit.cc3po.com',
-							_subject: 'New Scan Request: ' + urlVal
-						})
-					}).then(function(response) {
-						window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
-					}).catch(function() {
-						window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal);
+						body: JSON.stringify({ url: urlVal, email: emailVal })
+					}).then(function(response) { return response.json(); }).then(function(data) {
+						// Store scan data and redirect to results
+						sessionStorage.setItem('cc3po_scan_result', JSON.stringify(data));
+						window.location.href = '/success?url=' + encodeURIComponent(urlVal) + '&email=' + encodeURIComponent(emailVal) + '&score=' + data.overallScore;
+					}).catch(function(err) {
+						if (statusEl) { statusEl.textContent = 'Scan failed. Please try again.'; statusEl.style.color = 'var(--accent)'; }
+						if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Scan My Site →'; }
 					});
 				});
 			}
