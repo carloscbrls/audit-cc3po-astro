@@ -218,6 +218,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 				box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15);
 			}
 			.form-row input::placeholder { color: var(--text-muted); }
+			.form-row input[name="phone"] { flex: 0.6; min-width: 160px; }
 			.btn-primary {
 				padding: 16px 36px;
 				background: linear-gradient(135deg, var(--accent), #b5179e);
@@ -452,6 +453,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 						<div class="form-row">
 							<input type="url" name="url" id="urlInput" placeholder="Enter your website URL (e.g., https://yoursite.com)" required aria-label="Website URL to scan" />
 							<input type="email" name="email" id="emailInput" placeholder="Your email (for results)" required aria-label="Email address for scan results" />
+							<input type="tel" name="phone" id="phoneInput" placeholder="Phone (optional, for text alerts)" aria-label="Phone number for SMS notifications" />
 							<button type="submit" class="btn-primary">Scan My Site →</button>
 						</div>
 						<p class="form-note" id="formStatus">No credit card required. See your compliance score in 60 seconds.</p>
@@ -582,11 +584,13 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 					e.preventDefault();
 					var urlInput = form.querySelector('input[name="url"]');
 					var emailInput = form.querySelector('input[name="email"]');
+					var phoneInput = form.querySelector('input[name="phone"]');
 					var submitBtn = form.querySelector('button[type="submit"]');
 					var statusEl = document.getElementById('formStatus');
 
 					var urlVal = urlInput ? urlInput.value.trim() : '';
 					var emailVal = emailInput ? emailInput.value.trim() : '';
+					var phoneVal = phoneInput ? phoneInput.value.trim() : '';
 
 					if (!urlVal) { urlInput.focus(); if (statusEl) statusEl.textContent = 'Please enter a website URL.'; return; }
 					if (!/^https?:\/\//i.test(urlVal)) urlVal = 'https://' + urlVal;
@@ -598,7 +602,7 @@ const ogImage = 'https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png
 					fetch('https://scanner.cc3po.com/api/scan', {
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({ url: urlVal, email: emailVal })
+						body: JSON.stringify({ url: urlVal, email: emailVal, phone: phoneVal || undefined })
 					}).then(function(response) { return response.json(); }).then(function(data) {
 						// Store scan data and redirect to results
 						sessionStorage.setItem('cc3po_scan_result', JSON.stringify(data));
