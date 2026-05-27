@@ -1,0 +1,50 @@
+name: Weekly WCAG Audit
+
+on:
+  schedule:
+    # Every Monday at 9 AM PT (4 PM UTC)
+    - cron: '0 16 * * 1'
+  workflow_dispatch:
+    # Allow manual trigger
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    
+    steps:
+      - name: Trigger Jules WCAG Audit
+        uses: google-labs-code/jules-action@main
+        with:
+          repo: carloscbrls/audit-cc3po-astro
+          branch: main
+          prompt: |
+            Weekly WCAG and mobile accessibility audit for audit.cc3po.com.
+
+            MOBILE-FIRST PRIORITY — check every component at 375px viewport width.
+
+            Check and fix:
+            1. Mobile Safari rendering issues (-webkit-text-fill-color, background-clip: text)
+            2. Touch target sizes (minimum 44px for interactive elements)
+            3. Viewport meta tag correctness
+            4. Responsive breakpoints (375px, 768px, 1024px)
+            5. Color contrast ratios (4.5:1 minimum for text)
+            6. Missing alt text on images
+            7. Missing form labels
+            8. Keyboard navigation (tab order, focus indicators)
+            9. ARIA labels on custom components
+            10. Skip navigation link
+            11. Semantic HTML structure
+            12. Font sizes (minimum 16px for body text on mobile)
+
+            Rules from AGENTS.md:
+            - NEVER use background-clip: text + transparent fill (invisible on Safari)
+            - ALWAYS include -webkit-text-fill-color alongside color
+            - Use :global() selectors for MDX/prose content
+            - Solid colors only, no gradient text
+            - Test at 375px, 768px, and 1024px viewports
+
+            Create a PR with all fixes. Include before/after descriptions in the PR body.
