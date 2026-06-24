@@ -1,0 +1,568 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const SITE_TITLE = 'Is Your Website Legally Compliant? | Free 30-Second Check | CC3PO';
+const SITE_DESCRIPTION = 'ADA website lawsuits are hitting small businesses for $4,000+ per violation. Check your site in 30 seconds — free, instant, no signup required.';
+const canonicalURL = new URL(Astro.url.pathname, 'https://audit.cc3po.com');
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link rel="canonical" href={canonicalURL} />
+		<meta property="og:title" content={SITE_TITLE} />
+		<meta property="og:description" content={SITE_DESCRIPTION} />
+		<meta property="og:image" content="https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="CC3PO" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={SITE_TITLE} />
+		<meta name="twitter:description" content={SITE_DESCRIPTION} />
+
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "Is Your Website Legally Compliant?",
+			"description": "Free 30-second ADA and WCAG compliance check for small business websites.",
+			"url": "https://audit.cc3po.com/is-your-site-legal/",
+			"provider": {
+				"@type": "LocalBusiness",
+				"name": "CC3PO",
+				"telephone": "+1-209-423-6633",
+				"email": "info@cc3po.com",
+				"url": "https://cc3po.com"
+			}
+		})} />
+	</head>
+	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
+		<Header />
+
+		<style>
+			:root {
+				--bg: #0a0a0b;
+				--surface: #141416;
+				--border: #27272a;
+				--text: #fafafa;
+				--text-muted: #a1a1aa;
+				--accent: #e94560;
+				--green: #00d4aa;
+				--font: Inter, system-ui, -apple-system, sans-serif;
+			}
+
+			body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+
+			/* HERO — Fear-driven, urgent */
+			.fear-hero {
+				padding: 80px 24px 60px;
+				text-align: center;
+				background: radial-gradient(ellipse at 50% 0%, rgba(233,69,96,0.08) 0%, transparent 60%);
+			}
+			.fear-hero .urgency-badge {
+				display: inline-block;
+				background: rgba(233,69,96,0.15);
+				border: 1px solid rgba(233,69,96,0.3);
+				color: var(--accent);
+				padding: 6px 16px;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				font-weight: 600;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+				margin-bottom: 24px;
+				-webkit-text-fill-color: var(--accent);
+			}
+			.fear-hero h1 {
+				font-size: clamp(2rem, 5vw, 3.2rem);
+				font-weight: 800;
+				line-height: 1.1;
+				margin-bottom: 20px;
+				color: #fafafa;
+				-webkit-text-fill-color: #fafafa;
+			}
+			.fear-hero h1 .red { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+			.fear-hero .subtitle {
+				font-size: clamp(1rem, 2.5vw, 1.25rem);
+				color: var(--text-muted);
+				max-width: 600px;
+				margin: 0 auto 36px;
+				-webkit-text-fill-color: var(--text-muted);
+			}
+
+			/* SCAN FORM — Big, bold, impossible to miss */
+			.scan-form-wrap {
+				max-width: 520px;
+				margin: 0 auto;
+			}
+			.scan-form {
+				display: flex;
+				gap: 12px;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			.scan-input {
+				flex: 1;
+				min-width: 260px;
+				padding: 16px 20px;
+				background: var(--surface);
+				border: 2px solid var(--border);
+				border-radius: 14px;
+				color: #fff;
+				font-size: 1.05rem;
+				font-family: var(--font);
+				transition: border-color 0.2s;
+			}
+			.scan-input:focus {
+				outline: none;
+				border-color: var(--green);
+				box-shadow: 0 0 0 3px rgba(0,212,170,0.15);
+			}
+			.scan-input::placeholder { color: #71717a; }
+			.scan-btn {
+				padding: 16px 32px;
+				background: var(--accent);
+				border: none;
+				border-radius: 14px;
+				color: #fff;
+				font-size: 1.05rem;
+				font-weight: 700;
+				cursor: pointer;
+				transition: all 0.2s;
+				font-family: var(--font);
+				-webkit-text-fill-color: #fff;
+			}
+			.scan-btn:hover { background: #d63050; transform: translateY(-1px); }
+			.scan-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+			.scan-trust {
+				margin-top: 16px;
+				font-size: 0.82rem;
+				color: var(--text-muted);
+				-webkit-text-fill-color: var(--text-muted);
+			}
+
+			/* RESULTS PANEL */
+			.results-panel {
+				display: none;
+				max-width: 520px;
+				margin: 24px auto 0;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				padding: 32px;
+				text-align: center;
+			}
+			.results-panel.visible { display: block; }
+			.results-panel .score-ring {
+				width: 120px;
+				height: 120px;
+				margin: 0 auto 16px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2.5rem;
+				font-weight: 800;
+				border: 4px solid;
+			}
+			.results-panel .score-ring.danger { border-color: var(--accent); color: var(--accent); -webkit-text-fill-color: var(--accent); }
+			.results-panel .score-ring.warning { border-color: #f59e0b; color: #f59e0b; -webkit-text-fill-color: #f59e0b; }
+			.results-panel .score-ring.good { border-color: var(--green); color: var(--green); -webkit-text-fill-color: var(--green); }
+			.results-panel .score-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; -webkit-text-fill-color: var(--text-muted); }
+			.results-panel .issues-count { font-size: 1.1rem; margin: 12px 0 8px; -webkit-text-fill-color: #fafafa; }
+			.results-panel .cta-fix {
+				display: inline-block;
+				margin-top: 20px;
+				padding: 14px 28px;
+				background: var(--green);
+				color: #0a0a0b;
+				border-radius: 12px;
+				font-weight: 700;
+				font-size: 1rem;
+				text-decoration: none;
+				transition: all 0.2s;
+			}
+			.results-panel .cta-fix:hover { background: #00e8b8; transform: translateY(-1px); }
+
+			/* STATS SECTION */
+			.stats-section {
+				padding: 60px 24px;
+				background: var(--surface);
+			}
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 24px;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.stat-card {
+				text-align: center;
+				padding: 28px 20px;
+				background: var(--bg);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+			}
+			.stat-number {
+				font-size: 2.4rem;
+				font-weight: 800;
+				color: var(--accent);
+				-webkit-text-fill-color: var(--accent);
+				line-height: 1;
+				margin-bottom: 8px;
+			}
+			.stat-label {
+				font-size: 0.85rem;
+				color: var(--text-muted);
+				-webkit-text-fill-color: var(--text-muted);
+			}
+
+			/* LAWSUIT EXAMPLES */
+			.lawsuit-section {
+				padding: 60px 24px;
+			}
+			.lawsuit-section h2 {
+				text-align: center;
+				font-size: clamp(1.5rem, 3vw, 2rem);
+				font-weight: 700;
+				margin-bottom: 40px;
+				-webkit-text-fill-color: #fafafa;
+			}
+			.lawsuit-cards {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 20px;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.lawsuit-card {
+				padding: 24px;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 14px;
+				border-left: 3px solid var(--accent);
+			}
+			.lawsuit-card .case-name {
+				font-weight: 700;
+				margin-bottom: 8px;
+				-webkit-text-fill-color: #fafafa;
+			}
+			.lawsuit-card .case-detail {
+				font-size: 0.9rem;
+				color: var(--text-muted);
+				-webkit-text-fill-color: var(--text-muted);
+				line-height: 1.5;
+			}
+			.lawsuit-card .case-amount {
+				font-size: 1.3rem;
+				font-weight: 800;
+				color: var(--accent);
+				-webkit-text-fill-color: var(--accent);
+				margin-top: 12px;
+			}
+
+			/* WHAT WE CHECK */
+			.checks-section {
+				padding: 60px 24px;
+				background: var(--surface);
+			}
+			.checks-section h2 {
+				text-align: center;
+				font-size: clamp(1.5rem, 3vw, 2rem);
+				font-weight: 700;
+				margin-bottom: 40px;
+				-webkit-text-fill-color: #fafafa;
+			}
+			.checks-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 16px;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			.check-item {
+				display: flex;
+				align-items: flex-start;
+				gap: 12px;
+				padding: 16px;
+				background: var(--bg);
+				border-radius: 10px;
+				border: 1px solid var(--border);
+			}
+			.check-icon {
+				font-size: 1.3rem;
+				flex-shrink: 0;
+			}
+			.check-text {
+				font-size: 0.9rem;
+				-webkit-text-fill-color: #fafafa;
+			}
+			.check-sub {
+				font-size: 0.8rem;
+				color: var(--text-muted);
+				-webkit-text-fill-color: var(--text-muted);
+				margin-top: 2px;
+			}
+
+			/* BOTTOM CTA */
+			.bottom-cta {
+				padding: 80px 24px;
+				text-align: center;
+				background: radial-gradient(ellipse at 50% 100%, rgba(0,212,170,0.06) 0%, transparent 60%);
+			}
+			.bottom-cta h2 {
+				font-size: clamp(1.5rem, 3vw, 2.2rem);
+				font-weight: 700;
+				margin-bottom: 16px;
+				-webkit-text-fill-color: #fafafa;
+			}
+			.bottom-cta p {
+				color: var(--text-muted);
+				-webkit-text-fill-color: var(--text-muted);
+				max-width: 500px;
+				margin: 0 auto 28px;
+			}
+			.bottom-cta .cta-btn {
+				display: inline-block;
+				padding: 16px 40px;
+				background: var(--green);
+				color: #0a0a0b;
+				border-radius: 14px;
+				font-weight: 700;
+				font-size: 1.1rem;
+				text-decoration: none;
+				transition: all 0.2s;
+			}
+			.bottom-cta .cta-btn:hover { background: #00e8b8; transform: translateY(-1px); }
+
+			/* Loading animation */
+			.scan-loading {
+				display: none;
+				text-align: center;
+				padding: 40px 20px;
+			}
+			.scan-loading.visible { display: block; }
+			.scan-loading .spinner {
+				width: 48px; height: 48px;
+				border: 3px solid var(--border);
+				border-top-color: var(--accent);
+				border-radius: 50%;
+				animation: spin 0.8s linear infinite;
+				margin: 0 auto 16px;
+			}
+			@keyframes spin { to { transform: rotate(360deg); } }
+			.scan-loading .loading-text { color: var(--text-muted); -webkit-text-fill-color: var(--text-muted); font-size: 0.95rem; }
+		</style>
+
+		<main id="main-content">
+			<!-- HERO — Fear-driven -->
+			<section class="fear-hero">
+				<div class="urgency-badge">⚠️ ADA Lawsuits Up 300% in 2026</div>
+				<h1>Is Your Website <span class="red">Legally Compliant?</span></h1>
+				<p class="subtitle">Small businesses are being sued $4,000+ per ADA violation. Most don't know until the letter arrives. Check your site in 30 seconds — free.</p>
+
+				<div class="scan-form-wrap">
+					<form class="scan-form" id="fear-scan-form">
+						<label for="fear-url" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Your website URL</label>
+						<input type="url" id="fear-url" class="scan-input" placeholder="yourwebsite.com" required />
+						<button type="submit" class="scan-btn" id="fear-scan-btn">Check My Site →</button>
+					</form>
+					<p class="scan-trust">🔒 Free • No signup • Results in 30 seconds • 4,000+ sites scanned</p>
+				</div>
+
+				<div class="scan-loading" id="scan-loading">
+					<div class="spinner"></div>
+					<p class="loading-text">Scanning your site for compliance issues...</p>
+				</div>
+
+				<div class="results-panel" id="results-panel">
+					<div class="score-ring" id="score-ring">
+						<span id="score-number">0</span>
+					</div>
+					<p class="score-label">Compliance Score</p>
+					<p class="issues-count" id="issues-text"></p>
+					<p style="color:var(--text-muted);font-size:0.9rem;-webkit-text-fill-color:var(--text-muted);" id="score-summary"></p>
+					<a class="cta-fix" id="cta-fix-link" href="#">See Full Report & Fix Plan →</a>
+				</div>
+			</section>
+
+			<!-- STATS -->
+			<section class="stats-section">
+				<div class="stats-grid">
+					<div class="stat-card">
+						<div class="stat-number">$4,000+</div>
+						<div class="stat-label">Per ADA violation — federal penalty</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">14,000+</div>
+						<div class="stat-label">ADA website lawsuits filed in 2025</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">96%</div>
+						<div class="stat-label">Of small business sites fail WCAG 2.2</div>
+					</div>
+					<div class="stat-card">
+						<div class="stat-number">30 sec</div>
+						<div class="stat-label">To find out if you're at risk</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- LAWSUIT EXAMPLES -->
+			<section class="lawsuit-section">
+				<h2>Real businesses. Real lawsuits. Real money lost.</h2>
+				<div class="lawsuit-cards">
+					<div class="lawsuit-card">
+						<div class="case-name">Domino's Pizza v. Robles</div>
+						<div class="case-detail">Blind customer couldn't order online. Supreme Court let the lawsuit stand. Set precedent for all websites.</div>
+						<div class="case-amount">$4,000+ per violation</div>
+					</div>
+					<div class="lawsuit-card">
+						<div class="case-name">Haynes v. Hooters</div>
+						<div class="case-detail">Website inaccessible to screen readers. Class action filed. Settled after years of litigation.</div>
+						<div class="case-amount">Class action settlement</div>
+					</div>
+					<div class="lawsuit-card">
+						<div class="case-name">Your Business?</div>
+						<div class="case-detail">If your site fails WCAG 2.2 AA — missing alt text, no keyboard navigation, no skip links — you're exposed. Right now.</div>
+						<div class="case-amount" style="color:var(--green);-webkit-text-fill-color:var(--green);">Check free in 30 sec →</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- WHAT WE CHECK -->
+			<section class="checks-section">
+				<h2>What the 30-second check covers</h2>
+				<div class="checks-grid">
+					<div class="check-item">
+						<span class="check-icon">♿</span>
+						<div>
+							<div class="check-text">ADA / WCAG 2.2 AA</div>
+							<div class="check-sub">Alt text, keyboard nav, contrast, ARIA</div>
+						</div>
+					</div>
+					<div class="check-item">
+						<span class="check-icon">🏥</span>
+						<div>
+							<div class="check-text">HIPAA Compliance</div>
+							<div class="check-sub">Forms, privacy, data handling</div>
+						</div>
+					</div>
+					<div class="check-item">
+						<span class="check-icon">🔒</span>
+						<div>
+							<div class="check-text">Security Headers</div>
+							<div class="check-sub">HTTPS, CSP, HSTS, X-Frame</div>
+						</div>
+					</div>
+					<div class="check-item">
+						<span class="check-icon">⚡</span>
+						<div>
+							<div class="check-text">Performance</div>
+							<div class="check-sub">Core Web Vitals, load time</div>
+						</div>
+					</div>
+					<div class="check-item">
+						<span class="check-icon">📱</span>
+						<div>
+							<div class="check-text">Mobile Accessibility</div>
+							<div class="check-sub">Touch targets, viewport, zoom</div>
+						</div>
+					</div>
+					<div class="check-item">
+						<span class="check-icon">📄</span>
+						<div>
+							<div class="check-text">Legal Pages</div>
+							<div class="check-sub">Privacy policy, disclaimer, terms</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- BOTTOM CTA -->
+			<section class="bottom-cta">
+				<h2>Don't wait for the letter.</h2>
+				<p>The average small business has 12+ compliance violations they don't know about. Find out where you stand — free, right now.</p>
+				<a class="cta-btn" href="#fear-scan-form">Check My Site Now →</a>
+			</section>
+		</main>
+
+		<Footer />
+
+		<script>
+			const form = document.getElementById('fear-scan-form');
+			const btn = document.getElementById('fear-scan-btn');
+			const loading = document.getElementById('scan-loading');
+			const resultsPanel = document.getElementById('results-panel');
+			const scoreRing = document.getElementById('score-ring');
+			const scoreNumber = document.getElementById('score-number');
+			const issuesText = document.getElementById('issues-text');
+			const scoreSummary = document.getElementById('score-summary');
+			const ctaFixLink = document.getElementById('cta-fix-link');
+
+			form?.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				let url = document.getElementById('fear-url').value.trim();
+				if (!url) return;
+
+				// Normalize URL
+				if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+
+				btn.disabled = true;
+				btn.textContent = 'Scanning...';
+				loading.classList.add('visible');
+				resultsPanel.classList.remove('visible');
+
+				try {
+					const res = await fetch('https://scanner.cc3po.com/api/scan', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ url, source: 'fear-landing' })
+					});
+
+					const data = await res.json();
+					loading.classList.remove('visible');
+
+					const score = data.overall_score || data.score || 0;
+					const issues = data.issues || [];
+					const scanId = data.scanId || data.id || '';
+
+					// Display score
+					scoreNumber.textContent = score;
+					scoreRing.className = 'score-ring ' + (score < 40 ? 'danger' : score < 70 ? 'warning' : 'good');
+					issuesText.textContent = `${issues.length} compliance issue${issues.length !== 1 ? 's' : ''} found`;
+					
+					if (score < 40) {
+						scoreSummary.textContent = '⚠️ Your site has critical compliance gaps. You may be at risk for ADA lawsuits.';
+					} else if (score < 70) {
+						scoreSummary.textContent = 'Your site has compliance issues that need attention. Some could expose you to legal risk.';
+					} else {
+						scoreSummary.textContent = 'Your site is in better shape than most, but some issues still need fixing.';
+					}
+
+					// CTA link to full report
+					if (scanId) {
+						ctaFixLink.href = `https://audit.cc3po.com/success?scanId=${scanId}`;
+					} else {
+						ctaFixLink.href = `https://audit.cc3po.com/`;
+					}
+
+					resultsPanel.classList.add('visible');
+					
+					// Scroll to results
+					resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+				} catch (err) {
+					loading.classList.remove('visible');
+					alert('Scan failed. Please try again or visit audit.cc3po.com directly.');
+				} finally {
+					btn.disabled = false;
+					btn.textContent = 'Check My Site →';
+				}
+			});
+		</script>
+	</body>
+</html>
